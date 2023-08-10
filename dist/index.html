@@ -8,12 +8,40 @@
     <title>Movie</title>
 </head>
 <body>
-    <header class="header"></header>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__left-part">
+            <a href="/index.html"><img class="header__logo"></a>
+            <ul class="header__list">
+                <li class="list__item"></li>
+                <li class="list__item"></li>
+                <li class="list__item"></li>
+            </ul>
+        </div>
+        <div class="header__right-part">
+            <input type="search">
+        </div>
+        </div>
+    </header>
     <main>
         <div class="container">
         <section class="hero"></section>
         <section class="movies"></section>
     </div>
+    <section class="random">
+        <h2 class="random__title">Случайный фильм по жанру</h2>
+        <form action="">
+            <select name="" id="select-list">
+                <option selected="">Жанр</option>
+                <option value="Мелодрама">Мелодрама</option>
+                <option value="Комедия">Комедия</option>
+                <option value="Ужасы">Ужасы</option>
+                <option value="Боевик">Боевик</option>
+                <option value="Триллер">Триллер</option>
+                <option value="Фонтастика">Фонтастика</option>
+            </select>
+        </form>
+    </section>
     </main>
     <footer class="footer"></footer>
     <script src="/index.3d214d75.js" defer=""></script>
