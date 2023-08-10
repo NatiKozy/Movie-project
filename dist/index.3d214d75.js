@@ -574,19 +574,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"bB7Pu":[function(require,module,exports) {
-var _app = require("./app");
-(0, _app.getFilms)();
-
-},{"./app":"igcvL"}],"igcvL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "sayHello", ()=>sayHello);
-parcelHelpers.export(exports, "getFilms", ()=>getFilms);
-function sayHello() {
-    console.log(`Hello!`);
-}
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
+//получить фильмы для карточек MOVIES
+const moviesContainer = document.querySelector(".movies__container");
 async function getFilms() {
     try {
         const response = await fetch(FILMS_URL, {
@@ -599,40 +590,22 @@ async function getFilms() {
         const data = await response.json();
         const films = await data.items;
         console.log(films);
+        showMovies(moviesContainer, films);
     } catch (err) {
         console.log(err);
     }
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+getFilms();
+function showMovies(parrent, array) {
+    for (let item of array){
+        let itemImage = item.posterUrl;
+        const movieCardContainer = document.createElement("div");
+        const movieCardImage = document.createElement("img");
+        movieCardContainer.append(movieCardImage);
+        movieCardImage.src = itemImage;
+        parrent.append(movieCardContainer);
+    }
+}
 
 },{}]},["2UeK4","bB7Pu"], "bB7Pu", "parcelRequire3994")
 
