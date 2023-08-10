@@ -574,18 +574,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"bB7Pu":[function(require,module,exports) {
-var _app = require("./app");
-(0, _app.getFilms)();
-
-},{"./app":"igcvL"}],"igcvL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "sayHello", ()=>sayHello);
-parcelHelpers.export(exports, "getFilms", ()=>getFilms);
-function sayHello() {
-    console.log(`Hello!`);
-}
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
+const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
 async function getFilms() {
     try {
@@ -603,36 +593,51 @@ async function getFilms() {
         console.log(err);
     }
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
+async function getPosters(id) {
+    try {
+        const response = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/images?type=POSTER`, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": API_KEY,
+                "Content-Type": "application/json"
             }
         });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+        const data = await response.json();
+    } catch (error) {
+        console.error(error);
+    }
+}
+getPosters(Math.floor(Math.random() * 10));
+getFilms();
+async function getPremiers() {
+    try {
+        const response = await fetch(PREMIERS_URL, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": API_KEY,
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        const premiers = await data.items;
+        console.log(premiers);
+        showPremiers(premiers);
+    } catch (err) {
+        console.log(err);
+    }
+}
+getPremiers();
+const premiersContainer = document.querySelector(".premiers");
+function showPremiers(array) {
+    for (item of array){
+        const div = document.createElement("div");
+        premiereImage = item.posterUrl;
+        div.innerHTML = `
+            <img src="${premiereImage}">
+            `;
+        premiersContainer.append(div);
+    }
+}
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
 
