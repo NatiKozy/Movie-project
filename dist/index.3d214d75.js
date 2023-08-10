@@ -576,13 +576,32 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"bB7Pu":[function(require,module,exports) {
 var _app = require("./app");
 (0, _app.sayHello)();
+(0, _app.getFilms)();
 
 },{"./app":"igcvL"}],"igcvL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "sayHello", ()=>sayHello);
+parcelHelpers.export(exports, "getFilms", ()=>getFilms);
 function sayHello() {
     console.log(`Hello!`);
+}
+const allFilmsUrl = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
+async function getFilms() {
+    try {
+        const response = await fetch(allFilmsUrl, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": "23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436",
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        const films = await data.items;
+        console.log(films);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {

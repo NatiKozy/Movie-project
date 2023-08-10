@@ -1,2 +1,5 @@
 import { sayHello } from "./app";
-sayHello()
+sayHello();
+
+import { getFilms } from "./app";
+getFilms();
