@@ -5,7 +5,6 @@
 body {
   flex-direction: column;
   justify-content: space-between;
-  font-family: Montserrat, sans-serif;
   display: flex;
 }
 
