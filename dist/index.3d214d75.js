@@ -574,19 +574,10 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"bB7Pu":[function(require,module,exports) {
-var _app = require("./app");
-(0, _app.getFilms)();
-
-},{"./app":"igcvL"}],"igcvL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "sayHello", ()=>sayHello);
-parcelHelpers.export(exports, "getFilms", ()=>getFilms);
-function sayHello() {
-    console.log(`Hello!`);
-}
+const API_URL_POPULAR = "https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1";
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
+const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 async function getFilms() {
     try {
         const response = await fetch(FILMS_URL, {
@@ -603,36 +594,28 @@ async function getFilms() {
         console.log(err);
     }
 }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
+function createPoster(src) {
+    const container = document.querySelector(".random__right-part");
+    const img = document.createElement("img");
+    container.innerHTML = `<img сlass="poster" src='${src}'>`;
+}
+async function getPosters(id) {
+    try {
+        const response = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/images?type=POSTER&page=1`, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": API_KEY,
+                "Content-Type": "application/json"
             }
         });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+        const data = await response.json();
+        createPoster(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+getPosters(Math.floor(Math.random() * 1000));
+getFilms();
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
 
