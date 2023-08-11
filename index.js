@@ -1,9 +1,10 @@
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
+const API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
 
 
 //получить фильмы для карточек MOVIES
-const moviesContainer = document.querySelector('.movies__container');
+const movieslist = document.querySelector('.movies-list');
+
 async function getFilms (){
     try {
         const response = await fetch(FILMS_URL,
@@ -17,7 +18,7 @@ async function getFilms (){
         const data = await response.json();
         const films = await data.items;
         console.log(films);
-        showMovies(moviesContainer, films)
+        showMovies(movieslist, films)
     }
     catch (err) {
         console.log(err)
@@ -25,15 +26,22 @@ async function getFilms (){
 };
 getFilms();
 
+function createMovieCard (parrent, link, image, alt) {
+    const item = document.createElement('li');
+    item.innerHTML = `<a class="link movies-list__link" href="${link}"><img class="movies-list__img" src="${image}" alt="${alt}"></a>`
+
+    parrent.append(item);
+
+}
+
 function showMovies (parrent, array) {
     for (let item of array) {
         let itemImage = item.posterUrl;
-        const movieCardContainer = document.createElement('div');
-        const movieCardImage = document.createElement('img');
-        movieCardContainer.append(movieCardImage);
-        movieCardImage.src = itemImage;
+        let itemLink = `href="#"`;
+        let itemAlt = item.nameRu;
 
-        parrent.append(movieCardContainer)
+        createMovieCard(parrent, itemLink, itemImage, itemAlt)
 
     }
 }
+
