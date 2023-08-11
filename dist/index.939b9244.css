@@ -20,6 +20,8 @@ img {
 
 .movies {
   background-color: #0a031c;
+  width: 1500px;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -71,10 +73,11 @@ img {
 }
 
 .gallery-btn--right {
-  right: 0;
+  right: 20px;
 }
 
 .gallery-btn--left {
+  left: 20px;
   transform: rotate(180deg);
 }
 

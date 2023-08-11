@@ -18,6 +18,7 @@ $section-color: #0A031C;
 .container{
     max-width: 1500px;
     margin: 0 auto;
+
 }
 
 img {
@@ -27,7 +28,12 @@ img {
 //movies
 .movies {
   position: relative;
+    width: 1500px;
+  margin: 0 auto;
+
+
   background-color: $section-color;
+
 }
 .movies__container{
   width: 1400px;
@@ -75,8 +81,9 @@ img {
 }
 
 .gallery-btn--right {
-  right: 0;
+  right: 20px;
 }
 .gallery-btn--left {
+  left: 20px;
   transform: rotate(180deg);
 }
