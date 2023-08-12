@@ -16,3 +16,21 @@ body {
     max-width: 1440px;
     margin: 0 auto;
 }
+
+
+
+.random{
+}
+
+.random-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.random__left-part{
+    align-items: center;
+}
+.random-movie-img{
+    max-width: 300px;
+    max-height: 300px;
+}

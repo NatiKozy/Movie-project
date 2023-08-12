@@ -13,4 +13,19 @@ body {
   margin: 0 auto;
 }
 
+.random-container {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.random__left-part {
+  align-items: center;
+}
+
+.random-movie-img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
 /*# sourceMappingURL=index.939b9244.css.map */
