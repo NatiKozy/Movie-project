@@ -51,6 +51,11 @@ function showMovies (parrent, array) {
     }
 }
 
+//гелерея
+const movieGalleryBtnLeft = document.querySelector('.gallery-btn--left');
+const movieGalleryBtnRight = document.querySelector('.gallery-btn--right');
+
+
 const modalWindowSection = document.querySelector('.modal-window');
 const modalWindowContainer = document.querySelector('.modal-window__container');
 const modalWindowTitle = document.querySelector('.modal-window__title');
