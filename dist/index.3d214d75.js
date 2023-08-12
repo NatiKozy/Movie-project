@@ -717,15 +717,33 @@ async function getRandomTrillesMovie() {
         console.error(error);
     }
 }
+function getClassByRate(vote) {
+    if (vote >= 7) return "green";
+    else if (vote > 5) return "orange";
+    else return "red";
+}
 const randomMovie = document.querySelector(".random__right-part");
 function showRandomMovie(movie) {
-    const topRandomMovie = document.querySelector("div");
-    topRandomMovie.classList.add("random-movie");
-    randomMovie.appendChild(topRandomMovie);
-    topRandomMovie.innerHTML = `<h2 class="random-movie-title">${movie.nameRu}</h2>
-<img class="random-movie-img" src="${movie.posterUrl}">
-<div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>`;
-    randomMovie.append(topRandomMovie);
+    const moviesEl = document.querySelector(".movies");
+    document.querySelector(".movies").innerHTML = "";
+    const movieEl = document.createElement("div");
+    movieEl.classList.add("movie");
+    movieEl.innerHTML = `
+        <div class="random__movie__cover-inner">
+        <img
+            src="${movie.posterUrlPreview}"
+            class="random__movie__cover"
+            alt="${movie.nameRu}"/>
+        <div class="random__-movie__cover--darkened"></div>
+        </div>
+        <div class="random__movie__info">
+        <div class="random__movie__title">${movie.nameRu}</div>
+        <div class="random__movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+        ${movie.ratingKinopoisk && `<div class="random__movie__average random__movie__average--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
+        </div>
+        `;
+    moviesEl.appendChild(movieEl);
+    randomMovie.appendChild(moviesEl);
 }
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
@@ -733,12 +751,12 @@ function checkSelect() {
     else if (selectedValue === "Комедия") getRandomComedyMovie();
     else if (selectedValue === "Ужасы") getRandomHorrorMovie();
     else if (selectedValue === "Триллер") getRandomTrillesMovie();
-    randomMovie.innerHTML = "";
 }
 const randomForm = document.querySelector(".random-form");
 randomForm.addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
+    randomMovie.innerHTML = "";
 });
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
