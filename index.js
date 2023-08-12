@@ -51,7 +51,7 @@ async function getPremiers() {
     }
 }
 
-getPremiers();
+
 
 const premiersContainer = document.querySelector('.premiers');
 
@@ -91,9 +91,6 @@ async function getRandomDramaMovie() {
         console.error(error)
     }
 };
-
-
-
 
 async function getRandomHorrorMovie() {
     try {
@@ -175,14 +172,17 @@ async function getRandomTrillesMovie() {
     }
 };
 
-const randomMovie = document.querySelector('.random-movie')
+const randomMovie = document.querySelector('.random__right-part')
 function showRandomMovie(movie) {
-    const topRandomMovie = document.querySelector('div')
+    const topRandomMovie = document.createElement('div')
+    topRandomMovie.classList.add('random-movie')
+    randomMovie.appendChild(topRandomMovie)
     topRandomMovie.innerHTML = `<h2 class="random-movie-title">${movie.nameRu}</h2>
-    <img class="random-movie-img" src="${movie.posterUrl}">
-    <div class="movie__category">${movie.genres.map(
+<img class="random-movie-img" src="${movie.posterUrl}">
+<div class="movie__category">${movie.genres.map(
         (genre) => ` ${genre.genre}`
     )}</div>`
+    randomMovie.append(topRandomMovie)
 }
 
 
@@ -200,13 +200,13 @@ function checkSelect() {
     }
 }
 
+const randomForm = document.querySelector('.random-form')
 
-const form = document.querySelector('.random-form')
-
-form.addEventListener('change', (e) => {
+randomForm.addEventListener('change', (e) => {
     e.preventDefault();
 
     checkSelect()
+    randomMovie.innerHTML = ''
 });
 
 

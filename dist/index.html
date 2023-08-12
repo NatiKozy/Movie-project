@@ -29,23 +29,27 @@
         <section class="premiers"></section>
         <section class="movies"></section>
     </div>
-    <section class="random container">
+    <section class="random">
+        <div class="random-container">
         <div class="random__left-part">
             <h2 class="random__title">Случайный фильм по жанру</h2>
             <p class="loading"></p>
-            <form action="">
+            <form class="random-form" action="">
                 <select name="" id="select-list">
-                    <option selected="">Жанр</option>
-                    <option value="Мелодрама">Мелодрама</option>
+                    <!-- <option selected>Жанр</option> -->
+                    <option value="Драма">Драма</option>
                     <option value="Комедия">Комедия</option>
                     <option value="Ужасы">Ужасы</option>
-                    <option value="Боевик">Боевик</option>
+                    <!-- <option value="Боевик">Боевик</option> -->
                     <option value="Триллер">Триллер</option>
-                    <option value="Фонтастика">Фонтастика</option>
+                    <!-- <option value="Фонтастика">Фонтастика</option> -->
                 </select>
             </form>
         </div>
-        <div class="random__right-part"></div>
+        <div class="random__right-part">
+            <div class="random-movie"></div>
+        </div>
+    </div>
     </section>
     </main>
     <footer class="footer"></footer>
