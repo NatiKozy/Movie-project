@@ -610,26 +610,29 @@ function showMovies(parrent, array) {
         const itemImage = item.poster.previewUrl;
         const itemAlt = item.name;
         const itemYear = item.year;
-        const itemCountry = item.countries;
+        const itemCountry = getCountries(item.countries);
         const itemText = item.description;
         createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemText);
     }
 }
 const modalWindowContainer = document.querySelector(".modal-window__container");
+const modalWindowTitle = document.querySelector(".modal-window__title");
+const modalWindowImage = document.querySelector(".modal-window__img");
+const modalWindowYear = document.querySelector(".modal-window__year");
+const modalWindowCountry = document.querySelector(".modal-window__country");
+const modalWindowText = document.querySelector(".modal-window__text");
 function showMovieModalWindow(image, alt, year, country, text) {
     modalWindowContainer.classList.add("modal-window__container--active");
-    const containerStructure = `
-    <div class="modal-window__img">
-    <img src="${image}">
-</div>
-<div class="modal-window__description">
-    <h3 class="modal-window__title">${alt}</h2>
-    <p class="modal-window__year">${year}</p>
-    <p class="modal-window__country">${country}</p>
-    <p class="modal-window__text">${text}</p>
-</div>
-`;
-    modalWindowContainer.innerHTML = containerStructure;
+    modalWindowImage.src = image;
+    modalWindowTitle.textContent = alt;
+    modalWindowYear.textContent = year;
+    modalWindowCountry.textContent = country;
+    modalWindowText.textContent = text;
+}
+function getCountries(array) {
+    const countrues = [];
+    for (let item of array)countrues.push(item.name);
+    return countrues.join(", ");
 }
 
 },{}]},["2UeK4","bB7Pu"], "bB7Pu", "parcelRequire3994")

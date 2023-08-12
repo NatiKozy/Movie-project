@@ -106,11 +106,11 @@ img {
   font-weight: 900;
 }
 
-.modal-window__img {
+.modal-window__img-box {
   width: 395px;
 }
 
-.modal-window__img img {
+.modal-window__img-box img {
   width: 100%;
 }
 
