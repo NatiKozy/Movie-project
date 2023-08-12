@@ -2,3 +2,88 @@
 $black: #000000;
 $white: #FFF;
 
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    height: 60px;
+  }
+  .header__logo {
+    font-size: 32px;
+    text-decoration: none;
+    color: aliceblue;
+  }
+  
+  .header__search {
+    padding: 8px;
+    border: 2px;
+    border-radius: 5px solid black;
+    outline: none;
+  }
+  .movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .movie {
+    width: 240px;
+    margin: 10px;
+    position: relative;
+  }
+  
+  .movie__cover-inner {
+    position: relative;
+    height: 360px;
+  }
+  
+  .movie_cover {
+    max-width: 100%;
+    height: 100%;
+  }
+  .movie__info {
+    padding: 10px 0px;
+  }
+  
+  .movie__title {
+    font-size: 16px;
+    color: white;
+  }
+  
+  .movie__category {
+    font-size: 14px;
+    color: rgb(211, 211, 11);
+  }
+  
+  .movie__average {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    color: white;
+    font-size: 14px;
+  }
