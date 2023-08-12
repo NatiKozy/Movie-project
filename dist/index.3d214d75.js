@@ -723,8 +723,8 @@ function getClassByRate(vote) {
     else return "red";
 }
 const randomMovie = document.querySelector(".random__right-part");
+const moviesEl = document.querySelector(".movies");
 function showRandomMovie(movie) {
-    const moviesEl = document.querySelector(".movies");
     document.querySelector(".movies").innerHTML = "";
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
@@ -747,7 +747,7 @@ function showRandomMovie(movie) {
 }
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
-    if (selectedValue === "Мелодрама") getRandomDramaMovie();
+    if (selectedValue === "Драма") getRandomDramaMovie();
     else if (selectedValue === "Комедия") getRandomComedyMovie();
     else if (selectedValue === "Ужасы") getRandomHorrorMovie();
     else if (selectedValue === "Триллер") getRandomTrillesMovie();
@@ -757,6 +757,7 @@ randomForm.addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
     randomMovie.innerHTML = "";
+    moviesEl.innerHTML = "";
 });
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")

@@ -186,9 +186,8 @@ const randomMovie = document.querySelector('.random__right-part')
 
 
 
-
+const moviesEl = document.querySelector(".movies");
 function showRandomMovie(movie) {
-    const moviesEl = document.querySelector(".movies");
     document.querySelector(".movies").innerHTML = "";
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
@@ -217,7 +216,7 @@ function showRandomMovie(movie) {
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
 
-    if (selectedValue === "Мелодрама") {
+    if (selectedValue === "Драма") {
         getRandomDramaMovie()
     } else if (selectedValue === "Комедия") {
         getRandomComedyMovie()
@@ -235,6 +234,7 @@ randomForm.addEventListener('change', (e) => {
 
     checkSelect()
     randomMovie.innerHTML = ''
+    moviesEl.innerHTML = ''
 });
 
 
