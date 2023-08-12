@@ -6,6 +6,7 @@ $section-color: #0A031C;
 
 * {
     box-sizing: border-box;
+    color:$white
   }
 
   body {
@@ -26,6 +27,11 @@ img {
 }
 
 //movies
+
+.section_title{
+  color: $white;
+}
+
 .movies {
   position: relative;
     width: 1500px;
@@ -55,8 +61,7 @@ img {
    li{
     align-items: flex-start;
     margin: 0 20px;
-    min-width: 200px;
-    height: 296px;
+    width: 200px;
   }
 }
 
@@ -86,4 +91,33 @@ img {
 .gallery-btn--left {
   left: 20px;
   transform: rotate(180deg);
+}
+.modal-window{
+  width: 100%;
+}
+.modal-window__container{
+  display: none;
+}
+.modal-window__container--active{
+  display: flex;
+  justify-content: space-between;
+  max-width: 1163px;
+  margin: 0 auto;
+}
+.modal-window__title{
+  margin: 10px 0;
+  font-size: 83px;
+  font-weight: 900;
+}
+.modal-window__img {
+  width: 395px;
+  img{width: 100%;}
+}
+.modal-window__description{
+  width: 700px;
+}
+.modal-window__text{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
 }
