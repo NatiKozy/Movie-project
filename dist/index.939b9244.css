@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   color: #fff;
+  font-family: Poppins;
 }
 
 body {
@@ -21,18 +22,22 @@ img {
 
 .section_title {
   color: #fff;
+  margin: 20px 0 20px 70px;
+  font-size: 30px;
 }
 
 .movies {
   background-color: #0a031c;
   width: 1500px;
   margin: 0 auto;
+  padding: 40px 0;
   position: relative;
 }
 
 .movies__container {
   width: 1400px;
   margin: 0 auto;
+  padding: 20px 0;
   overflow-x: auto;
 }
 
@@ -42,7 +47,7 @@ img {
 
 .movies-list {
   flex-wrap: nowrap;
-  width: 300%;
+  width: 200%;
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -73,7 +78,7 @@ img {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 129px;
+  top: 250px;
 }
 
 .gallery-btn--right {
@@ -85,25 +90,36 @@ img {
   transform: rotate(180deg);
 }
 
-.modal-window {
-  width: 100%;
-}
-
-.modal-window__container {
+.modal-window, .modal-window__container, .modal-window__btn {
   display: none;
 }
 
+.modal-window--active {
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+}
+
 .modal-window__container--active {
+  background-color: #020510;
   justify-content: space-between;
-  max-width: 1163px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 40px;
   display: flex;
+  position: relative;
+  box-shadow: 0 0 300px 10px #d4d4d44d;
 }
 
 .modal-window__title {
   margin: 10px 0;
   font-size: 83px;
   font-weight: 900;
+}
+
+.modal-window__year, .modal-window__country {
+  margin: 10px 0 0;
+  font-size: 22px;
 }
 
 .modal-window__img-box {
@@ -122,6 +138,23 @@ img {
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
+}
+
+.modal-window__btn--active {
+  background-color: #47474700;
+  border: none;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.modal-window__btn--active img {
+  width: 30px;
+  height: 30px;
 }
 
 /*# sourceMappingURL=index.939b9244.css.map */

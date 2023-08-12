@@ -1,12 +1,13 @@
 //переменные
 $black: #000000;
-$white: #FFF;
+$white: #ffffff;
 $body-color:#020510;
-$section-color: #0A031C;
+$section-color: #0a031c;
 
 * {
     box-sizing: border-box;
-    color:$white
+    color:$white;
+    font-family: 'Poppins';
   }
 
   body {
@@ -29,12 +30,15 @@ img {
 //movies
 
 .section_title{
+  margin: 20px 0 20px 70px;
+  font-size: 30px;
   color: $white;
 }
 
 .movies {
   position: relative;
-    width: 1500px;
+  width: 1500px;
+  padding: 40px 0;
   margin: 0 auto;
 
 
@@ -43,7 +47,8 @@ img {
 }
 .movies__container{
   width: 1400px;
-  margin: 0 auto;
+  margin: 0px auto;
+  padding: 20px 0;
   overflow-x: auto;
 }
 .movies__container::-webkit-scrollbar {
@@ -52,7 +57,7 @@ img {
 .movies-list {
   display: flex;
   flex-wrap: nowrap;
-  width: 300%;
+  width: 200%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -75,7 +80,7 @@ img {
 
 .gallery-btn{
   position: absolute;
-  top: 129px;
+  top: 250px;
   width: 37px;
   height: 48px;
   border-radius: 5px;
@@ -92,22 +97,37 @@ img {
   left: 20px;
   transform: rotate(180deg);
 }
-.modal-window{
-  width: 100%;
-}
-.modal-window__container{
+
+.modal-window,
+.modal-window__container,
+.modal-window__btn{
   display: none;
 }
+.modal-window--active{
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+
 .modal-window__container--active{
+  position: relative;
   display: flex;
   justify-content: space-between;
-  max-width: 1163px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 40px;
+  background-color: $body-color;
+  box-shadow: 0 0 300px 10px rgb(212, 212, 212, 0.3) ;
 }
 .modal-window__title{
   margin: 10px 0;
   font-size: 83px;
   font-weight: 900;
+}
+.modal-window__year,
+.modal-window__country{
+  margin: 10px 0 0 0;
+  font-size: 22px;
 }
 .modal-window__img-box {
   width: 395px;
@@ -120,4 +140,19 @@ img {
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
+}
+.modal-window__btn--active{
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba($color: #474747, $alpha: 0);
+  img{
+    width: 30px;
+    height: 30px;
+  }
 }
