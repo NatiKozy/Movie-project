@@ -583,6 +583,7 @@ const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6
 const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`;
 const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`;
 const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
+const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 async function getFilms() {
     try {
@@ -736,7 +737,7 @@ function showRandomMovie(movie) {
             src="${movie.posterUrlPreview}"
             class="random__movie__cover"
             alt="${movie.nameRu}"/>
-        <div class="random__-movie__cover--darkened"></div>
+        <div class="randommovie__cover--darkened"></div>
         </div>
         <div class="random__movie__info">
         <div class="random__movie__title">${movie.nameRu}</div>
@@ -760,6 +761,50 @@ randomForm.addEventListener("change", (e)=>{
     checkSelect();
     randomMovie.innerHTML = "";
     moviesEl.innerHTML = "";
+});
+async function getSearchMovies(url) {
+    const resp = await fetch(url, {
+        headers: {
+            "Content-Type": "application/json",
+            "X-API-KEY": RANDOM_API_KEY
+        }
+    });
+    const respData = await resp.json();
+    showMoviesFromSearch(respData);
+}
+function showMoviesFromSearch(data) {
+    const moviesSearchEl = document.querySelector(".search-result");
+    document.querySelector(".search-result").innerHTML = "";
+    data.films.forEach((movie)=>{
+        const movieSearchEl = document.createElement("div");
+        movieSearchEl.classList.add("movie");
+        movieSearchEl.innerHTML = `
+            <div class="random__movie__cover-inner">
+                <img
+                src="${movie.posterUrlPreview}"
+                class="random__movie__cover"
+                alt="${movie.nameRu}"/>
+            <div class="random__movie__cover--darkened"></div>
+            </div>
+            <div class="random__movie__info">
+            <div class="random__movie__title">${movie.nameRu}</div>
+            <div class="random__movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+            ${movie.rating && `
+            <div class="random__movie__average random__movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>`}
+            </div>
+            `;
+        moviesSearchEl.appendChild(movieSearchEl);
+    });
+}
+const form = document.querySelector(".header-search");
+const search = document.querySelector(".header-search__input");
+form.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    const apiSearchUrl = `${API_URL_SEARCH}${search.value}`;
+    if (search.value) {
+        getSearchMovies(apiSearchUrl);
+        search.value = "";
+    }
 });
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")

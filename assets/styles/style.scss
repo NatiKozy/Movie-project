@@ -17,7 +17,10 @@ body {
     margin: 0 auto;
 }
 
-
+.search-result{
+    display: flex;
+    flex-wrap: wrap;
+    }
 /* //slider styles// */
 .premiere-img{
     width: 200px;

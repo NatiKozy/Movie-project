@@ -13,6 +13,11 @@ body {
   margin: 0 auto;
 }
 
+.search-result {
+  flex-wrap: wrap;
+  display: flex;
+}
+
 .premiere-img, .premiere-img img {
   width: 200px;
   height: 200px;
