@@ -731,17 +731,17 @@ function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
     movieEl.innerHTML = `
-        <div class="random__movie__cover-inner">
+        <div class="movie__cover-inner">
         <img
             src="${movie.posterUrlPreview}"
-            class="random__movie__cover"
+            class="movie__cover"
             alt="${movie.nameRu}"/>
-        <div class="random__-movie__cover--darkened"></div>
+        <div class="movie__cover--darkened"></div>
         </div>
-        <div class="random__movie__info">
-        <div class="random__movie__title">${movie.nameRu}</div>
-        <div class="random__movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
-        ${movie.ratingKinopoisk && `<div class="random__movie__average random__movie__average--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
+        <div class="movie__info">
+        <div class="movie__title">${movie.nameRu}</div>
+        <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+        ${movie.ratingKinopoisk && `<div class="movie__average movie__average--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
         </div>
         `;
     moviesEl.appendChild(movieEl);
@@ -761,6 +761,30 @@ randomForm.addEventListener("change", (e)=>{
     randomMovie.innerHTML = "";
     moviesEl.innerHTML = "";
 });
+function showMovies(data) {
+    const moviesSearchEl = document.querySelector(".search-result");
+    document.querySelector(".search-result").innerHTML = "";
+    data.films.forEach((movie)=>{
+        const movieSearchEl = document.createElement("div");
+        movieSearchEl.classList.add("movie");
+        movieSearchEl.innerHTML = `
+            <div class="movie__cover-inner">
+                <img
+                src="${movie.posterUrlPreview}"
+                class="movie__cover"
+                alt="${movie.nameRu}"/>
+            <div class="movie__cover--darkened"></div>
+            </div>
+            <div class="movie__info">
+            <div class="movie__title">${movie.nameRu}</div>
+            <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+            ${movie.rating && `
+            <div class="movie__average movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>`}
+            </div>
+            `;
+        moviesSearchEl.appendChild(movieSearchEl);
+    });
+}
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
 
