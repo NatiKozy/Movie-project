@@ -122,4 +122,20 @@ body {
   border: 1px solid red;
 }
 
+.random-basic-img {
+  width: 125px;
+  height: 125px;
+  animation: 1s linear infinite rot;
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /*# sourceMappingURL=index.939b9244.css.map */
