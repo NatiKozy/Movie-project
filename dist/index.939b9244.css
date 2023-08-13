@@ -13,6 +13,11 @@ body {
   margin: 0 auto;
 }
 
+.premiere-img, .premiere-img img {
+  width: 200px;
+  height: 200px;
+}
+
 .random {
   background-color: gray;
   width: 700px;
