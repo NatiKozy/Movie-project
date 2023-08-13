@@ -3,6 +3,8 @@ $black: #000000;
 $white: #FFF;
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -21,16 +23,33 @@ body {
 /* //slider styles// */
 .slider {
     display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 0 1px black;
+    overflow: hidden;
+    position: relative;
 }
 
-.slider-img{
-    width: 200px;
-    height: 200px;
+
+.slider-line img {
+    // width: 100%;
+width: 200px;
+
+}
+.slider-panel{
+    color: red;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 50%;
 }
 
-.slider-img img {
-    width: 200px;
-    height: 200px;
+.arrows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
 

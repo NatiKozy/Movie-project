@@ -622,7 +622,7 @@ const premiersContainer = document.querySelector(".slider");
 function showPremiers(array) {
     for (item of array){
         const div = document.createElement("div");
-        div.classList.add("slider-img");
+        div.classList.add("slider-line");
         premiereImage = item.posterUrl;
         div.innerHTML = `
             <img src="${premiereImage}">
