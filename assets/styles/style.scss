@@ -19,12 +19,16 @@ body {
 
 
 /* //slider styles// */
-.premiere-img{
+.slider {
+    display: flex;
+}
+
+.slider-img{
     width: 200px;
     height: 200px;
 }
 
-.premiere-img img {
+.slider-img img {
     width: 200px;
     height: 200px;
 }

@@ -618,11 +618,11 @@ async function getPremiers() {
         console.log(err);
     }
 }
-const premiersContainer = document.querySelector(".premiers");
+const premiersContainer = document.querySelector(".slider");
 function showPremiers(array) {
     for (item of array){
         const div = document.createElement("div");
-        div.classList.add("premiere-img");
+        div.classList.add("slider-img");
         premiereImage = item.posterUrl;
         div.innerHTML = `
             <img src="${premiereImage}">
