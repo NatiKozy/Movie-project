@@ -13,4 +13,9 @@ body {
   margin: 0 auto;
 }
 
+.premiere-img, .premiere-img img {
+  width: 200px;
+  height: 200px;
+}
+
 /*# sourceMappingURL=index.939b9244.css.map */

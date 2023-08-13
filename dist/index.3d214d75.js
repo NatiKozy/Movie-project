@@ -631,6 +631,7 @@ const premiersContainer = document.querySelector(".premiers");
 function showPremiers(array) {
     for (item of array){
         const div = document.createElement("div");
+        div.classList.add("premiere-img");
         premiereImage = item.posterUrl;
         div.innerHTML = `
             <img src="${premiereImage}">
