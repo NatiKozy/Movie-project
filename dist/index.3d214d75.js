@@ -725,7 +725,6 @@ function getClassByRate(vote) {
 const randomMovie = document.querySelector(".random__right-part");
 const moviesEl = document.querySelector(".movies");
 function showRandomMovie(movie) {
-    document.querySelector(".movies").innerHTML = "";
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
     movieEl.innerHTML = `
