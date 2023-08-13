@@ -24,7 +24,11 @@ body {
   box-shadow: 0 0 0 1px #000;
 }
 
-.slider-line img {
+.slider-line {
+  display: flex;
+}
+
+.slider-img {
   width: 200px;
 }
 
@@ -41,6 +45,14 @@ body {
   align-items: center;
   width: 100%;
   display: flex;
+}
+
+.arrows i {
+  cursor: pointer;
+}
+
+.arrows i:hover {
+  color: #ffd80e;
 }
 
 .random {

@@ -30,8 +30,10 @@ body {
     position: relative;
 }
 
-
-.slider-line img {
+.slider-line{
+    display: flex;
+}
+.slider-img {
     // width: 100%;
 width: 200px;
 
@@ -50,6 +52,14 @@ width: 200px;
     justify-content: space-between;
     align-items: center;
 
+}
+
+.arrows i {
+    cursor:pointer;
+}
+
+.arrows i:hover {
+    color: #ffd80e;
 }
 
 
