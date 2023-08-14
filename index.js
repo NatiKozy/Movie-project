@@ -59,7 +59,6 @@ const movieGalleryBtnRight = document.querySelector('.gallery-btn--right');
 
 
 const modalWindowSection = document.querySelector('.modal-window');
-//const modalWindowContainer = document.querySelector('.modal-window__container');
 const modalWindowTitle = document.querySelector('.modal-window__title');
 const modalWindowImage = document.querySelector('.modal-window__img');
 const modalWindowYear = document.querySelector('.modal-window__year');
@@ -89,6 +88,6 @@ function getArrayItemsList (array) {
 
 modalWindowBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    modalWindowContainer.classList.remove('modal-window__container--active')
+    modalWindowSection.classList.remove('modal-window--active')
 })
 
