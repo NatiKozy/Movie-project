@@ -90,7 +90,7 @@ img {
   transform: rotate(180deg);
 }
 
-.modal-window, .modal-window__container, .modal-window__btn {
+.modal-window {
   display: none;
 }
 
@@ -100,7 +100,7 @@ img {
   display: inline-block;
 }
 
-.modal-window__container--active {
+.modal-window__container {
   background-color: #020510;
   justify-content: space-between;
   max-width: 1200px;
@@ -140,7 +140,7 @@ img {
   line-height: 30px;
 }
 
-.modal-window__btn--active {
+.modal-window__btn {
   background-color: #47474700;
   border: none;
   border-radius: 5px;
@@ -152,7 +152,7 @@ img {
   right: 15px;
 }
 
-.modal-window__btn--active img {
+.modal-window__btn img {
   width: 30px;
   height: 30px;
 }

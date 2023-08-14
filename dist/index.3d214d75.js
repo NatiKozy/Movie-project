@@ -574,9 +574,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"bB7Pu":[function(require,module,exports) {
+//секция MOVIES
 const FILMS_URL = `https://api.kinopoisk.dev/v1.3/movie`;
 const API_KEY = `V9WW64N-0ZMMV8V-PR39C4M-6YSG9KB`;
-//получить фильмы для карточек MOVIES
 const movieslist = document.querySelector(".movies-list");
 async function getFilms() {
     try {
@@ -611,8 +611,8 @@ function showMovies(parrent, array) {
         const itemImage = item.poster.previewUrl;
         const itemAlt = item.name;
         const itemYear = item.year;
-        const itemCountry = getCountries(item.countries);
-        const itemGenres = getGenres(item.genres);
+        const itemCountry = getArrayItemsList(item.countries);
+        const itemGenres = getArrayItemsList(item.genres);
         const itemText = item.shortDescription;
         createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemGenres, itemText);
     }
@@ -621,7 +621,7 @@ function showMovies(parrent, array) {
 const movieGalleryBtnLeft = document.querySelector(".gallery-btn--left");
 const movieGalleryBtnRight = document.querySelector(".gallery-btn--right");
 const modalWindowSection = document.querySelector(".modal-window");
-const modalWindowContainer = document.querySelector(".modal-window__container");
+//const modalWindowContainer = document.querySelector('.modal-window__container');
 const modalWindowTitle = document.querySelector(".modal-window__title");
 const modalWindowImage = document.querySelector(".modal-window__img");
 const modalWindowYear = document.querySelector(".modal-window__year");
@@ -631,8 +631,6 @@ const modalWindowText = document.querySelector(".modal-window__text");
 const modalWindowBtn = document.querySelector(".modal-window__btn");
 function showMovieModalWindow(image, alt, year, country, genres, text) {
     modalWindowSection.classList.add("modal-window--active");
-    modalWindowContainer.classList.add("modal-window__container--active");
-    modalWindowBtn.classList.add("modal-window__btn--active");
     modalWindowImage.src = image;
     modalWindowTitle.textContent = alt;
     modalWindowYear.textContent = `Год: ${year}`;
@@ -640,15 +638,10 @@ function showMovieModalWindow(image, alt, year, country, genres, text) {
     modalWindowGenres.textContent = `Жанр: ${genres}`;
     modalWindowText.textContent = text;
 }
-function getCountries(array) {
-    const countrues = [];
-    for (let item of array)countrues.push(item.name);
-    return countrues.join(", ");
-}
-function getGenres(array) {
-    const genres = [];
-    for (let item of array)genres.push(item.name);
-    return genres.join(", ");
+function getArrayItemsList(array) {
+    const itemsList = [];
+    for (let item of array)itemsList.push(item.name);
+    return itemsList.join(", ");
 }
 modalWindowBtn.addEventListener("click", (event)=>{
     event.preventDefault();

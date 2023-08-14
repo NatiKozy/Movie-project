@@ -97,18 +97,17 @@ img {
   transform: rotate(180deg);
 }
 
-.modal-window,
-.modal-window__container,
-.modal-window__btn{
+.modal-window{
   display: none;
 }
+
 .modal-window--active{
   display: inline-block;
   width: 100%;
   margin: auto;
 }
 
-.modal-window__container--active{
+.modal-window__container{
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -141,7 +140,7 @@ img {
   font-weight: 500;
   line-height: 30px;
 }
-.modal-window__btn--active{
+.modal-window__btn{
   display: inline-block;
   position: absolute;
   top: 15px;
