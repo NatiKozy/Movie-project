@@ -30,84 +30,82 @@
         </div>
     </header>
     <main>
-<<<<<<< HEAD
 
         <section class="hero"></section>
-        <!-- Галерея с фильмами -->
-        <section class="movies">
-            <h2 class="section_title">Movies</h2>
-            <div class="movies__container">
-                <button class="gallery-btn gallery-btn--left">
-                    <img class="btn--left" src="./assets/images/btn_gallery.svg" alt="стрелка влево">
-                </button>
-                <ul class="list movies-list">
-                </ul>
-                <button class="gallery-btn gallery-btn--right">
-                    <img class="btn--right" src="./assets/images/btn_gallery.svg" alt="стрелка вправо">
-                </button>
-            </div>
-        </section>
-      <!--   модальное окно -->
-        <section class="modal-window">
-            <div class="modal-window__container">
-                <button class="modal-window__btn">
-                    <img src="./assets/images/cancel-btn.svg" alt="close">
-                </button>
-                <div class="modal-window__img-box">
-                    <img class="modal-window__img">
-                </div>
-                <div class="modal-window__description">
-                    <h3 class="modal-window__title"></h3>
-                    <p class="modal-window__year"></p>
-                    <p class="modal-window__country"></p>
-                    <p class="modal-window__genres"></p>
-                    <p class="modal-window__text"></p>
-                </div>
-            </div>
 
-        </section>
-=======
-        <div class="container">
-        <section class="search-result"></section>
-        <section class="hero"></section>
-        <section class="premiers">
-            <div class="slider">
-                <div class="slider-line"></div>
-                <div class="slider-panel">
-                    <div class="arrows">
-                        <div class="arrow-left"><i class="fa-solid fa-chevron-left" onclick="prev()"></i></div>
-                        <div class="arrow-right"><i class="fa-solid fa-chevron-right" onclick="next()"></i></div>
-                    </div>
+
+<!-- Галерея с фильмами -->
+<section class="movies-gallery">
+    <h2 class="section_title">Movies</h2>
+    <div class="movies__container">
+        <button class="gallery-btn gallery-btn--left">
+            <img class="btn--left" src="./assets/images/btn_gallery.svg" alt="стрелка влево">
+        </button>
+        <ul class="list movies-list">
+        </ul>
+        <button class="gallery-btn gallery-btn--right">
+            <img class="btn--right" src="./assets/images/btn_gallery.svg" alt="стрелка вправо">
+        </button>
+    </div>
+</section>
+<!--   модальное окно -->
+<section class="modal-window">
+    <div class="modal-window__container">
+        <button class="modal-window__btn">
+            <img src="./assets/images/cancel-btn.svg" alt="close">
+        </button>
+        <div class="modal-window__img-box">
+            <img class="modal-window__img">
+        </div>
+        <div class="modal-window__description">
+            <h3 class="modal-window__title"></h3>
+            <p class="modal-window__year"></p>
+            <p class="modal-window__country"></p>
+            <p class="modal-window__genres"></p>
+            <p class="modal-window__text"></p>
+        </div>
+    </div>
+
+</section>
+
+
+    <section class="premiers">
+        <div class="slider">
+            <div class="slider-line"></div>
+            <div class="slider-panel">
+                <div class="arrows">
+                    <div class="arrow-left"><i class="fa-solid fa-chevron-left" onclick="prev()"></i></div>
+                    <div class="arrow-right"><i class="fa-solid fa-chevron-right" onclick="next()"></i></div>
                 </div>
             </div>
-        </section>
-        
-        <section class="movies"></section>
-    </div>
-    <section class="random">
-        <div class="random-container">
-        <div class="random__left-part">
-            <h2 class="random__title">Случайный фильм по жанру</h2>
-            <p class="loading"></p>
-            <form class="random-form" action="">
-                <select  name="" id="select-list" >
-                    <!-- <option selected>Жанр</option> -->
-                    <option value="Драма">Драма</option>
-                    <option value="Комедия">Комедия</option>
-                    <option value="Ужасы">Ужасы</option>
-                    <!-- <option value="Боевик">Боевик</option> -->
-                    <option value="Триллер">Триллер</option>
-                    <!-- <option value="Фонтастика">Фонтастика</option> -->
-                </select>
-            </form>
         </div>
-        <div class="random__right-part">
-            <div class="random-movie"></div>
-            <img class="random-basic-img" src="./assets/images/icons/random-icon(need_to_change).png">
-        </div>
-    </div>
     </section>
->>>>>>> 26a1a9a37e0ae3d1b5bce739c0cc626aa37a6b60
+
+    <section class="popular-movies"></section>
+</div>
+<section class="random">
+    <div class="random-container">
+    <div class="random__left-part">
+        <h2 class="random__title">Случайный фильм по жанру</h2>
+        <p class="loading"></p>
+        <form class="random-form" action="">
+            <select  name="" id="select-list" >
+                <!-- <option selected>Жанр</option> -->
+                <option value="Драма">Драма</option>
+                <option value="Комедия">Комедия</option>
+                <option value="Ужасы">Ужасы</option>
+                <!-- <option value="Боевик">Боевик</option> -->
+                <option value="Триллер">Триллер</option>
+                <!-- <option value="Фонтастика">Фонтастика</option> -->
+            </select>
+        </form>
+    </div>
+    <div class="random__right-part">
+        <div class="random-movie"></div>
+        <img class="random-basic-img" src="./assets/images/icons/random-icon(need_to_change).png">
+    </div>
+</div>
+</section>
     </main>
     <footer class="footer"></footer>
     <script src="index.js" type="module"></script>

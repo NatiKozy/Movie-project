@@ -6,36 +6,23 @@ $section-color: #0a031c;
 
 * {
     box-sizing: border-box;
-<<<<<<< HEAD
     color:$white;
     font-family: 'Poppins';
   }
-=======
-}
->>>>>>> 26a1a9a37e0ae3d1b5bce739c0cc626aa37a6b60
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-<<<<<<< HEAD
-    background-color: $body-color;
-  }
-
-.container{
-    max-width: 1500px;
-=======
     background-color: black;
 }
 
 .container {
     max-width: 1440px;
->>>>>>> 26a1a9a37e0ae3d1b5bce739c0cc626aa37a6b60
     margin: 0 auto;
 
 }
 
-<<<<<<< HEAD
 img {
   max-width: 100%;
 }
@@ -48,7 +35,7 @@ img {
   color: $white;
 }
 
-.movies {
+.movies-gallery {
   position: relative;
   width: 1500px;
   padding: 40px 0;
@@ -168,7 +155,6 @@ img {
     height: 30px;
   }
 }
-=======
 .search-result{
     display: flex;
     flex-wrap: wrap;
@@ -217,8 +203,76 @@ width: 200px;
     color: #ffd80e;
 }
 
+//ЛЕНА
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  height: 60px;
+}
+.header__logo {
+  font-size: 32px;
+  text-decoration: none;
+  color: aliceblue;
+}
 
-// SHOW MOVIES STYLES
+.header__search {
+  padding: 8px;
+  border: 2px;
+  border-radius: 5px solid black;
+  outline: none;
+}
+.popular-movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.popular-movie {
+  width: 240px;
+  margin: 10px;
+  position: relative;
+}
+
+.popular-movie__cover-inner {
+  position: relative;
+  height: 360px;
+}
+
+.popular-movie_cover {
+  max-width: 100%;
+  height: 100%;
+}
+.popular-movie__info {
+  padding: 10px 0px;
+}
+
+.popular-movie__title {
+  font-size: 16px;
+  color: white;
+}
+
+.popular-movie__category {
+  font-size: 14px;
+  color: rgb(211, 211, 11);
+}
+
+.popular-movie__average {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  color: white;
+  font-size: 14px;
+}
+
+// SHOW MOVIES STYLES ЮЛЯ
 .movie {
     width: 170px;
     margin: 10px;
@@ -356,4 +410,3 @@ width: 200px;
 }
 
 /* RANDOM_FILM RART END */
->>>>>>> 26a1a9a37e0ae3d1b5bce739c0cc626aa37a6b60
