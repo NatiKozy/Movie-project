@@ -27,11 +27,12 @@ async function getFilms (){
 getFilms();
 
 
-function createMovieCard (parrent, image, alt, year, country, text) {
+function createMovieCard (parrent, image, alt, year, country,genres, text) {
     const item = document.createElement('li');
+    item.classList.add('movies-list__item');
     item.addEventListener('click', (event) => {
         event.preventDefault;
-        showMovieModalWindow(image, alt, year, country, text);
+        showMovieModalWindow(image, alt, year, country,genres, text);
     })
     item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`
 
@@ -45,9 +46,10 @@ function showMovies (parrent, array) {
         const itemAlt = item.name;
         const itemYear = item.year;
         const itemCountry = getCountries(item.countries);
-        const itemText = item.description;
+        const itemGenres = getGenres(item.genres);
+        const itemText = item.shortDescription;
 
-        createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemText)
+        createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemGenres, itemText)
     }
 }
 
@@ -56,23 +58,26 @@ const movieGalleryBtnLeft = document.querySelector('.gallery-btn--left');
 const movieGalleryBtnRight = document.querySelector('.gallery-btn--right');
 
 
+
 const modalWindowSection = document.querySelector('.modal-window');
 const modalWindowContainer = document.querySelector('.modal-window__container');
 const modalWindowTitle = document.querySelector('.modal-window__title');
 const modalWindowImage = document.querySelector('.modal-window__img');
 const modalWindowYear = document.querySelector('.modal-window__year');
 const modalWindowCountry = document.querySelector('.modal-window__country');
+const modalWindowGenres = document.querySelector('.modal-window__genres');
 const modalWindowText = document.querySelector('.modal-window__text');
 const modalWindowBtn = document.querySelector('.modal-window__btn');
 
-function showMovieModalWindow (image, alt, year, country, text) {
+function showMovieModalWindow (image, alt, year, country, genres, text) {
     modalWindowSection.classList.add('modal-window--active');
     modalWindowContainer.classList.add('modal-window__container--active');
     modalWindowBtn.classList.add('modal-window__btn--active');
     modalWindowImage.src = image;
     modalWindowTitle.textContent = alt;
-    modalWindowYear.textContent = year;
-    modalWindowCountry.textContent = country;
+    modalWindowYear.textContent = `Год: ${year}`;
+    modalWindowCountry.textContent = `Страна: ${country}`;
+    modalWindowGenres.textContent = `Жанр: ${genres}`;
     modalWindowText.textContent = text;
 }
 
@@ -84,8 +89,16 @@ function getCountries (array) {
     return countrues.join(', ')
 }
 
+function getGenres (array) {
+    const genres = [];
+    for (let item of array){
+        genres.push(item.name)
+    }
+    return genres.join(', ')
+}
 
 modalWindowBtn.addEventListener('click', (event) => {
     event.preventDefault();
     modalWindowContainer.classList.remove('modal-window__container--active')
 })
+

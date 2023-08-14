@@ -113,11 +113,11 @@ img {
 
 .modal-window__title {
   margin: 10px 0;
-  font-size: 83px;
+  font-size: 70px;
   font-weight: 900;
 }
 
-.modal-window__year, .modal-window__country {
+.modal-window__year, .modal-window__country, .modal-window__genres {
   margin: 10px 0 0;
   font-size: 22px;
 }
@@ -131,7 +131,7 @@ img {
 }
 
 .modal-window__description {
-  width: 700px;
+  margin: 20px 0 0 40px;
 }
 
 .modal-window__text {
