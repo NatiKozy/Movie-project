@@ -8,11 +8,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/index.ead9d262.css">
     <link rel="stylesheet" href="/index.939b9244.css">
+    <link rel="stylesheet" href="89267ce17a2fe119" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <title>Movie</title>
 </head>
 <body>
-    <header class="header"></header>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__left-part">
+            <a href="/index.html"><img class="header__logo"></a>
+            <ul class="header__list">
+                <li class="list__item"></li>
+                <li class="list__item"></li>
+                <li class="list__item"></li>
+            </ul>
+        </div>
+        <div class="header__right-part">
+            <form class="header-search">
+                <input class="header-search__input" type="text" placeholder="Поиск">
+            </form>
+        </div>
+        </div>
+    </header>
     <main>
+<<<<<<< HEAD
 
         <section class="hero"></section>
         <!-- Галерея с фильмами -->
@@ -48,6 +66,48 @@
             </div>
 
         </section>
+=======
+        <div class="container">
+        <section class="search-result"></section>
+        <section class="hero"></section>
+        <section class="premiers">
+            <div class="slider">
+                <div class="slider-line"></div>
+                <div class="slider-panel">
+                    <div class="arrows">
+                        <div class="arrow-left"><i class="fa-solid fa-chevron-left" onclick="prev()"></i></div>
+                        <div class="arrow-right"><i class="fa-solid fa-chevron-right" onclick="next()"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="movies"></section>
+    </div>
+    <section class="random">
+        <div class="random-container">
+        <div class="random__left-part">
+            <h2 class="random__title">Случайный фильм по жанру</h2>
+            <p class="loading"></p>
+            <form class="random-form" action="">
+                <select name="" id="select-list">
+                    <!-- <option selected>Жанр</option> -->
+                    <option value="Драма">Драма</option>
+                    <option value="Комедия">Комедия</option>
+                    <option value="Ужасы">Ужасы</option>
+                    <!-- <option value="Боевик">Боевик</option> -->
+                    <option value="Триллер">Триллер</option>
+                    <!-- <option value="Фонтастика">Фонтастика</option> -->
+                </select>
+            </form>
+        </div>
+        <div class="random__right-part">
+            <div class="random-movie"></div>
+            <img class="random-basic-img" src="/random-icon(need_to_change).77a87fda.png">
+        </div>
+    </div>
+    </section>
+>>>>>>> 26a1a9a37e0ae3d1b5bce739c0cc626aa37a6b60
     </main>
     <footer class="footer"></footer>
     <script src="/index.3d214d75.js" defer=""></script>
