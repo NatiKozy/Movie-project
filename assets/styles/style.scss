@@ -23,16 +23,49 @@ body {
     flex-wrap: wrap;
     margin: 10px auto;
     }
+    
 /* //slider styles// */
-.premiere-img{
-    width: 200px;
-    height: 200px;
+.slider {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 0 1px black;
+    overflow: hidden;
+    position: relative;
 }
 
-.premiere-img img {
-    width: 200px;
-    height: 200px;
+.slider-line{
+    display: flex;
 }
+.slider-img {
+    /* width: 100%; */
+width: 200px;
+
+}
+.slider-panel{
+    color: red;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 50%;
+}
+
+.arrows {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.arrows i {
+    cursor:pointer;
+}
+
+.arrows i:hover {
+    color: #ffd80e;
+}
+
 
 // SHOW MOVIES STYLES
 .movie {
