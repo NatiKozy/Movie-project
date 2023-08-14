@@ -352,9 +352,12 @@ width: 200px;
 /* RANDOM_FILM RART */
 .random {
     background-color: grey;
-    margin: 0 auto;
+    margin: 50 auto;
     width: 700px;
     max-height: 350px;
+    -webkit-box-shadow: -4px -1px 56px 21px rgba(2,105,173,1);
+    -moz-box-shadow: -4px -1px 56px 21px rgba(2,105,173,1);
+    box-shadow: -4px -1px 56px 21px rgba(2,105,173,1);
 }
 
 .random-container {
