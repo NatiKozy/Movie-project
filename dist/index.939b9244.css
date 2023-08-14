@@ -354,7 +354,8 @@ img {
   background-color: gray;
   width: 700px;
   max-height: 350px;
-  margin: 0 auto;
+  margin: 50px auto;
+  box-shadow: -4px -1px 56px 21px #0269ad;
 }
 
 .random-container {

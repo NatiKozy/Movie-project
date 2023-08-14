@@ -726,16 +726,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 });
 //ЛЕНА КОНЕЦ
-//ЮЛЯ НАЧАЛО
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
 const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-const TRILLERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=1&type=FILM`;
-const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&type=FILM`;
-const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
-const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`;
-const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`;
-const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
 const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 async function getPremiers() {
     try {
@@ -767,6 +760,13 @@ function showPremiers(array) {
     }
 }
 getPremiers();
+//ЮЛЯ НАЧАЛО
+const TRILLERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=1&type=FILM`;
+const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&type=FILM`;
+const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
+const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`;
+const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`;
+const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
 function arrayRandElement(arr) {
     const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
@@ -799,7 +799,6 @@ async function getRandomHorrorMovie() {
         });
         const data = await response.json();
         const res = arrayRandElement(data.items);
-        console.log(res);
         showRandomMovie(res);
     } catch (error) {
         console.error(error);
@@ -816,7 +815,6 @@ async function getRandomComedyMovie() {
         });
         const data = await response.json();
         const res = arrayRandElement(data.items);
-        console.log(res);
         showRandomMovie(res);
     } catch (error) {
         console.error(error);
@@ -833,7 +831,6 @@ async function getRandomFantasyMovie() {
         });
         const data = await response.json();
         const res = arrayRandElement(data.items);
-        console.log(res);
         showRandomMovie(res);
     } catch (error) {
         console.error(error);
@@ -850,7 +847,6 @@ async function getRandomTrillesMovie() {
         });
         const data = await response.json();
         const res = arrayRandElement(data.items);
-        console.log(res);
         showRandomMovie(res);
     } catch (error) {
         console.error(error);
@@ -861,8 +857,7 @@ function getClassByRate(vote) {
     else if (vote > 5) return "orange";
     else return "red";
 }
-const randomMovie = document.querySelector(".random__right-part");
-const moviesEl = document.querySelector(".movies");
+const moviesEl = document.querySelector(".random-movies");
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie");
@@ -880,8 +875,7 @@ function showRandomMovie(movie) {
         ${movie.ratingKinopoisk && `<div class="movie__average movie__average--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
         </div>
         `;
-    moviesEl.appendChild(movieEl);
-    randomMovie.appendChild(moviesEl);
+    moviesEl.append(movieEl);
 }
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
@@ -894,50 +888,8 @@ const randomForm = document.querySelector(".random-form");
 randomForm.addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
-    randomMovie.innerHTML = "";
     moviesEl.innerHTML = "";
-});
-function showMovies(data) {
-    const moviesSearchEl = document.querySelector(".search-result");
-    document.querySelector(".search-result").innerHTML = "";
-    data.films.forEach((movie)=>{
-        const movieSearchEl = document.createElement("div");
-        movieSearchEl.classList.add("movie");
-        movieSearchEl.innerHTML = `
-            <div class="movie__cover-inner">
-                <img
-                src="${movie.posterUrlPreview}"
-                class="movie__cover"
-                alt="${movie.nameRu}"/>
-            <div class="movie__cover--darkened"></div>
-            </div>
-            <div class="movie__info">
-            <div class="movie__title">${movie.nameRu}</div>
-            <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
-            ${movie.rating && `
-            <div class="movie__average movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>`}
-            </div>
-            `;
-        moviesSearchEl.appendChild(movieSearchEl);
-    });
-}
-async function getPopularPeople() {
-    try {
-        const response = await fetch(`https://api.kinopoisk.dev/v1/person?sortField=rating.kp&page=1&limit=3`, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": "33b36424-4fa5-41fd-9692-01649a0c6a2c",
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error(error);
-    }
-}
-getPopularPeople() //ЮЛЯ КОНЕЦ
-;
+}); //ЮЛЯ КОНЕЦ
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
 
