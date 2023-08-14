@@ -618,19 +618,42 @@ async function getPremiers() {
         console.log(err);
     }
 }
-const premiersContainer = document.querySelector(".premiers");
+const premiersContainer = document.querySelector(".slider-line");
 function showPremiers(array) {
     for (item of array){
-        const div = document.createElement("div");
-        div.classList.add("premiere-img");
-        premiereImage = item.posterUrl;
-        div.innerHTML = `
-            <img src="${premiereImage}">
-            `;
-        premiersContainer.append(div);
+        const img = document.createElement("img");
+        img.classList.add("slider-img");
+        img.src = item.posterUrl;
+        premiersContainer.append(img);
     }
 }
 getPremiers();
+//slider realization//
+const IMAGES = document.querySelectorAll(".slider-line img");
+const SLIDER = document.querySelector(".slider-line");
+//счетчик
+let count = 0;
+//прокрутка слайдера
+function rollSlider() {
+    SLIDER.style.transform = `translate(-${count * 100}%)`;
+}
+//предыдущий
+//  function prev() {
+//     count --;
+//     if(count < 0 ) {
+//         count = IMAGES.length -1;
+//     }
+//  rollSlider();
+// }
+//следующий
+// function next() {
+//     count ++; 
+//     if (count >= IMAGES.length) {
+//         count = 0;
+//     }
+// rollSlider();
+// }
+//end of slider
 function arrayRandElement(arr) {
     const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
