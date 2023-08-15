@@ -297,7 +297,7 @@ function getClassByRate(vote) {
 const moviesEl = document.querySelector(".random-movies");
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
-    movieEl.classList.add("movie");
+    movieEl.classList.add("random__movie");
     movieEl.innerHTML = `
         <div class="movie__cover-inner">
         <img
@@ -323,13 +323,13 @@ function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
 
     if (selectedValue === "Драма") {
-       getRandomMovie(DRAMAS_URL)
+        getRandomMovie(DRAMAS_URL)
     } else if (selectedValue === "Комедия") {
         getRandomMovie(COMEDIES_URL)
     } else if (selectedValue === "Ужасы") {
-       getRandomMovie(HORRIRS_URL)
+        getRandomMovie(HORRIRS_URL)
     } else if (selectedValue === "Триллер") {
-       getRandomMovie(TRILLERS_URL)
+        getRandomMovie(TRILLERS_URL)
     }
 }
 const randomForm = document.querySelector('.random-form')
@@ -341,7 +341,7 @@ randomForm.addEventListener('change', (e) => {
     moviesEl.innerHTML = ''
 });
 
-async function getTopFilms (num) {
+async function getTopFilms(num) {
     try {
         const response = await fetch(`${TOP_FILMS_URL}${num}`,
             {
@@ -366,53 +366,46 @@ const boxes = document.querySelector('.top-250-films__boxes')
 function showTopMovies(data, conatainer) {
     const topMoviesBox = document.querySelector(conatainer);
     data.films.forEach((movie) => {
-      const topMovie = document.createElement("div");
-      topMovie.classList.add("top-movie");
-      topMovie.innerHTML = `
-          <div class="movie__cover-inner">
-          <img
+        const topMovie = document.createElement("div");
+        topMovie.classList.add("top-movie");
+        topMovie.innerHTML = `
+        <div class="movie__cover-inner">
+        <img
             src="${movie.posterUrlPreview}"
             class="movie__cover"
-            alt="${movie.nameRu}"
-          />
-          <div class="movie__cover--darkened"></div>
+            alt="${movie.nameRu}"/>
+        <div class="movie__cover--darkened"></div>
         </div>
         <div class="movie__info">
-          <div class="movie__title">${movie.nameRu}</div>
-          <div class="movie__category">${movie.genres.map(
+        <div class="movie__title">${movie.nameRu}</div>
+        <div class="movie__category">${movie.genres.map(
             (genre) => ` ${genre.genre}`
-          )}</div>
-          ${
-            movie.rating &&
+        )}</div>
+        ${movie.rating &&
             `
-          <div class="movie__average movie__average--${getClassByRate(
-            movie.rating
-          )}">${movie.rating}</div>
-          `
-          }
+        <div class="movie__average movie__average--${getClassByRate(
+                movie.rating
+            )}">${movie.rating}</div>
+        `
+            }
         </div>
-          `;
-          topMoviesBox.appendChild(topMovie);
-          boxes.appendChild(topMoviesBox)
+        `;
+        topMoviesBox.appendChild(topMovie);
+        boxes.appendChild(topMoviesBox)
     });
-  }
+}
 
-  
-  function disableBtn() {
+
+
+function disableBtn() {
     document.querySelector('.top-250-films__button').disabled = true;
-  }
- 
-  document.querySelector('.top-250-films__button').addEventListener('click', event => {
-    event.preventDefault()
+}
 
+document.querySelector('.top-250-films__button').addEventListener('click', event => {
+    event.preventDefault()
     getTopFilms('3')
     disableBtn()
-
-    })
-
-
-
-
+})
 
 
 //ЮЛЯ КОНЕЦ

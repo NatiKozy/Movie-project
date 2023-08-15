@@ -275,7 +275,7 @@ img {
   left: 10px;
 }
 
-.movie {
+.random__movie {
   width: 160px;
   margin: 10px;
   position: relative;
@@ -395,6 +395,24 @@ img {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.top-250-films {
+  text-align: center;
+  margin: auto;
+}
+
+.top-250-films__boxes, .top-250-films__box {
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 59px auto;
+  display: flex;
+}
+
+.top-movie {
+  width: 160px;
+  margin: 10px;
+  position: relative;
 }
 
 /*# sourceMappingURL=index.939b9244.css.map */

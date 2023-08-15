@@ -4,6 +4,16 @@ $white: #ffffff;
 $body-color:#020510;
 $section-color: #0a031c;
 
+@mixin movie-card-style{
+  width: 160px;
+  margin: 10px;
+  position: relative;
+}
+
+@mixin button-general-style{
+
+}
+
 * {
     box-sizing: border-box;
     color:$white;
@@ -273,10 +283,8 @@ width: 200px;
 }
 
 // SHOW MOVIES STYLES ЮЛЯ
-.movie {
-    width: 160px;
-    margin: 10px;
-    position: relative;
+.random__movie {
+  @include movie-card-style()
 }
 
 .movie__cover-inner {
@@ -414,3 +422,21 @@ width: 200px;
 }
 
 /* RANDOM_FILM RART END */
+
+// TOP 250 FILMS
+
+.top-250-films{
+  margin: auto;
+  text-align: center;
+}
+
+.top-250-films__boxes,
+.top-250-films__box{
+  margin: 59 auto;
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.top-movie{
+@include movie-card-style()
+}

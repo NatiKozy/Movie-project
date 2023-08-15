@@ -798,7 +798,7 @@ function getClassByRate(vote) {
 const moviesEl = document.querySelector(".random-movies");
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
-    movieEl.classList.add("movie");
+    movieEl.classList.add("random__movie");
     movieEl.innerHTML = `
         <div class="movie__cover-inner">
         <img
@@ -851,22 +851,21 @@ function showTopMovies(data, conatainer) {
         const topMovie = document.createElement("div");
         topMovie.classList.add("top-movie");
         topMovie.innerHTML = `
-          <div class="movie__cover-inner">
-          <img
+        <div class="movie__cover-inner">
+        <img
             src="${movie.posterUrlPreview}"
             class="movie__cover"
-            alt="${movie.nameRu}"
-          />
-          <div class="movie__cover--darkened"></div>
+            alt="${movie.nameRu}"/>
+        <div class="movie__cover--darkened"></div>
         </div>
         <div class="movie__info">
-          <div class="movie__title">${movie.nameRu}</div>
-          <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
-          ${movie.rating && `
-          <div class="movie__average movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>
-          `}
+        <div class="movie__title">${movie.nameRu}</div>
+        <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+        ${movie.rating && `
+        <div class="movie__average movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>
+        `}
         </div>
-          `;
+        `;
         topMoviesBox.appendChild(topMovie);
         boxes.appendChild(topMoviesBox);
     });
