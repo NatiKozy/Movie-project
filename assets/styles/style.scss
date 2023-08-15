@@ -35,7 +35,7 @@ img {
   color: $white;
 }
 
-.movies-gallery {
+.movies-gallery, .series-gallery, .cartoon-gallery {
   position: relative;
   width: 1500px;
   padding: 40px 0;
@@ -45,7 +45,7 @@ img {
   background-color: $section-color;
 
 }
-.movies__container{
+.movies__container, .series-container, .cartoon-container{
   width: 1400px;
   margin: 0px auto;
   padding: 20px 0;
@@ -54,7 +54,7 @@ img {
 .movies__container::-webkit-scrollbar {
   display: none;
 }
-.movies-list {
+.movies-list, .series-list, .cartoon-list {
   display: flex;
   flex-wrap: nowrap;
   width: 1400px;
@@ -89,10 +89,10 @@ img {
   background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
-.gallery-btn--right {
+.movies-gallery-btn--right {
   right: 20px;
 }
-.gallery-btn--left {
+.movies-gallery-btn--left {
   left: 20px;
   transform: rotate(180deg);
 }
