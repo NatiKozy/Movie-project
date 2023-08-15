@@ -85,26 +85,38 @@
 </div>
 <section class="random">
     <div class="random-container">
-    <div class="random__left-part">
-        <h2 class="random__title">Случайный фильм по жанру</h2>
-        <p class="loading"></p>
-        <form class="random-form" action="">
-            <select  name="" id="select-list" >
-                <!-- <option selected>Жанр</option> -->
-                <option value="Драма">Драма</option>
-                <option value="Комедия">Комедия</option>
-                <option value="Ужасы">Ужасы</option>
-                <!-- <option value="Боевик">Боевик</option> -->
-                <option value="Триллер">Триллер</option>
-                <!-- <option value="Фонтастика">Фонтастика</option> -->
-            </select>
-        </form>
+        <div class="random__left-part">
+            <h2 class="random__title">Случайный фильм по жанру</h2>
+            <p class="loading"></p>
+            <form class="random-form" action="">
+                <select name="" id="select-list">
+                    <!-- <option selected>Жанр</option> -->
+                    <option value="Драма">Драма</option>
+                    <option value="Комедия">Комедия</option>
+                    <option value="Ужасы">Ужасы</option>
+                    <!-- <option value="Боевик">Боевик</option> -->
+                    <option value="Триллер">Триллер</option>
+                    <!-- <option value="Фонтастика">Фонтастика</option> -->
+                </select>
+            </form>
+        </div>
+        <div class="random__right-part">
+            <div class="random-movies"><img class="random-basic-img"
+                    src="./assets/images/icons/random-icon(need_to_change).png"></div>
+        </div>
     </div>
-    <div class="random__right-part">
-        <div class="random-movies"><img class="random-basic-img" src="./assets/images/icons/random-icon(need_to_change).png"></div>
+    </section>
+    <section class="top-250-films">
+        <h2 class="top-250-films__title"></h2>
+        <div class="top-250-films__boxes">
+        <div class="top-250-films__box">
+        <div class="top-movie"></div> </div>
+        <div class="top-250-films__box-two">
+            <div class="top-movie"></div>
+        </div>
     </div>
-</div>
-</section>
+        <button class="top-250-films__button">Показать больше</button>
+    </section>
     </main>
     <footer class="footer"></footer>
     <script src="index.js" type="module"></script>

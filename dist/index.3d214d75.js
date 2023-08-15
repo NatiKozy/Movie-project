@@ -761,84 +761,22 @@ function showPremiers(array) {
 }
 getPremiers();
 //ЮЛЯ НАЧАЛО
+const TOP_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`;
+const TOP_FILMS_PAGE_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`;
 const TRILLERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=1&type=FILM`;
 const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&type=FILM`;
 const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
 const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`;
 const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`;
 const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
+const TOP_AWAIT_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=1`;
 function arrayRandElement(arr) {
     const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];
 }
-async function getRandomDramaMovie() {
+async function getRandomMovie(url) {
     try {
-        const response = await fetch(DRAMAS_URL, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": RANDOM_API_KEY,
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await response.json();
-        const res = arrayRandElement(data.items);
-        console.log(res);
-        showRandomMovie(res);
-    } catch (error) {
-        console.error(error);
-    }
-}
-async function getRandomHorrorMovie() {
-    try {
-        const response = await fetch(HORRIRS_URL, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": RANDOM_API_KEY,
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await response.json();
-        const res = arrayRandElement(data.items);
-        showRandomMovie(res);
-    } catch (error) {
-        console.error(error);
-    }
-}
-async function getRandomComedyMovie() {
-    try {
-        const response = await fetch(COMEDIES_URL, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": RANDOM_API_KEY,
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await response.json();
-        const res = arrayRandElement(data.items);
-        showRandomMovie(res);
-    } catch (error) {
-        console.error(error);
-    }
-}
-async function getRandomFantasyMovie() {
-    try {
-        const response = await fetch(FANTASY_URL, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": RANDOM_API_KEY,
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await response.json();
-        const res = arrayRandElement(data.items);
-        showRandomMovie(res);
-    } catch (error) {
-        console.error(error);
-    }
-}
-async function getRandomTrillesMovie() {
-    try {
-        const response = await fetch(TRILLERS_URL, {
+        const response = await fetch(url, {
             method: "GET",
             headers: {
                 "X-API-KEY": RANDOM_API_KEY,
@@ -879,17 +817,69 @@ function showRandomMovie(movie) {
 }
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
-    if (selectedValue === "Драма") getRandomDramaMovie();
-    else if (selectedValue === "Комедия") getRandomComedyMovie();
-    else if (selectedValue === "Ужасы") getRandomHorrorMovie();
-    else if (selectedValue === "Триллер") getRandomTrillesMovie();
+    if (selectedValue === "Драма") getRandomMovie(DRAMAS_URL);
+    else if (selectedValue === "Комедия") getRandomMovie(COMEDIES_URL);
+    else if (selectedValue === "Ужасы") getRandomMovie(HORRIRS_URL);
+    else if (selectedValue === "Триллер") getRandomMovie(TRILLERS_URL);
 }
 const randomForm = document.querySelector(".random-form");
 randomForm.addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
     moviesEl.innerHTML = "";
-}); //ЮЛЯ КОНЕЦ
+});
+async function getTopFilms(num) {
+    try {
+        const response = await fetch(`${TOP_FILMS_URL}${num}`, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": RANDOM_API_KEY,
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        showTopMovies(data, ".top-250-films__box");
+    } catch (error) {
+        console.error(error);
+    }
+}
+getTopFilms("1");
+const boxes = document.querySelector(".top-250-films__boxes");
+function showTopMovies(data, conatainer) {
+    const topMoviesBox = document.querySelector(conatainer);
+    data.films.forEach((movie)=>{
+        const topMovie = document.createElement("div");
+        topMovie.classList.add("top-movie");
+        topMovie.innerHTML = `
+          <div class="movie__cover-inner">
+          <img
+            src="${movie.posterUrlPreview}"
+            class="movie__cover"
+            alt="${movie.nameRu}"
+          />
+          <div class="movie__cover--darkened"></div>
+        </div>
+        <div class="movie__info">
+          <div class="movie__title">${movie.nameRu}</div>
+          <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+          ${movie.rating && `
+          <div class="movie__average movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>
+          `}
+        </div>
+          `;
+        topMoviesBox.appendChild(topMovie);
+        boxes.appendChild(topMoviesBox);
+    });
+}
+function disableBtn() {
+    document.querySelector(".top-250-films__button").disabled = true;
+}
+document.querySelector(".top-250-films__button").addEventListener("click", (event)=>{
+    event.preventDefault();
+    getTopFilms("3");
+    disableBtn();
+}) //ЮЛЯ КОНЕЦ
+;
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
 
