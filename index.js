@@ -341,6 +341,24 @@ async function getTopFilms(num) {
 };
 getTopFilms('1')
 
+async function getTopFilmsTwo(num) {
+    try {
+        const response = await fetch(`${TOP_FILMS_URL}${num}`,
+            {
+                method: 'GET',
+                headers: {
+                    'X-API-KEY': RANDOM_API_KEY,
+                    'Content-Type': 'application/json',
+                },
+            })
+        const data = await response.json();
+        showTopMovies(data, '.top-250-films__box-two')
+    }
+    catch (error) {
+        console.error(error)
+    }
+};
+
 
 const boxes = document.querySelector('.top-250-films__boxes')
 
@@ -378,15 +396,42 @@ function showTopMovies(data, conatainer) {
 
 
 
-function disableBtn() {
-    document.querySelector('.top-250-films__button').disabled = true;
+
+function disableBtn(btn) {
+    document.querySelector(btn).disabled = true;
 }
 
-document.querySelector('.top-250-films__button').addEventListener('click', event => {
+function unlockBtn(btn){
+    document.querySelector(btn).disabled = false;
+}
+const btnTop  = document.querySelector('.top-250-films__button')
+const hideBtn = document.querySelector('.top-250-films__button-hide')
+
+let numPage = 2
+function countPage (){
+    console.log(numPage)
+    numPage+= 1
+}
+btnTop.addEventListener('click', event => {
     event.preventDefault()
-    getTopFilms('3')
-    disableBtn()
+    getTopFilmsTwo(numPage)
+    hideBtn.display = 'block'
+    countPage()
+    unlockBtn('.top-250-films__button-hide')
+    showBtn()
 })
 
+const showBtn = () =>{
+    hideBtn.style.display = "block"
+}
+
+hideBtn.addEventListener('click', event => {
+event.preventDefault()
+document.querySelector('.top-250-films__box-two').innerHTML = ''
+disableBtn('.top-250-films__button-hide')
+unlockBtn('.top-250-films__button')
+numPage = 2
+})
+//ЮЛЯ КОНЕЦ
 
 //ЮЛЯ КОНЕЦ

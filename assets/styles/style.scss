@@ -430,7 +430,8 @@ swiper-slide img {
 }
 
 .top-250-films__boxes,
-.top-250-films__box{
+.top-250-films__box,
+.top-250-films__box-two{
   margin: 59 auto;
   max-width: 900px;
   display: flex;
@@ -438,4 +439,7 @@ swiper-slide img {
 }
 .top-movie{
 @include movie-card-style()
+}
+.top-250-films__button-hide{
+  display: none;
 }
