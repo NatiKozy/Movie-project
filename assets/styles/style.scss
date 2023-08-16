@@ -37,6 +37,7 @@ img {
   max-width: 100%;
 }
 
+
 //movies
 
 .section_title{
@@ -45,7 +46,7 @@ img {
   color: $white;
 }
 
-.movies-gallery {
+.film-cards-gallery {
   position: relative;
   width: 1500px;
   padding: 40px 0;
@@ -55,16 +56,16 @@ img {
   background-color: $section-color;
 
 }
-.movies__container{
+.gallery-wrapper{
   width: 1400px;
   margin: 0px auto;
   padding: 20px 0;
   overflow-x: auto;
 }
-.movies__container::-webkit-scrollbar {
+.gallery-wrapper::-webkit-scrollbar {
   display: none;
 }
-.movies-list {
+.movies-list, .series-list, .cartoon-list {
   display: flex;
   flex-wrap: nowrap;
   width: 1400px;
@@ -87,24 +88,40 @@ img {
   margin: auto 0;
 }
 
-.gallery-btn{
+.movies-gallery,
+.series-gallery,
+.cartoon-container{
+  position: relative;
+}
+.gallery-btn--right, .gallery-btn--left {
   position: absolute;
   top: 250px;
+  margin: 0;
+  padding: 0;
   width: 37px;
   height: 48px;
   border-radius: 5px;
-  margin: 0;
-  padding: 0;
+  cursor: pointer;
+  background-color: rgb(0, 0, 0, 0.3);
   border: none;
-  background-color: rgba($color: #000000, $alpha: 0.5);
-}
 
-.gallery-btn--right {
+  img{
+    width: 37px;
+    height: 48px;
+  }
+}
+.gallery-btn--right{
   right: 20px;
 }
 .gallery-btn--left {
   left: 20px;
   transform: rotate(180deg);
+}
+.gallery-btn--right:hover{
+  background-color: rgb(0, 0, 0, 0.9);
+}
+.gallery-btn--left:hover{
+  background-color: rgb(0, 0, 0, 0.9);
 }
 //модальное окно
 .modal-window{
@@ -113,6 +130,9 @@ img {
 
 .modal-window--active{
   display: inline-block;
+  position: absolute;
+  left: 100px;
+  top: 50%;
   width: 100%;
   margin: auto;
 }
@@ -172,45 +192,24 @@ img {
     }
     
 /* //slider styles// */
-.slider {
-    display: flex;
-    max-width: 1000px;
-    margin: 0 auto;
-    box-shadow: 0 0 0 1px black;
-    overflow: hidden;
-    position: relative;
+
+swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.slider-line{
-    display: flex;
-}
-.slider-img {
-    /* width: 100%; */
-width: 200px;
-
-}
-.slider-panel{
-    color: red;
-    width: 100%;
-    display: flex;
-    position: absolute;
-    top: 50%;
-}
-
-.arrows {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 28%;
 
 }
 
-.arrows i {
-    cursor:pointer;
-}
-
-.arrows i:hover {
-    color: #ffd80e;
+swiper-slide img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
 }
 
 //ЛЕНА
@@ -431,7 +430,8 @@ width: 200px;
 }
 
 .top-250-films__boxes,
-.top-250-films__box{
+.top-250-films__box,
+.top-250-films__box-two{
   margin: 59 auto;
   max-width: 900px;
   display: flex;

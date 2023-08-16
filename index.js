@@ -1,8 +1,10 @@
 //АНЯ НАЧАЛО секция MOVIES
-const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie`;
+const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
 const API_KEY_MOVIES = `V9WW64N-0ZMMV8V-PR39C4M-6YSG9KB`;
 
 const movieslist = document.querySelector('.movies-list');
+const seriesList = document.querySelector('.series-list');
+const cartoonList = document.querySelector('.cartoon-list');
 
 async function getFilms (){
     try {
@@ -17,7 +19,7 @@ async function getFilms (){
         const data = await response.json();
         const films = await data.docs;
         console.log(films);
-        showMoviesCards(movieslist, films)
+        checmoviekType(films)
     }
     catch (err) {
         console.log(err)
@@ -51,9 +53,25 @@ function showMoviesCards (parrent, array) {
     }
 }
 
+function checmoviekType(array){
+    for (let item of array) {
+        if (item.type === "movie"){
+            const movies = [];
+            movies.push(item);
+            showMoviesCards(movieslist, array)
+        } else if (item.type === "tv-series") {
+            const series = [];
+            series.push(item);
+            showMoviesCards(seriesList, series)
+        } else if (item.type === 'cartoon'){
+            const cartoons = [];
+            cartoons.push(item);
+            showMoviesCards(cartoonList, cartoons)
+        }
+    }
+ }
+
 //галерея ()
-const movieGalleryBtnLeft = document.querySelector('.gallery-btn--left');
-const movieGalleryBtnRight = document.querySelector('.gallery-btn--right');
 
 
 
@@ -98,39 +116,44 @@ getFilms();
 //НАТАША НАЧАЛО
 
 //slider realization//
-const IMAGES = document.querySelectorAll('.slider-line img');
-const SLIDER = document.querySelector('.slider-line');
+const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
+const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 
-//счетчик
-let count = 0;
-//прокрутка слайдера
-function rollSlider() {
-    SLIDER.style.transform = `translate(-${count*100}%)`;
+async function getPremiers() {
+    try {
+        const response = await fetch(PREMIERS_URL,
+    
+            {
+                method: 'GET',
+                headers: {
+                    'X-API-KEY': PREMIERS_API_KEY,
+                    'Content-Type': 'application/json',
+                },
+            })
+        const data = await response.json();
+        const premiers = await data.items;
+        showPremiers(premiers);
+    }
+    catch (err) {
+        console.log(err)
+    }
 }
 
-//предыдущий
-//  function prev() {
-//     count --;
+const premiereSlider = document.querySelector('.mySwiper');
 
-//     if(count < 0 ) {
-//         count = IMAGES.length -1;
-//     }
+function showPremiers(array) {
+    for (let item of array) {
+        const div = document.createElement('swiper-slide');
+        const imgSrc = item.posterUrl;
+         div.innerHTML = 
+         `
+         <img src="${imgSrc}">
+         `
+         premiereSlider.append(div);
+    }
+}
 
-//  rollSlider();
-// }
-
-//следующий
-// function next() {
-//     count ++;
-
-//     if (count >= IMAGES.length) {
-//         count = 0;
-//     }
-
-// rollSlider();
-// }
-
-//end of slider
+getPremiers();
 
 
 //НАТАША КОНЕЦ
@@ -200,50 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 
-
-async function getPremiers() {
-    try {
-        const response = await fetch(PREMIERS_URL,
-    
-            {
-                method: 'GET',
-                headers: {
-                    'X-API-KEY': PREMIERS_API_KEY,
-                    'Content-Type': 'application/json',
-                },
-            })
-        const data = await response.json();
-        const premiers = await data.items;
-        console.log(premiers);
-        showPremiers(premiers);
-    }
-    catch (err) {
-        console.log(err)
-    }
-}
-
-
-
-const premiersContainer = document.querySelector('.premiers');
-
-function showPremiers(array) {
-    for (item of array) {
-        const div = document.createElement('div');
-        div.classList.add("premiere-img");
-        premiereImage = item.posterUrl;
-        div.innerHTML = `
-            <img src="${premiereImage}">
-            `
-        premiersContainer.append(div);
-
-    }
-}
-
-getPremiers();
 
 //ЮЛЯ НАЧАЛО
 
@@ -360,6 +341,23 @@ async function getTopFilms(num) {
 };
 getTopFilms('1')
 
+async function getTopFilmsTwo(num) {
+    try {
+        const response = await fetch(`${TOP_FILMS_URL}${num}`,
+            {
+                method: 'GET',
+                headers: {
+                    'X-API-KEY': RANDOM_API_KEY,
+                    'Content-Type': 'application/json',
+                },
+            })
+        const data = await response.json();
+        showTopMovies(data, '.top-250-films__box-two')
+    }
+    catch (error) {
+        console.error(error)
+    }
+};
 
 const boxes = document.querySelector('.top-250-films__boxes')
 
@@ -397,15 +395,29 @@ function showTopMovies(data, conatainer) {
 
 
 
-function disableBtn() {
-    document.querySelector('.top-250-films__button').disabled = true;
+function disableBtn(btn) {
+    document.querySelector(btn).disabled = true;
 }
 
-document.querySelector('.top-250-films__button').addEventListener('click', event => {
+function unlockBtn(btn){
+    document.querySelector(btn).disabled = false;
+}
+const btnTop  = document.querySelector('.top-250-films__button')
+
+btnTop.addEventListener('click', event => {
     event.preventDefault()
-    getTopFilms('3')
-    disableBtn()
+    getTopFilmsTwo('3')
+    hideBtn.display = 'block'
+    disableBtn('.top-250-films__button')
+    unlockBtn('.top-250-films__button-hide')
 })
 
 
+const hideBtn = document.querySelector('.top-250-films__button-hide')
+hideBtn.addEventListener('click', event => {
+event.preventDefault()
+document.querySelector('.top-250-films__box-two').innerHTML = ''
+disableBtn('.top-250-films__button-hide')
+unlockBtn('.top-250-films__button')
+})
 //ЮЛЯ КОНЕЦ

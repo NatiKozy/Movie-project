@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -31,23 +32,57 @@
     </header>
     <main>
 
-        <section class="hero"></section>
+        <section class="hero">            
+            <body>
+                <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+                </swiper-container>
+        </body></section>
+ 
 
 
 <!-- Галерея с фильмами -->
-<section class="movies-gallery">
+<section class="film-cards-gallery movie-gallery">
     <h2 class="section_title">Movies</h2>
-    <div class="movies__container">
-        <button class="gallery-btn gallery-btn--left">
+    <div class="gallery-wrapper">
+        <button class="gallery-btn--left" id="movie-btn--left">
             <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
         </button>
         <ul class="list movies-list">
         </ul>
-        <button class="gallery-btn gallery-btn--right">
+        <button class="gallery-btn--right" id="movie-btn--right">
             <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
         </button>
     </div>
 </section>
+
+<section class="film-cards-gallery series-gallery">
+    <h2 class="section_title">Series</h2>
+    <div class="gallery-wrapper">
+    <button class="gallery-btn--left" id="series-btn--left">
+        <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
+    </button>
+    <ul class="list series-list">
+    </ul>
+    <button class="gallery-btn--right" id="series-btn--right">
+        <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
+    </button>
+</div>
+</section>
+
+<section class="film-cards-gallery cartoons-gallery">
+    <h2 class="section_title">Cartoons</h2>
+    <div class="gallery-wrapper">
+        <button class="gallery-btn--left" id="cartoon-btn--left">
+            <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
+        </button>
+        <ul class="list cartoon-list">
+        </ul>
+        <button class="gallery-btn--right" id="cartoon-btn--right">
+            <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
+        </button>
+    </div>
+</section>
+
 <!--   модальное окно -->
 <section class="modal-window">
     <div class="modal-window__container">
@@ -67,7 +102,6 @@
     </div>
 
 </section>
-
 
     <section class="premiers">
         <div class="slider">
@@ -110,11 +144,17 @@
     <div class="top-250-films__boxes">
         <div class="top-250-films__box">
         </div>
+        <div class="top-250-films__box-two">
+        </div>
     </div>
-    <button class="top-250-films__button ">Показать больше</button>
+    <div class="buttons">
+    <button class="top-250-films__button">Показать больше</button>
+    <button class="top-250-films__button-hide">Скрыть</button>
+</div>
 </section>
 </main>
 <footer class="footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js" defer=""></script>
 <script src="/index.3d214d75.js" defer=""></script>
 </body>
 

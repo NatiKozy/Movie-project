@@ -575,9 +575,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"bB7Pu":[function(require,module,exports) {
 //АНЯ НАЧАЛО секция MOVIES
-const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie`;
+const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
 const API_KEY_MOVIES = `V9WW64N-0ZMMV8V-PR39C4M-6YSG9KB`;
 const movieslist = document.querySelector(".movies-list");
+const seriesList = document.querySelector(".series-list");
+const cartoonList = document.querySelector(".cartoon-list");
 async function getFilms() {
     try {
         const response = await fetch(FILMS_URL_MOVIES, {
@@ -590,35 +592,50 @@ async function getFilms() {
         const data = await response.json();
         const films = await data.docs;
         console.log(films);
-        showMoviesCards(movieslist, films);
+        checmoviekType(films);
     } catch (err) {
         console.log(err);
     }
 }
 function createMovieCard(parrent, image, alt, year, country, genres, text) {
-    const item1 = document.createElement("li");
-    item1.classList.add("movies-list__item");
-    item1.addEventListener("click", (event)=>{
+    const item = document.createElement("li");
+    item.classList.add("movies-list__item");
+    item.addEventListener("click", (event)=>{
         event.preventDefault;
         showMovieModalWindow(image, alt, year, country, genres, text);
     });
-    item1.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`;
-    parrent.append(item1);
+    item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`;
+    parrent.append(item);
 }
 function showMoviesCards(parrent, array) {
-    for (let item1 of array){
-        const itemImage = item1.poster.previewUrl;
-        const itemAlt = item1.name;
-        const itemYear = item1.year;
-        const itemCountry = getArrayItemsList(item1.countries);
-        const itemGenres = getArrayItemsList(item1.genres);
-        const itemText = item1.shortDescription;
+    for (let item of array){
+        const itemImage = item.poster.previewUrl;
+        const itemAlt = item.name;
+        const itemYear = item.year;
+        const itemCountry = getArrayItemsList(item.countries);
+        const itemGenres = getArrayItemsList(item.genres);
+        const itemText = item.shortDescription;
         createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemGenres, itemText);
     }
 }
+function checmoviekType(array) {
+    for (let item of array){
+        if (item.type === "movie") {
+            const movies = [];
+            movies.push(item);
+            showMoviesCards(movieslist, array);
+        } else if (item.type === "tv-series") {
+            const series = [];
+            series.push(item);
+            showMoviesCards(seriesList, series);
+        } else if (item.type === "cartoon") {
+            const cartoons = [];
+            cartoons.push(item);
+            showMoviesCards(cartoonList, cartoons);
+        }
+    }
+}
 //галерея ()
-const movieGalleryBtnLeft = document.querySelector(".gallery-btn--left");
-const movieGalleryBtnRight = document.querySelector(".gallery-btn--right");
 const modalWindowSection = document.querySelector(".modal-window");
 const modalWindowTitle = document.querySelector(".modal-window__title");
 const modalWindowImage = document.querySelector(".modal-window__img");
@@ -638,7 +655,7 @@ function showMovieModalWindow(image, alt, year, country, genres, text) {
 }
 function getArrayItemsList(array) {
     const itemsList = [];
-    for (let item1 of array)itemsList.push(item1.name);
+    for (let item of array)itemsList.push(item.name);
     return itemsList.join(", ");
 }
 modalWindowBtn.addEventListener("click", (event)=>{
@@ -649,31 +666,36 @@ getFilms();
 //АНЯ КОНЕЦ
 //НАТАША НАЧАЛО
 //slider realization//
-const IMAGES = document.querySelectorAll(".slider-line img");
-const SLIDER = document.querySelector(".slider-line");
-//счетчик
-let count = 0;
-//прокрутка слайдера
-function rollSlider() {
-    SLIDER.style.transform = `translate(-${count * 100}%)`;
+const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
+const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
+async function getPremiers() {
+    try {
+        const response = await fetch(PREMIERS_URL, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": PREMIERS_API_KEY,
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        const premiers = await data.items;
+        showPremiers(premiers);
+    } catch (err) {
+        console.log(err);
+    }
 }
-//предыдущий
-//  function prev() {
-//     count --;
-//     if(count < 0 ) {
-//         count = IMAGES.length -1;
-//     }
-//  rollSlider();
-// }
-//следующий
-// function next() {
-//     count ++;
-//     if (count >= IMAGES.length) {
-//         count = 0;
-//     }
-// rollSlider();
-// }
-//end of slider
+const premiereSlider = document.querySelector(".mySwiper");
+function showPremiers(array) {
+    for (let item of array){
+        const div = document.createElement("swiper-slide");
+        const imgSrc = item.posterUrl;
+        div.innerHTML = `
+         <img src="${imgSrc}">
+         `;
+        premiereSlider.append(div);
+    }
+}
+getPremiers();
 //НАТАША КОНЕЦ
 //ЛЕНА НАЧАЛО
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -727,39 +749,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 });
 //ЛЕНА КОНЕЦ
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
-async function getPremiers() {
-    try {
-        const response = await fetch(PREMIERS_URL, {
-            method: "GET",
-            headers: {
-                "X-API-KEY": PREMIERS_API_KEY,
-                "Content-Type": "application/json"
-            }
-        });
-        const data = await response.json();
-        const premiers = await data.items;
-        console.log(premiers);
-        showPremiers(premiers);
-    } catch (err) {
-        console.log(err);
-    }
-}
-const premiersContainer = document.querySelector(".premiers");
-function showPremiers(array) {
-    for (item of array){
-        const div = document.createElement("div");
-        div.classList.add("premiere-img");
-        premiereImage = item.posterUrl;
-        div.innerHTML = `
-            <img src="${premiereImage}">
-            `;
-        premiersContainer.append(div);
-    }
-}
-getPremiers();
 //ЮЛЯ НАЧАЛО
 const TOP_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`;
 const TOP_FILMS_PAGE_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`;
@@ -844,6 +834,21 @@ async function getTopFilms(num) {
     }
 }
 getTopFilms("1");
+async function getTopFilmsTwo(num) {
+    try {
+        const response = await fetch(`${TOP_FILMS_URL}${num}`, {
+            method: "GET",
+            headers: {
+                "X-API-KEY": RANDOM_API_KEY,
+                "Content-Type": "application/json"
+            }
+        });
+        const data = await response.json();
+        showTopMovies(data, ".top-250-films__box-two");
+    } catch (error) {
+        console.error(error);
+    }
+}
 const boxes = document.querySelector(".top-250-films__boxes");
 function showTopMovies(data, conatainer) {
     const topMoviesBox = document.querySelector(conatainer);
@@ -870,13 +875,26 @@ function showTopMovies(data, conatainer) {
         boxes.appendChild(topMoviesBox);
     });
 }
-function disableBtn() {
-    document.querySelector(".top-250-films__button").disabled = true;
+function disableBtn(btn) {
+    document.querySelector(btn).disabled = true;
 }
-document.querySelector(".top-250-films__button").addEventListener("click", (event)=>{
+function unlockBtn(btn) {
+    document.querySelector(btn).disabled = false;
+}
+const btnTop = document.querySelector(".top-250-films__button");
+btnTop.addEventListener("click", (event)=>{
     event.preventDefault();
-    getTopFilms("3");
-    disableBtn();
+    getTopFilmsTwo("3");
+    hideBtn.display = "block";
+    disableBtn(".top-250-films__button");
+    unlockBtn(".top-250-films__button-hide");
+});
+const hideBtn = document.querySelector(".top-250-films__button-hide");
+hideBtn.addEventListener("click", (event)=>{
+    event.preventDefault();
+    document.querySelector(".top-250-films__box-two").innerHTML = "";
+    disableBtn(".top-250-films__button-hide");
+    unlockBtn(".top-250-films__button");
 }) //ЮЛЯ КОНЕЦ
 ;
 

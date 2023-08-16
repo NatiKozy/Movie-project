@@ -26,7 +26,7 @@ img {
   font-size: 30px;
 }
 
-.movies-gallery {
+.film-cards-gallery {
   background-color: #0a031c;
   width: 1500px;
   margin: 0 auto;
@@ -34,18 +34,18 @@ img {
   position: relative;
 }
 
-.movies__container {
+.gallery-wrapper {
   width: 1400px;
   margin: 0 auto;
   padding: 20px 0;
   overflow-x: auto;
 }
 
-.movies__container::-webkit-scrollbar {
+.gallery-wrapper::-webkit-scrollbar {
   display: none;
 }
 
-.movies-list {
+.movies-list, .series-list, .cartoon-list {
   flex-wrap: nowrap;
   width: 1400px;
   margin: 0;
@@ -54,7 +54,7 @@ img {
   display: flex;
 }
 
-.movies-list li {
+.movies-list li, .series-list li, .cartoon-list li {
   align-items: flex-start;
   min-width: 200px;
   margin: 0 20px;
@@ -69,8 +69,13 @@ img {
   margin: auto 0;
 }
 
-.gallery-btn {
-  background-color: #00000080;
+.movies-gallery, .series-gallery, .cartoon-container {
+  position: relative;
+}
+
+.gallery-btn--right, .gallery-btn--left {
+  cursor: pointer;
+  background-color: #0000004d;
   border: none;
   border-radius: 5px;
   width: 37px;
@@ -79,6 +84,11 @@ img {
   padding: 0;
   position: absolute;
   top: 250px;
+}
+
+.gallery-btn--right img, .gallery-btn--left img {
+  width: 37px;
+  height: 48px;
 }
 
 .gallery-btn--right {
@@ -90,6 +100,10 @@ img {
   transform: rotate(180deg);
 }
 
+.gallery-btn--right:hover, .gallery-btn--left:hover {
+  background-color: #000000e6;
+}
+
 .modal-window {
   display: none;
 }
@@ -98,6 +112,9 @@ img {
   width: 100%;
   margin: auto;
   display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 100px;
 }
 
 .modal-window__container {
@@ -163,44 +180,22 @@ img {
   display: flex;
 }
 
-.slider {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px #000;
-}
-
-.slider-line {
-  display: flex;
-}
-
-.slider-img {
-  width: 200px;
-}
-
-.slider-panel {
-  color: red;
+swiper-container {
   width: 100%;
-  display: flex;
-  position: absolute;
-  top: 50%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-.arrows {
-  justify-content: space-between;
-  align-items: center;
+swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 28%;
+}
+
+swiper-slide img {
+  border-radius: 20px;
   width: 100%;
-  display: flex;
-}
-
-.arrows i {
-  cursor: pointer;
-}
-
-.arrows i:hover {
-  color: #ffd80e;
+  display: block;
 }
 
 .header__content {
@@ -402,7 +397,7 @@ img {
   margin: auto;
 }
 
-.top-250-films__boxes, .top-250-films__box {
+.top-250-films__boxes, .top-250-films__box, .top-250-films__box-two {
   flex-wrap: wrap;
   max-width: 900px;
   margin: 59px auto;
