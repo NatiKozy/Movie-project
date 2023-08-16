@@ -575,9 +575,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"bB7Pu":[function(require,module,exports) {
 //АНЯ НАЧАЛО секция MOVIES
-const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie`;
+const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
 const API_KEY_MOVIES = `V9WW64N-0ZMMV8V-PR39C4M-6YSG9KB`;
 const movieslist = document.querySelector(".movies-list");
+const seriesList = document.querySelector(".series-list");
+const cartoonList = document.querySelector(".cartoon-list");
 async function getFilms() {
     try {
         const response = await fetch(FILMS_URL_MOVIES, {
@@ -590,7 +592,7 @@ async function getFilms() {
         const data = await response.json();
         const films = await data.docs;
         console.log(films);
-        showMoviesCards(movieslist, films);
+        checmoviekType(films);
     } catch (err) {
         console.log(err);
     }
@@ -616,9 +618,24 @@ function showMoviesCards(parrent, array) {
         createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemGenres, itemText);
     }
 }
+function checmoviekType(array) {
+    for (let item1 of array){
+        if (item1.type === "movie") {
+            const movies = [];
+            movies.push(item1);
+            showMoviesCards(movieslist, array);
+        } else if (item1.type === "tv-series") {
+            const series = [];
+            series.push(item1);
+            showMoviesCards(seriesList, series);
+        } else if (item1.type === "cartoon") {
+            const cartoons = [];
+            cartoons.push(item1);
+            showMoviesCards(cartoonList, cartoons);
+        }
+    }
+}
 //галерея ()
-const movieGalleryBtnLeft = document.querySelector(".gallery-btn--left");
-const movieGalleryBtnRight = document.querySelector(".gallery-btn--right");
 const modalWindowSection = document.querySelector(".modal-window");
 const modalWindowTitle = document.querySelector(".modal-window__title");
 const modalWindowImage = document.querySelector(".modal-window__img");
