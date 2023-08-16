@@ -6,10 +6,9 @@ const movieslist = document.querySelector('.movies-list');
 const seriesList = document.querySelector('.series-list');
 const cartoonList = document.querySelector('.cartoon-list');
 
-async function getFilms (){
+async function getFilms() {
     try {
-        const response = await fetch(FILMS_URL_MOVIES,
-        {
+        const response = await fetch(FILMS_URL_MOVIES, {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY_MOVIES,
@@ -20,19 +19,18 @@ async function getFilms (){
         const films = await data.docs;
         console.log(films);
         checmoviekType(films)
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err)
     }
 };
 
 
-function createMovieCard (parrent, image, alt, year, country,genres, text) {
+function createMovieCard(parrent, image, alt, year, country, genres, text) {
     const item = document.createElement('li');
     item.classList.add('movies-list__item');
     item.addEventListener('click', (event) => {
         event.preventDefault;
-        showMovieModalWindow(image, alt, year, country,genres, text);
+        showMovieModalWindow(image, alt, year, country, genres, text);
     })
     item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`
 
@@ -40,7 +38,7 @@ function createMovieCard (parrent, image, alt, year, country,genres, text) {
 
 }
 
-function showMoviesCards (parrent, array) {
+function showMoviesCards(parrent, array) {
     for (let item of array) {
         const itemImage = item.poster.previewUrl;
         const itemAlt = item.name;
@@ -53,9 +51,9 @@ function showMoviesCards (parrent, array) {
     }
 }
 
-function checmoviekType(array){
+function checmoviekType(array) {
     for (let item of array) {
-        if (item.type === "movie"){
+        if (item.type === "movie") {
             const movies = [];
             movies.push(item);
             showMoviesCards(movieslist, array)
@@ -63,13 +61,13 @@ function checmoviekType(array){
             const series = [];
             series.push(item);
             showMoviesCards(seriesList, series)
-        } else if (item.type === 'cartoon'){
+        } else if (item.type === 'cartoon') {
             const cartoons = [];
             cartoons.push(item);
             showMoviesCards(cartoonList, cartoons)
         }
     }
- }
+}
 
 //галерея ()
 
@@ -84,7 +82,7 @@ const modalWindowGenres = document.querySelector('.modal-window__genres');
 const modalWindowText = document.querySelector('.modal-window__text');
 const modalWindowBtn = document.querySelector('.modal-window__btn');
 
-function showMovieModalWindow (image, alt, year, country, genres, text) {
+function showMovieModalWindow(image, alt, year, country, genres, text) {
     modalWindowSection.classList.add('modal-window--active');
     modalWindowImage.src = image;
     modalWindowTitle.textContent = alt;
@@ -94,9 +92,9 @@ function showMovieModalWindow (image, alt, year, country, genres, text) {
     modalWindowText.textContent = text;
 }
 
-function getArrayItemsList (array) {
+function getArrayItemsList(array) {
     const itemsList = [];
-    for (let item of array){
+    for (let item of array) {
         itemsList.push(item.name)
     }
     return itemsList.join(', ')
@@ -122,7 +120,7 @@ const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premier
 async function getPremiers() {
     try {
         const response = await fetch(PREMIERS_URL,
-    
+
             {
                 method: 'GET',
                 headers: {
@@ -133,8 +131,7 @@ async function getPremiers() {
         const data = await response.json();
         const premiers = await data.items;
         showPremiers(premiers);
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err)
     }
 }
@@ -145,11 +142,11 @@ function showPremiers(array) {
     for (let item of array) {
         const div = document.createElement('swiper-slide');
         const imgSrc = item.posterUrl;
-         div.innerHTML = 
-         `
+        div.innerHTML =
+            `
          <img src="${imgSrc}">
          `
-         premiereSlider.append(div);
+        premiereSlider.append(div);
     }
 }
 
@@ -160,62 +157,149 @@ getPremiers();
 
 //ЛЕНА НАЧАЛО
 
-document.addEventListener("DOMContentLoaded", () => {
-    const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-    const API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
-    const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
-    const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
+import {
+    sayHello
+} from "./app";
+sayHello()
 
-    getMovies(API_URL_POPULAR);
 
-    async function getMovies(url) {
-        try {
-            const resp = await fetch(url, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-API-KEY": API_KEY,
-                },
-            });
-            const respData = await resp.json();
-            showMovies(respData);
-        } catch (err) {
-            console.log(err);
-        }
-    }
+const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
+const API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
+const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
+const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 
-    function showMovies(data) {
-        const moviesEl = document.querySelector(".popular-movies");
+const moviesEl = document.querySelector(".popular-movies");
+const searchResultsEl = document.querySelector(".search-movies");
+const form = document.querySelector("form");
+const search = document.querySelector(".header__search");
 
-        document.querySelector(".popular-movies").innerHTML = "";
-
-        data.films.forEach((movie) => {
-            const movieEl = document.createElement("div");
-            movieEl.classList.add("popular-movie");
-            movieEl.innerHTML = `
-                <div class="popular-movie__cover-inner">
-                    <img src="${movie.posterUrlPreview}" class="popular-movie_cover" alt="${movie.nameRu}" />
-                </div>
-                <div class="popular-movie__info">
-                    <div class="popular-movie__title">${movie.nameRu}</div>
-                    <div class="popular-movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
-                    <div class="popular-movie__average ">${movie.rating}</div>
-                </div>`;
-            moviesEl.appendChild(movieEl);
+async function getMovies(url) {
+    try {
+        const resp = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": API_KEY,
+            },
         });
+        const respData = await resp.json();
+        return respData;
+    } catch (err) {
+        console.log(err);
     }
-    const form = document.querySelector("form");
-    const search = document.querySelector(".header__search");
+}
 
-    form.addEventListener("submit", (e) => {
+function getClassOfRate(voting) {
+    if (voting >= 7) {
+        return "green";
+    } else if (voting > 5) {
+        return "orange";
+    } else {
+        return "red";
+    }
+}
+
+function displayMovies(data, container) {
+    container.innerHTML = "";
+
+    data.films.forEach((movie) => {
+        const movieEl = document.createElement("div");
+        movieEl.classList.add("popular-movie");
+        movieEl.innerHTML = `
+          <div class="popular-movie__cover-inner">
+            <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
+            <div class="popular-movie__cover--darkened"></div>
+            </div>
+          <div class="popular-movie__info">
+            <div class="popular-movie__title">${movie.nameRu}</div>
+            <div class="popular-movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
+            <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}"">${movie.rating}</div>
+          </div>`;
+        container.appendChild(movieEl);
+    });
+}
+
+const modalOverlay = document.getElementById("modalOverlay");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+const modalPrevBtn = document.getElementById("modalPrevBtn");
+const modalNextBtn = document.getElementById("modalNextBtn");
+
+let currentModalPage = 1;
+let moviesPerPage = 10;
+let modalMoviesData = [];
+
+function openModal() {
+    modalOverlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    modalOverlay.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+modalCloseBtn.addEventListener("click", closeModal);
+
+modalPrevBtn.addEventListener("click", () => {
+    if (currentModalPage > 1) {
+        currentModalPage--;
+        displayMoviesInModal();
+    }
+});
+
+modalNextBtn.addEventListener("click", () => {
+    if ((currentModalPage * moviesPerPage) < modalMoviesData.length) {
+        currentModalPage++;
+        displayMoviesInModal();
+    }
+});
+
+async function displaySearchResults(url) {
+    const searchData = await getMovies(url);
+    modalMoviesData = searchData.films;
+    currentModalPage = 1;
+    displayMoviesInModal();
+    openModal();
+}
+
+async function displayMoviesInModal() {
+    const startIdx = (currentModalPage - 1) * moviesPerPage;
+    const endIdx = startIdx + moviesPerPage;
+    const moviesToDisplay = modalMoviesData.slice(startIdx, endIdx);
+
+    const modalMoviesContainer = document.querySelector(".search-movies");
+    modalMoviesContainer.innerHTML = "";
+
+    moviesToDisplay.forEach(movieData => {
+        const movieEl = document.createElement("div");
+        movieEl.classList.add("search-movie");
+        movieEl.innerHTML = `
+              <div class="search-movie__cover-inner">
+                <img src="${movieData.posterUrlPreview}" class="search-movie_cover" alt="${movieData.nameRu}" />
+              </div>
+              <div class="search-movie__info">
+                <div class="search-movie__title">${movieData.nameRu}</div>
+                <div class="search-movie__category">${movieData.genres.map(genre => ` ${genre.genre}`)}</div>
+                <div class="search.movie__average ">${movieData.rating}</div>
+              </div>`;
+        modalMoviesContainer.appendChild(movieEl);
+    });
+}
+
+async function main() {
+    const popularData = await getMovies(API_URL_POPULAR);
+    displayMovies(popularData, moviesEl);
+
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
-
-        const apiSearchUrl = `${API_URL_SEARCH} ${search.value}`
         if (search.value) {
-            getMovies(apiSearchUrl);
+            const apiSearchUrl = `${API_URL_SEARCH}${search.value}`;
+            displaySearchResults(apiSearchUrl);
             search.value = "";
         }
-    })
-});
+    });
+}
+
+main();
 
 //ЛЕНА КОНЕЦ
 
@@ -229,7 +313,7 @@ const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
 //ЮЛЯ НАЧАЛО
 
 const TOP_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`
-const TOP_FILMS_PAGE_URL =`https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`
+const TOP_FILMS_PAGE_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`
 const TRILLERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=1&type=FILM`;
 const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&type=FILM`;
 const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
@@ -247,19 +331,17 @@ function arrayRandElement(arr) {
 
 async function getRandomMovie(url) {
     try {
-        const response = await fetch(url,
-            {
-                method: 'GET',
-                headers: {
-                    'X-API-KEY': RANDOM_API_KEY,
-                    'Content-Type': 'application/json',
-                },
-            })
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': RANDOM_API_KEY,
+                'Content-Type': 'application/json',
+            },
+        })
         const data = await response.json();
         const res = arrayRandElement(data.items)
         showRandomMovie(res)
-    }
-    catch (error) {
+    } catch (error) {
         console.error(error)
     }
 };
@@ -276,6 +358,7 @@ function getClassByRate(vote) {
 
 
 const moviesEl = document.querySelector(".random-movies");
+
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
     movieEl.classList.add("random__movie");
@@ -324,18 +407,16 @@ randomForm.addEventListener('change', (e) => {
 
 async function getTopFilms(num) {
     try {
-        const response = await fetch(`${TOP_FILMS_URL}${num}`,
-            {
-                method: 'GET',
-                headers: {
-                    'X-API-KEY': RANDOM_API_KEY,
-                    'Content-Type': 'application/json',
-                },
-            })
+        const response = await fetch(`${TOP_FILMS_URL}${num}`, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': RANDOM_API_KEY,
+                'Content-Type': 'application/json',
+            },
+        })
         const data = await response.json();
         showTopMovies(data, '.top-250-films__box')
-    }
-    catch (error) {
+    } catch (error) {
         console.error(error)
     }
 };
@@ -343,18 +424,16 @@ getTopFilms('1')
 
 async function getTopFilmsTwo(num) {
     try {
-        const response = await fetch(`${TOP_FILMS_URL}${num}`,
-            {
-                method: 'GET',
-                headers: {
-                    'X-API-KEY': RANDOM_API_KEY,
-                    'Content-Type': 'application/json',
-                },
-            })
+        const response = await fetch(`${TOP_FILMS_URL}${num}`, {
+            method: 'GET',
+            headers: {
+                'X-API-KEY': RANDOM_API_KEY,
+                'Content-Type': 'application/json',
+            },
+        })
         const data = await response.json();
         showTopMovies(data, '.top-250-films__box-two')
-    }
-    catch (error) {
+    } catch (error) {
         console.error(error)
     }
 };
@@ -401,16 +480,17 @@ function disableBtn(btn) {
     document.querySelector(btn).disabled = true;
 }
 
-function unlockBtn(btn){
+function unlockBtn(btn) {
     document.querySelector(btn).disabled = false;
 }
-const btnTop  = document.querySelector('.top-250-films__button')
+const btnTop = document.querySelector('.top-250-films__button')
 const hideBtn = document.querySelector('.top-250-films__button-hide')
 
 let numPage = 2
-function countPage (){
+
+function countPage() {
     console.log(numPage)
-    numPage+= 1
+    numPage += 1
 }
 btnTop.addEventListener('click', event => {
     event.preventDefault()
@@ -421,16 +501,16 @@ btnTop.addEventListener('click', event => {
     showBtn()
 })
 
-const showBtn = () =>{
+const showBtn = () => {
     hideBtn.style.display = "block"
 }
 
 hideBtn.addEventListener('click', event => {
-event.preventDefault()
-document.querySelector('.top-250-films__box-two').innerHTML = ''
-disableBtn('.top-250-films__button-hide')
-unlockBtn('.top-250-films__button')
-numPage = 2
+    event.preventDefault()
+    document.querySelector('.top-250-films__box-two').innerHTML = ''
+    disableBtn('.top-250-films__button-hide')
+    unlockBtn('.top-250-films__button')
+    numPage = 2
 })
 //ЮЛЯ КОНЕЦ
 
