@@ -118,7 +118,22 @@
     </section>
 
     <section class="popular-movies"></section>
-</div>
+    <!-- Всплывающее модальное окно для результатов поиска -->
+    <section class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="modal-close" id="modalCloseBtn">&#10006;</button>
+            <h2>Результаты поиска</h2>
+            <button class="modal-prev" id="modalPrevBtn">
+              Предыдущая страница
+            </button>
+            <button class="modal-next" id="modalNextBtn">
+              Следующая страница
+            </button>
+          </div>
+          <div class="search-movies" id="searchMovies"></div>
+        </div>
+      </section>
 <section class="random">
     <div class="random-container">
         <div class="random__left-part">
@@ -158,7 +173,7 @@
 </main>
 <footer class="footer"></footer>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js" type="module"></script>
-<script src="index.js" type="module"></script>
+<script src="./index.js" type="module"></script>
 </body>
 
 </html>
