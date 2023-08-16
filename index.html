@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -31,7 +32,14 @@
     </header>
     <main>
 
-        <section class="hero"></section>
+        <section class="hero">            
+            <body>
+                <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+                  slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+                  coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+                </swiper-container>
+        </section>
+ 
 
 
 <!-- Галерея с фильмами -->
@@ -144,6 +152,7 @@
 </section>
 </main>
 <footer class="footer"></footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js" type="module"></script>
 <script src="index.js" type="module"></script>
 </body>
 
