@@ -637,8 +637,6 @@ function checmoviekType(array) {
     }
 }
 //галерея ()
-const movieGalleryBtnLeft = document.querySelector(".movies-gallery-btn--left");
-const movieGalleryBtnRight = document.querySelector(".movies-gallery-btn--right");
 const modalWindowSection = document.querySelector(".modal-window");
 const modalWindowTitle = document.querySelector(".modal-window__title");
 const modalWindowImage = document.querySelector(".modal-window__img");

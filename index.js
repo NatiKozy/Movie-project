@@ -74,8 +74,6 @@ function checmoviekType(array){
  }
 
 //галерея ()
-const movieGalleryBtnLeft = document.querySelector('.movies-gallery-btn--left');
-const movieGalleryBtnRight = document.querySelector('.movies-gallery-btn--right');
 
 
 
