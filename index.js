@@ -29,6 +29,16 @@ async function getMovies(url) {
     }
 }
 
+function getClassOfRate(voting) {
+    if (voting >= 7) {
+        return "green";
+    } else if (voting > 5) {
+        return "orange";
+    } else {
+        return "red";
+    }
+}
+
 function displayMovies(data, container) {
     container.innerHTML = "";
 
@@ -37,12 +47,13 @@ function displayMovies(data, container) {
         movieEl.classList.add("popular-movie");
         movieEl.innerHTML = `
           <div class="popular-movie__cover-inner">
-            <img src="${movie.posterUrlPreview}" class="popular-movie_cover" alt="${movie.nameRu}" />
-          </div>
+            <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
+            <div class="popular-movie__cover--darkened"></div>
+            </div>
           <div class="popular-movie__info">
             <div class="popular-movie__title">${movie.nameRu}</div>
             <div class="popular-movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
-            <div class="popular-movie__average ">${movie.rating}</div>
+            <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}"">${movie.rating}</div>
           </div>`;
         container.appendChild(movieEl);
     });
@@ -101,15 +112,15 @@ async function displayMoviesInModal() {
 
     moviesToDisplay.forEach(movieData => {
         const movieEl = document.createElement("div");
-        movieEl.classList.add("movie");
+        movieEl.classList.add("search-movie");
         movieEl.innerHTML = `
-              <div class="movie__cover-inner">
-                <img src="${movieData.posterUrlPreview}" class="movie_cover" alt="${movieData.nameRu}" />
+              <div class="search-movie__cover-inner">
+                <img src="${movieData.posterUrlPreview}" class="search-movie_cover" alt="${movieData.nameRu}" />
               </div>
-              <div class="movie__info">
-                <div class="movie__title">${movieData.nameRu}</div>
-                <div class="movie__category">${movieData.genres.map(genre => ` ${genre.genre}`)}</div>
-                <div class="movie__average ">${movieData.rating}</div>
+              <div class="search-movie__info">
+                <div class="search-movie__title">${movieData.nameRu}</div>
+                <div class="search-movie__category">${movieData.genres.map(genre => ` ${genre.genre}`)}</div>
+                <div class="search.movie__average ">${movieData.rating}</div>
               </div>`;
         modalMoviesContainer.appendChild(movieEl);
     });

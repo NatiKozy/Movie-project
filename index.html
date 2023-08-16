@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/normalize.css" />
     <link rel="stylesheet" href="./assets/styles/style.scss" />
+    <link rel="stylesheet" href="./index.css" />
     <title>Movie</title>
   </head>
-
   <body>
-    <header class="container">
+    <header class="header__container">
       <div class="header__left-part">
         <a href="index.html" class="header__logo">Будет текст</a>
         <ul class="header__list">
@@ -28,7 +28,7 @@
       <div class="popular-movies"></div>
     </div>
     <!-- Всплывающее модальное окно для результатов поиска -->
-    <div class="modal-overlay" id="modalOverlay">
+    <section class="modal-overlay" id="modalOverlay">
       <div class="modal-content">
         <div class="modal-header">
           <button class="modal-close" id="modalCloseBtn">&#10006;</button>
@@ -42,7 +42,7 @@
         </div>
         <div class="search-movies" id="searchMovies"></div>
       </div>
-    </div>
+    </section>
     <script src="./index.js" type="module"></script>
   </body>
 </html>

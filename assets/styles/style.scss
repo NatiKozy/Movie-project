@@ -16,7 +16,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.container {
+.header__container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -48,6 +48,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .popular-movie {
@@ -59,11 +61,28 @@ body {
 .popular-movie__cover-inner {
   position: relative;
   height: 360px;
+  box-shadow: 10px 5px 5px rgba(2, 105, 173, 1);
 }
 
-.popular-movie_cover {
+.popular-movie__cover {
   max-width: 100%;
   height: 100%;
+}
+.popular-movie__cover--darkened {
+  background-color: #000000;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.popular-movie__cover--darkened:hover {
+  background-color: grey;
+  cursor: pointer;
 }
 
 .popular-movie__info {
@@ -90,9 +109,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background-color: rgb(39, 31, 31);
   color: white;
   font-size: 14px;
+}
+.popular-movie__average--green {
+  border: 1px solid green;
+}
+
+.popular-movie__average--orange {
+  border: 1px solid orange;
+}
+
+.popular-movie__average--red {
+  border: 1px solid red;
 }
 
 .modal-overlay {
@@ -103,7 +133,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   z-index: 1000;
 }
@@ -125,9 +155,7 @@ body {
   margin-bottom: 10px;
 }
 
-.modal-close,
-.modal-prev,
-.modal-next {
+.modal-close {
   background-color: #f44336;
   border: none;
   border-radius: 3px;
@@ -138,20 +166,27 @@ body {
 
 .modal-prev,
 .modal-next {
-  background-color: #4caf50;
-  margin-right: 10px;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 15px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.modal-close {
-  align-self: flex-start;
-  font-size: 20px;
+.modal-prev {
+  background-color: #4caf50;
+}
+
+.modal-next {
+  background-color: #f44336;
 }
 
 .modal-prev:hover,
 .modal-next:hover {
   background-color: #45a049;
+  transform: scale(1.05);
 }
-
 .modal-content {
   max-height: 80vh;
   overflow-y: auto;

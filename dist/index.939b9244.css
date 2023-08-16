@@ -6,6 +6,8 @@ body {
   background-color: #000;
   flex-direction: column;
   justify-content: space-between;
+  margin: 0;
+  font-family: Arial, sans-serif;
   display: flex;
 }
 
@@ -31,49 +33,49 @@ body {
 }
 
 .header__search {
-  border-radius: 5px solid black;
-  border: 2px;
+  border: 2px solid #000;
+  border-radius: 5px;
   outline: none;
   padding: 8px;
 }
 
-.movies {
+.popular-movies {
   flex-wrap: wrap;
   justify-content: space-around;
   display: flex;
 }
 
-.movie {
+.popular-movie {
   width: 240px;
   margin: 10px;
   position: relative;
 }
 
-.movie__cover-inner {
+.popular-movie__cover-inner {
   height: 360px;
   position: relative;
 }
 
-.movie_cover {
+.popular-movie_cover {
   max-width: 100%;
   height: 100%;
 }
 
-.movie__info {
+.popular-movie__info {
   padding: 10px 0;
 }
 
-.movie__title {
+.popular-movie__title {
   color: #fff;
   font-size: 16px;
 }
 
-.movie__category {
+.popular-movie__category {
   color: #d3d30b;
   font-size: 14px;
 }
 
-.movie__average {
+.popular-movie__average {
   color: #fff;
   background-color: gray;
   border-radius: 50%;
@@ -86,6 +88,64 @@ body {
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.modal-overlay {
+  z-index: 1000;
+  background-color: #000c;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal-content {
+  background-color: #000;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 10px #00000080;
+}
+
+.modal-header {
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.modal-close, .modal-prev, .modal-next {
+  color: #fff;
+  cursor: pointer;
+  background-color: #f44336;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
+.modal-prev, .modal-next {
+  background-color: #4caf50;
+  margin-right: 10px;
+}
+
+.modal-close {
+  align-self: flex-start;
+  font-size: 20px;
+}
+
+.modal-prev:hover, .modal-next:hover {
+  background-color: #45a049;
+}
+
+.modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 /*# sourceMappingURL=index.939b9244.css.map */
