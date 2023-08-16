@@ -168,7 +168,7 @@ const API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
 const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
 const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 
-const moviesEl = document.querySelector(".popular-movies");
+const moviesElem = document.querySelector(".popular-movies");
 const searchResultsEl = document.querySelector(".search-movies");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
@@ -287,7 +287,7 @@ async function displayMoviesInModal() {
 
 async function main() {
     const popularData = await getMovies(API_URL_POPULAR);
-    displayMovies(popularData, moviesEl);
+    displayMovies(popularData, moviesElem);
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -302,13 +302,6 @@ async function main() {
 main();
 
 //ЛЕНА КОНЕЦ
-
-
-
-
-const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-
 
 //ЮЛЯ НАЧАЛО
 
