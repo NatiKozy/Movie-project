@@ -591,7 +591,6 @@ async function getFilms() {
         });
         const data = await response.json();
         const films = await data.docs;
-        console.log(films);
         checmoviekType(films);
     } catch (err) {
         console.log(err);
@@ -636,6 +635,13 @@ function checmoviekType(array) {
     }
 }
 //галерея ()
+const moviesBtnLeft = document.getElementById("movie-btn--left");
+const moviesBtnRight = document.getElementById("movie-btn--right");
+moviesBtnLeft.addEventListener("click", ()=>{
+    movieslist.addEventListener("scroll", ()=>{
+        console.log(movieslist.scroll);
+    });
+});
 const modalWindowSection = document.querySelector(".modal-window");
 const modalWindowTitle = document.querySelector(".modal-window__title");
 const modalWindowImage = document.querySelector(".modal-window__img");
@@ -658,10 +664,6 @@ function getArrayItemsList(array) {
     for (let item1 of array)itemsList.push(item1.name);
     return itemsList.join(", ");
 }
-modalWindowBtn.addEventListener("click", (event)=>{
-    event.preventDefault();
-    modalWindowSection.classList.remove("modal-window--active");
-});
 getFilms();
 //АНЯ КОНЕЦ
 //НАТАША НАЧАЛО
