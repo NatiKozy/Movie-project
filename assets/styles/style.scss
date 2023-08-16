@@ -11,7 +11,8 @@ $section-color: #0a031c;
 }
 
 @mixin button-general-style{
-
+background-color: #14a0b0;
+color: black;
 }
 
 * {
@@ -285,7 +286,10 @@ swiper-slide img {
 .random__movie {
   @include movie-card-style()
 }
-
+.random-select{
+color: #000000;
+background-color: #504c4c;
+}
 .movie__cover-inner {
     position: relative;
     height: 233px;
@@ -442,4 +446,14 @@ swiper-slide img {
 }
 .top-250-films__button-hide{
   display: none;
+  text-align: center;
+  @include button-general-style()
+}
+.top-buttons{
+  display: flex;
+  justify-content: center;
+}
+.top-250-films__button{
+  text-align: center;
+  @include button-general-style()
 }

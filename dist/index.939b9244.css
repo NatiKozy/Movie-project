@@ -276,6 +276,11 @@ swiper-slide img {
   position: relative;
 }
 
+.random-select {
+  color: #000;
+  background-color: #504c4c;
+}
+
 .movie__cover-inner {
   height: 233px;
   position: relative;
@@ -411,7 +416,21 @@ swiper-slide img {
 }
 
 .top-250-films__button-hide {
+  text-align: center;
+  color: #000;
+  background-color: #14a0b0;
   display: none;
+}
+
+.top-buttons {
+  justify-content: center;
+  display: flex;
+}
+
+.top-250-films__button {
+  text-align: center;
+  color: #000;
+  background-color: #14a0b0;
 }
 
 /*# sourceMappingURL=index.939b9244.css.map */
