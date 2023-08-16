@@ -882,11 +882,16 @@ function unlockBtn(btn) {
     document.querySelector(btn).disabled = false;
 }
 const btnTop = document.querySelector(".top-250-films__button");
+let numPage = 2;
+function countPage() {
+    console.log(numPage);
+    numPage += 1;
+}
 btnTop.addEventListener("click", (event)=>{
     event.preventDefault();
-    getTopFilmsTwo("3");
+    getTopFilmsTwo(numPage);
     hideBtn.display = "block";
-    disableBtn(".top-250-films__button");
+    countPage();
     unlockBtn(".top-250-films__button-hide");
 });
 const hideBtn = document.querySelector(".top-250-films__button-hide");
@@ -895,6 +900,7 @@ hideBtn.addEventListener("click", (event)=>{
     document.querySelector(".top-250-films__box-two").innerHTML = "";
     disableBtn(".top-250-films__button-hide");
     unlockBtn(".top-250-films__button");
+    numPage = 2;
 }) //ЮЛЯ КОНЕЦ
 ;
 
