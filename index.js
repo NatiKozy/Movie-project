@@ -116,39 +116,44 @@ getFilms();
 //НАТАША НАЧАЛО
 
 //slider realization//
-const IMAGES = document.querySelectorAll('.slider-line img');
-const SLIDER = document.querySelector('.slider-line');
+const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
+const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 
-//счетчик
-let count = 0;
-//прокрутка слайдера
-function rollSlider() {
-    SLIDER.style.transform = `translate(-${count*100}%)`;
+async function getPremiers() {
+    try {
+        const response = await fetch(PREMIERS_URL,
+    
+            {
+                method: 'GET',
+                headers: {
+                    'X-API-KEY': PREMIERS_API_KEY,
+                    'Content-Type': 'application/json',
+                },
+            })
+        const data = await response.json();
+        const premiers = await data.items;
+        showPremiers(premiers);
+    }
+    catch (err) {
+        console.log(err)
+    }
 }
 
-//предыдущий
-//  function prev() {
-//     count --;
+const premiereSlider = document.querySelector('.mySwiper');
 
-//     if(count < 0 ) {
-//         count = IMAGES.length -1;
-//     }
+function showPremiers(array) {
+    for (let item of array) {
+        const div = document.createElement('swiper-slide');
+        const imgSrc = item.posterUrl;
+         div.innerHTML = 
+         `
+         <img src="${imgSrc}">
+         `
+         premiereSlider.append(div);
+    }
+}
 
-//  rollSlider();
-// }
-
-//следующий
-// function next() {
-//     count ++;
-
-//     if (count >= IMAGES.length) {
-//         count = 0;
-//     }
-
-// rollSlider();
-// }
-
-//end of slider
+getPremiers();
 
 
 //НАТАША КОНЕЦ
@@ -218,50 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const PREMIERS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=2023&month=AUGUST`;
 const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-const PREMIERS_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 
-
-async function getPremiers() {
-    try {
-        const response = await fetch(PREMIERS_URL,
-    
-            {
-                method: 'GET',
-                headers: {
-                    'X-API-KEY': PREMIERS_API_KEY,
-                    'Content-Type': 'application/json',
-                },
-            })
-        const data = await response.json();
-        const premiers = await data.items;
-        console.log(premiers);
-        showPremiers(premiers);
-    }
-    catch (err) {
-        console.log(err)
-    }
-}
-
-
-
-const premiersContainer = document.querySelector('.premiers');
-
-function showPremiers(array) {
-    for (item of array) {
-        const div = document.createElement('div');
-        div.classList.add("premiere-img");
-        premiereImage = item.posterUrl;
-        div.innerHTML = `
-            <img src="${premiereImage}">
-            `
-        premiersContainer.append(div);
-
-    }
-}
-
-getPremiers();
 
 //ЮЛЯ НАЧАЛО
 
