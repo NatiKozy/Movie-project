@@ -6,9 +6,10 @@ const movieslist = document.querySelector('.movies-list');
 const seriesList = document.querySelector('.series-list');
 const cartoonList = document.querySelector('.cartoon-list');
 
-async function getFilms() {
+async function getFilms (){
     try {
-        const response = await fetch(FILMS_URL_MOVIES, {
+        const response = await fetch(FILMS_URL_MOVIES,
+        {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY_MOVIES,
@@ -19,18 +20,19 @@ async function getFilms() {
         const films = await data.docs;
         console.log(films);
         checmoviekType(films)
-    } catch (err) {
+    }
+    catch (err) {
         console.log(err)
     }
 };
 
 
-function createMovieCard(parrent, image, alt, year, country, genres, text) {
+function createMovieCard (parrent, image, alt, year, country,genres, text) {
     const item = document.createElement('li');
     item.classList.add('movies-list__item');
     item.addEventListener('click', (event) => {
         event.preventDefault;
-        showMovieModalWindow(image, alt, year, country, genres, text);
+        showMovieModalWindow(image, alt, year, country,genres, text);
     })
     item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`
 
@@ -38,22 +40,22 @@ function createMovieCard(parrent, image, alt, year, country, genres, text) {
 
 }
 
-function showMoviesCards(parrent, array) {
+function showMoviesCards (parrent, array) {
     for (let item of array) {
         const itemImage = item.poster.previewUrl;
         const itemAlt = item.name;
         const itemYear = item.year;
         const itemCountry = getArrayItemsList(item.countries);
         const itemGenres = getArrayItemsList(item.genres);
-        const itemText = item.shortDescription;
+        const itemText = item.description;
 
         createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemGenres, itemText)
     }
 }
 
-function checmoviekType(array) {
+function checmoviekType(array){
     for (let item of array) {
-        if (item.type === "movie") {
+        if (item.type === "movie"){
             const movies = [];
             movies.push(item);
             showMoviesCards(movieslist, array)
@@ -61,16 +63,18 @@ function checmoviekType(array) {
             const series = [];
             series.push(item);
             showMoviesCards(seriesList, series)
-        } else if (item.type === 'cartoon') {
+        } else if (item.type === 'cartoon'){
             const cartoons = [];
             cartoons.push(item);
             showMoviesCards(cartoonList, cartoons)
         }
     }
-}
+ }
 
 //галерея ()
 
+const moviesBtnLeft = document.getElementById('movie-btn--left');
+const moviesBtnRight = document.getElementById('movie-btn--right');
 
 
 const modalWindowSection = document.querySelector('.modal-window');
@@ -82,7 +86,7 @@ const modalWindowGenres = document.querySelector('.modal-window__genres');
 const modalWindowText = document.querySelector('.modal-window__text');
 const modalWindowBtn = document.querySelector('.modal-window__btn');
 
-function showMovieModalWindow(image, alt, year, country, genres, text) {
+function showMovieModalWindow (image, alt, year, country, genres, text) {
     modalWindowSection.classList.add('modal-window--active');
     modalWindowImage.src = image;
     modalWindowTitle.textContent = alt;
@@ -92,20 +96,18 @@ function showMovieModalWindow(image, alt, year, country, genres, text) {
     modalWindowText.textContent = text;
 }
 
-function getArrayItemsList(array) {
+function getArrayItemsList (array) {
     const itemsList = [];
-    for (let item of array) {
+    for (let item of array){
         itemsList.push(item.name)
     }
     return itemsList.join(', ')
 }
 
-
 modalWindowBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    modalWindowSection.classList.remove('modal-window--active')
+    modalWindowSection.classList.remove('modal-window--active');
 })
-
 
 getFilms();
 
@@ -157,14 +159,6 @@ getPremiers();
 
 //ЛЕНА НАЧАЛО
 
-import {
-    sayHello
-} from "./app";
-sayHello()
-
-
-const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
 const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
 const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 
@@ -173,20 +167,6 @@ const searchResultsEl = document.querySelector(".search-movies");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
 
-async function getMovies(url) {
-    try {
-        const resp = await fetch(url, {
-            headers: {
-                "Content-Type": "application/json",
-                "X-API-KEY": API_KEY,
-            },
-        });
-        const respData = await resp.json();
-        return respData;
-    } catch (err) {
-        console.log(err);
-    }
-}
 
 function getClassOfRate(voting) {
     if (voting >= 7) {
@@ -357,7 +337,7 @@ function getClassByRate(vote) {
 }
 
 
-const moviesEl = document.querySelector(".random-movies");
+//const moviesEl = document.querySelector(".random-movies");
 
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
