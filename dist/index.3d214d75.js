@@ -836,7 +836,7 @@ function getClassByRate(vote) {
     else if (vote > 5) return "orange";
     else return "red";
 }
-//const moviesEl = document.querySelector(".random-movies");
+const moviesRandomEl = document.querySelector(".random-movies");
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
     movieEl.classList.add("random__movie");
@@ -854,7 +854,7 @@ function showRandomMovie(movie) {
         ${movie.ratingKinopoisk && `<div class="movie__average movie__average--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
         </div>
         `;
-    moviesEl.append(movieEl);
+    moviesRandomEl.append(movieEl);
 }
 function checkSelect() {
     const selectedValue = document.getElementById("select-list").value;
@@ -862,12 +862,13 @@ function checkSelect() {
     else if (selectedValue === "Комедия") getRandomMovie(COMEDIES_URL);
     else if (selectedValue === "Ужасы") getRandomMovie(HORRIRS_URL);
     else if (selectedValue === "Триллер") getRandomMovie(TRILLERS_URL);
+    else if (selectedValue === "Фонтастика") getRandomMovie(FANTASY_URL);
 }
 const randomForm = document.querySelector(".random-form");
 randomForm.addEventListener("change", (e)=>{
     e.preventDefault();
     checkSelect();
-    moviesEl.innerHTML = "";
+    moviesRandomEl.innerHTML = "";
 });
 async function getTopFilms(num) {
     try {
@@ -950,14 +951,17 @@ btnTop.addEventListener("click", (event)=>{
 const showBtn = ()=>{
     hideBtn.style.display = "block";
 };
+const hideButton = ()=>{
+    hideBtn.style.display = "none";
+};
 hideBtn.addEventListener("click", (event)=>{
     event.preventDefault();
     document.querySelector(".top-250-films__box-two").innerHTML = "";
     disableBtn(".top-250-films__button-hide");
     unlockBtn(".top-250-films__button");
     numPage = 2;
+    hideButton();
 }) //ЮЛЯ КОНЕЦ
- //ЮЛЯ КОНЕЦ
 ;
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")

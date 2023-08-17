@@ -337,7 +337,7 @@ function getClassByRate(vote) {
 }
 
 
-//const moviesEl = document.querySelector(".random-movies");
+const moviesRandomEl = document.querySelector(".random-movies");
 
 function showRandomMovie(movie) {
     const movieEl = document.createElement("div");
@@ -360,7 +360,7 @@ function showRandomMovie(movie) {
         }
         </div>
         `
-    moviesEl.append(movieEl)
+    moviesRandomEl.append(movieEl)
 }
 
 function checkSelect() {
@@ -374,7 +374,9 @@ function checkSelect() {
         getRandomMovie(HORRIRS_URL)
     } else if (selectedValue === "Триллер") {
         getRandomMovie(TRILLERS_URL)
-    }
+    }else if (selectedValue === "Фонтастика") {
+        getRandomMovie(FANTASY_URL)
+}
 }
 const randomForm = document.querySelector('.random-form')
 
@@ -382,7 +384,7 @@ randomForm.addEventListener('change', (e) => {
     e.preventDefault();
 
     checkSelect()
-    moviesEl.innerHTML = ''
+    moviesRandomEl.innerHTML = ''
 });
 
 async function getTopFilms(num) {
@@ -484,6 +486,9 @@ btnTop.addEventListener('click', event => {
 const showBtn = () => {
     hideBtn.style.display = "block"
 }
+const hideButton = () => {
+    hideBtn.style.display = "none"
+}
 
 hideBtn.addEventListener('click', event => {
     event.preventDefault()
@@ -491,7 +496,7 @@ hideBtn.addEventListener('click', event => {
     disableBtn('.top-250-films__button-hide')
     unlockBtn('.top-250-films__button')
     numPage = 2
+    hideButton()
 })
 //ЮЛЯ КОНЕЦ
 
-//ЮЛЯ КОНЕЦ
