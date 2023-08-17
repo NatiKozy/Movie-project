@@ -157,12 +157,6 @@ getPremiers();
 
 //ЛЕНА НАЧАЛО
 
-import {
-    sayHello
-} from "./app";
-sayHello()
-
-
 const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
 const API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
 const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
