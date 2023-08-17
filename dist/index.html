@@ -32,13 +32,11 @@
     </header>
     <main>
 
-        <section class="hero">            
+        <section class="hero">
             <body>
                 <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
                 </swiper-container>
         </body></section>
- 
-
 
 <!-- Галерея с фильмами -->
 <section class="film-cards-gallery movie-gallery">
@@ -116,7 +114,22 @@
     </section>
 
     <section class="popular-movies"></section>
-
+    <!-- Всплывающее модальное окно для результатов поиска -->
+    <section class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="modal-close" id="modalCloseBtn">&#10006;</button>
+            <h2>Результаты поиска</h2>
+            <button class="modal-prev" id="modalPrevBtn">
+              Предыдущая страница
+            </button>
+            <button class="modal-next" id="modalNextBtn">
+              Следующая страница
+            </button>
+          </div>
+          <div class="search-movies" id="searchMovies"></div>
+        </div>
+      </section>
 <section class="random">
     <div class="random-container">
         <div class="random__left-part">
