@@ -300,7 +300,6 @@ const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6
 const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`
 const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`
 const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-const TOP_AWAIT_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=1`
 
 
 function arrayRandElement(arr) {
