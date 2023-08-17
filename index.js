@@ -283,13 +283,6 @@ main();
 
 //ЛЕНА КОНЕЦ
 
-
-
-
-const FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
-
-
 //ЮЛЯ НАЧАЛО
 
 const TOP_FILMS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_250_BEST_FILMS&page=`
