@@ -638,6 +638,33 @@ function checmoviekType(array) {
 //галерея ()
 const moviesBtnLeft = document.getElementById("movie-btn--left");
 const moviesBtnRight = document.getElementById("movie-btn--right");
+const moviesWrapper = document.getElementById("movies-wrapper");
+const seriesBtnLeft = document.getElementById("series-btn--left");
+const seriesBtnRight = document.getElementById("series-btn--right");
+const seriesWrapper = document.getElementById("series-wrapper");
+const cartoonBtnLeft = document.getElementById("cartoon-btn--left");
+const cartoonBtnRight = document.getElementById("cartoon-btn--right");
+const cartoonWrapper = document.getElementById("cartoon-wrapper");
+document.addEventListener("DOMContentLoaded", function() {
+    moviesBtnRight.onclick = function() {
+        moviesWrapper.scrollLeft += 200;
+    };
+    moviesBtnLeft.onclick = function() {
+        moviesWrapper.scrollLeft -= 200;
+    };
+    seriesBtnRight.onclick = function() {
+        seriesWrapper.scrollLeft += 200;
+    };
+    seriesBtnLeft.onclick = function() {
+        seriesWrapper.scrollLeft -= 200;
+    };
+    cartoonBtnRight.onclick = function() {
+        cartoonWrapper.scrollLeft += 200;
+    };
+    cartoonBtnLeft.onclick = function() {
+        cartoonWrapper.scrollLeft -= 200;
+    };
+}, false);
 const modalWindowSection = document.querySelector(".modal-window");
 const modalWindowTitle = document.querySelector(".modal-window__title");
 const modalWindowImage = document.querySelector(".modal-window__img");
