@@ -293,6 +293,10 @@ body {
   border: 2px solid black;
   border-radius: 5px;
   outline: none;
+  color: #000;
+}
+.header__search::placeholder {
+  color: #999;
 }
 
 .header__list{

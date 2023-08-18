@@ -734,6 +734,16 @@ const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/searc
 const moviesElem = document.querySelector(".popular-movies");
 const searchResultsEl = document.querySelector(".search-movies");
 const form = document.querySelector("form");
+form.addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const searchInput = document.querySelector(".header__search");
+    const searchValue = searchInput.value.trim();
+    if (searchValue) {
+        const apiSearchUrl = `${API_URL_SEARCH}${searchValue}`;
+        displaySearchResults(apiSearchUrl);
+        searchInput.value = "";
+    }
+});
 const search = document.querySelector(".header__search");
 async function getMovies(url) {
     try {

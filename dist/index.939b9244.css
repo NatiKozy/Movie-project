@@ -262,10 +262,15 @@ body {
 }
 
 .header__search {
+  color: #000;
   border: 2px solid #000;
   border-radius: 5px;
   outline: none;
   padding: 8px;
+}
+
+.header__search::placeholder {
+  color: #999;
 }
 
 .header__list {
