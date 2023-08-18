@@ -49,6 +49,13 @@ img {
   max-width: 100%;
 }
 
+.header__container{
+  display: flex;
+  justify-content: space-between;
+}
+.header__left-part{
+  margin-right: 170px;
+}
 //movies
 
 .section_title{
