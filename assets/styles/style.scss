@@ -3,6 +3,8 @@ $black: #000000;
 $white: #ffffff;
 $body-color:#020510;
 $section-color: #0a031c;
+$pink-color: #FF4D6D;
+$blue-color: #54E1FF;
 
 @mixin movie-card-style{
   width: 160px;
@@ -48,14 +50,13 @@ img {
 
 .film-cards-gallery {
   position: relative;
-  width: 1500px;
+  max-width: 1440px;
   padding: 40px 0;
   margin: 0 auto;
   background-color: $section-color;
-
 }
 .gallery-wrapper{
-  width: 1400px;
+  width: 1220px;
   margin: 0px auto;
   padding: 20px 0;
   overflow-x: auto;
@@ -71,19 +72,29 @@ img {
   margin: 0;
   padding: 0;
 
-   li{
-    align-items: flex-start;
-    margin: 0 20px;
-    min-width: 200px;
-  }
+}
+.movies-list__item{
+  align-items: flex-start;
+  margin: 0 20px;
+  padding: 0;
+  min-width: 200px;
+  border-radius: 12px;
+  transition: transform 0.4s;
+}
+
+.movies-list__item:hover{
+  transform: scale(105%);
+  box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
 }
 
 .movies-list__link{
   display: inline-block;
 }
 .movies-list__img{
+  height: 100%;
   border-radius: 12px;
   margin: auto 0;
+  padding: 0;
 }
 
 .movies-gallery,
@@ -103,16 +114,17 @@ img {
   background-color: rgb(0, 0, 0, 0.3);
   border: none;
 
+
   img{
     width: 37px;
     height: 48px;
   }
 }
 .gallery-btn--right{
-  right: 20px;
+  right: 80px;
 }
 .gallery-btn--left {
-  left: 20px;
+  left: 80px;
   transform: rotate(180deg);
 }
 .gallery-btn--right:hover{
@@ -133,12 +145,10 @@ img {
   top: 50%;
   width: 100%;
   margin: auto;
+  z-index: 99;
 }
 
-.modal-window-background{
-  width: 1400;
-  margin: 0 auto;
-}
+
 .modal-window__container{
   position: relative;
   display: flex;
@@ -147,11 +157,23 @@ img {
   margin: 0 auto;
   padding: 40px;
   border-radius: 20px;
-  background-color: #000000;
-  box-shadow: 0px 4px 40px 30px rgb(255, 77, 109, 0.3);
-  z-index: 1;
+  background-color:$black;
+  //z-index: 2;
+  //box-shadow: 0px 4px 40px 30px rgb(255, 77, 109, 0.3);
 
 }
+.modal-window__container::after {
+  content: "";
+  top: -15px;
+  left: -20px;
+  position: absolute;
+  height: 105%;
+  width: 105%;
+  background: linear-gradient(90deg, $pink-color, $blue-color);
+  z-index: -1;
+  filter: blur(40px);
+}
+
 .modal-window__title{
   margin: 10px 0;
   font-size: 70px;

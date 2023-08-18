@@ -28,14 +28,14 @@ img {
 
 .film-cards-gallery {
   background-color: #0a031c;
-  width: 1500px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 40px 0;
   position: relative;
 }
 
 .gallery-wrapper {
-  width: 1400px;
+  width: 1220px;
   margin: 0 auto;
   padding: 20px 0;
   overflow-x: auto;
@@ -54,10 +54,18 @@ img {
   display: flex;
 }
 
-.movies-list li, .series-list li, .cartoon-list li {
+.movies-list__item {
+  border-radius: 12px;
   align-items: flex-start;
   min-width: 200px;
   margin: 0 20px;
+  padding: 0;
+  transition: transform .4s;
+}
+
+.movies-list__item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 10px #ffffff4d;
 }
 
 .movies-list__link {
@@ -66,7 +74,9 @@ img {
 
 .movies-list__img {
   border-radius: 12px;
+  height: 100%;
   margin: auto 0;
+  padding: 0;
 }
 
 .movies-gallery, .series-gallery, .cartoon-container {
@@ -92,11 +102,11 @@ img {
 }
 
 .gallery-btn--right {
-  right: 20px;
+  right: 80px;
 }
 
 .gallery-btn--left {
-  left: 20px;
+  left: 80px;
   transform: rotate(180deg);
 }
 
@@ -109,6 +119,7 @@ img {
 }
 
 .modal-window--active {
+  z-index: 99;
   width: 100%;
   margin: auto;
   display: inline-block;
@@ -117,13 +128,7 @@ img {
   left: 10px;
 }
 
-.modal-window-background {
-  width: 1400px;
-  margin: 0 auto;
-}
-
 .modal-window__container {
-  z-index: 1;
   background-color: #000;
   border-radius: 20px;
   justify-content: space-between;
@@ -132,7 +137,18 @@ img {
   padding: 40px;
   display: flex;
   position: relative;
-  box-shadow: 0 4px 40px 30px #ff4d6d4d;
+}
+
+.modal-window__container:after {
+  content: "";
+  z-index: -1;
+  filter: blur(40px);
+  background: linear-gradient(90deg, #ff4d6d, #54e1ff);
+  width: 105%;
+  height: 105%;
+  position: absolute;
+  top: -15px;
+  left: -20px;
 }
 
 .modal-window__title {
