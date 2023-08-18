@@ -200,6 +200,7 @@ const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?
 const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 
 const moviesElem = document.querySelector(".popular-movies");
+
 const searchResultsEl = document.querySelector(".search-movies");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
