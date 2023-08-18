@@ -514,7 +514,7 @@ a:hover {
 }
 
 .movie__category {
-  color: #ff4d6d;
+  color: #54e1ff;
   font-size: 14px;
 }
 
@@ -547,7 +547,8 @@ a:hover {
 }
 
 .random {
-  background-color: #0a031c;
+  background: linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
+  border-radius: 20px;
   width: 700px;
   max-height: 350px;
   margin: 50px auto;
@@ -615,7 +616,7 @@ a:hover {
   cursor: pointer;
   color: #fff;
   background-color: #ff4d6d;
-  border: 1px solid #ff4d6d;
+  border: 1px solid #ff2d78;
   border-radius: 7px;
   width: 150px;
   height: 49px;
@@ -634,7 +635,7 @@ a:hover {
   cursor: pointer;
   color: #fff;
   background-color: #ff4d6d;
-  border: 1px solid #ff4d6d;
+  border: 1px solid #ff2d78;
   border-radius: 7px;
   width: 150px;
   height: 49px;
