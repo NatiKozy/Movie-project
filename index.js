@@ -6,10 +6,9 @@ const movieslist = document.querySelector('.movies-list');
 const seriesList = document.querySelector('.series-list');
 const cartoonList = document.querySelector('.cartoon-list');
 
-async function getFilms (){
+async function getFilms() {
     try {
-        const response = await fetch(FILMS_URL_MOVIES,
-        {
+        const response = await fetch(FILMS_URL_MOVIES, {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY_MOVIES,
@@ -20,19 +19,18 @@ async function getFilms (){
         const films = await data.docs;
         console.log(films);
         checmoviekType(films)
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err)
     }
 };
 
 
-function createMovieCard (parrent, image, alt, year, country,genres, text) {
+function createMovieCard(parrent, image, alt, year, country, genres, text) {
     const item = document.createElement('li');
     item.classList.add('movies-list__item');
     item.addEventListener('click', (event) => {
         event.preventDefault;
-        showMovieModalWindow(image, alt, year, country,genres, text);
+        showMovieModalWindow(image, alt, year, country, genres, text);
     })
     item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`
 
@@ -40,7 +38,7 @@ function createMovieCard (parrent, image, alt, year, country,genres, text) {
 
 }
 
-function showMoviesCards (parrent, array) {
+function showMoviesCards(parrent, array) {
     for (let item of array) {
         const itemImage = item.poster.previewUrl;
         const itemAlt = item.name;
@@ -53,9 +51,9 @@ function showMoviesCards (parrent, array) {
     }
 }
 
-function checmoviekType(array){
+function checmoviekType(array) {
     for (let item of array) {
-        if (item.type === "movie"){
+        if (item.type === "movie") {
             const movies = [];
             movies.push(item);
             showMoviesCards(movieslist, array)
@@ -63,13 +61,13 @@ function checmoviekType(array){
             const series = [];
             series.push(item);
             showMoviesCards(seriesList, series)
-        } else if (item.type === 'cartoon'){
+        } else if (item.type === 'cartoon') {
             const cartoons = [];
             cartoons.push(item);
             showMoviesCards(cartoonList, cartoons)
         }
     }
- }
+}
 
 //галерея ()
 
@@ -90,27 +88,27 @@ const cartoonWrapper = document.getElementById('cartoon-wrapper');
 document.addEventListener(
     "DOMContentLoaded",
     function () {
-      moviesBtnRight.onclick = function () {
-        moviesWrapper.scrollLeft += 200;
-      }
-      moviesBtnLeft.onclick = function () {
-        moviesWrapper.scrollLeft -= 200;
-      }
-      seriesBtnRight.onclick = function () {
-        seriesWrapper.scrollLeft += 200;
-      }
-      seriesBtnLeft.onclick = function () {
-        seriesWrapper.scrollLeft -= 200;
-      }
-      cartoonBtnRight.onclick = function () {
-        cartoonWrapper.scrollLeft += 200;
-      }
-      cartoonBtnLeft.onclick = function () {
-        cartoonWrapper.scrollLeft -= 200;
-      }
+        moviesBtnRight.onclick = function () {
+            moviesWrapper.scrollLeft += 200;
+        }
+        moviesBtnLeft.onclick = function () {
+            moviesWrapper.scrollLeft -= 200;
+        }
+        seriesBtnRight.onclick = function () {
+            seriesWrapper.scrollLeft += 200;
+        }
+        seriesBtnLeft.onclick = function () {
+            seriesWrapper.scrollLeft -= 200;
+        }
+        cartoonBtnRight.onclick = function () {
+            cartoonWrapper.scrollLeft += 200;
+        }
+        cartoonBtnLeft.onclick = function () {
+            cartoonWrapper.scrollLeft -= 200;
+        }
     },
     false,
-  );
+);
 
 
 
@@ -123,7 +121,7 @@ const modalWindowGenres = document.querySelector('.modal-window__genres');
 const modalWindowText = document.querySelector('.modal-window__text');
 const modalWindowBtn = document.querySelector('.modal-window__btn');
 
-function showMovieModalWindow (image, alt, year, country, genres, text) {
+function showMovieModalWindow(image, alt, year, country, genres, text) {
     modalWindowSection.classList.add('modal-window--active');
     modalWindowImage.src = image;
     modalWindowTitle.textContent = alt;
@@ -133,9 +131,9 @@ function showMovieModalWindow (image, alt, year, country, genres, text) {
     modalWindowText.textContent = text;
 }
 
-function getArrayItemsList (array) {
+function getArrayItemsList(array) {
     const itemsList = [];
-    for (let item of array){
+    for (let item of array) {
         itemsList.push(item.name)
     }
     return itemsList.join(', ')
@@ -196,14 +194,30 @@ getPremiers();
 
 //ЛЕНА НАЧАЛО
 
+const FILMSS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
+const API_KEY_POPULAR = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
 const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
 const API_URL_SEARCH = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=';
 
-const moviesEl = document.querySelector(".popular-movies");
+const moviesElem = document.querySelector(".popular-movies");
 const searchResultsEl = document.querySelector(".search-movies");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
 
+async function getMovies(url) {
+    try {
+        const resp = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": API_KEY_POPULAR,
+            },
+        });
+        const respData = await resp.json();
+        return respData;
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 function getClassOfRate(voting) {
     if (voting >= 7) {
@@ -218,22 +232,30 @@ function getClassOfRate(voting) {
 function displayMovies(data, container) {
     container.innerHTML = "";
 
-    data.films.forEach((movie) => {
-        const movieEl = document.createElement("div");
-        movieEl.classList.add("popular-movie");
-        movieEl.innerHTML = `
-          <div class="popular-movie__cover-inner">
-            <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
-            <div class="popular-movie__cover--darkened"></div>
-            </div>
-          <div class="popular-movie__info">
-            <div class="popular-movie__title">${movie.nameRu}</div>
-            <div class="popular-movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
-            <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}"">${movie.rating}</div>
-          </div>`;
-        container.appendChild(movieEl);
-    });
+    if (data.films && data.films.length > 0) {
+        data.films.forEach((movie) => {
+            const movieEl = document.createElement("div");
+            movieEl.classList.add("popular-movie");
+            movieEl.innerHTML = `
+                <div class="popular-movie__cover-inner">
+                    <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
+                    <div class="popular-movie__cover--darkened"></div>
+                </div>
+                <div class="popular-movie__info">
+                    <div class="popular-movie__title">${movie.nameRu}</div>
+                    <div class="popular-movie__category">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
+                    <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}">${movie.rating}</div>
+                </div>`;
+            container.appendChild(movieEl);
+        });
+    } else {
+        const noResultsEl = document.createElement("div");
+        noResultsEl.classList.add("no-results");
+        noResultsEl.textContent = "No movies found.";
+        container.appendChild(noResultsEl);
+    }
 }
+
 
 const modalOverlay = document.getElementById("modalOverlay");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
@@ -304,7 +326,7 @@ async function displayMoviesInModal() {
 
 async function main() {
     const popularData = await getMovies(API_URL_POPULAR);
-    displayMovies(popularData, moviesEl);
+    displayMovies(popularData, moviesElem);
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -317,7 +339,6 @@ async function main() {
 }
 
 main();
-
 //ЛЕНА КОНЕЦ
 
 //ЮЛЯ НАЧАЛО
@@ -403,9 +424,9 @@ function checkSelect() {
         getRandomMovie(HORRIRS_URL)
     } else if (selectedValue === "Триллер") {
         getRandomMovie(TRILLERS_URL)
-    }else if (selectedValue === "Фонтастика") {
+    } else if (selectedValue === "Фонтастика") {
         getRandomMovie(FANTASY_URL)
-}
+    }
 }
 const randomForm = document.querySelector('.random-form')
 
@@ -529,4 +550,3 @@ hideBtn.addEventListener('click', event => {
     hideButton()
 })
 //ЮЛЯ КОНЕЦ
-

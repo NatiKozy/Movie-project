@@ -223,10 +223,6 @@ swiper-slide img {
   display: block;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   background-color: #000;
   flex-direction: column;
@@ -246,6 +242,14 @@ body {
   display: flex;
 }
 
+.header__content {
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 16px;
+  display: flex;
+}
+
 .header__left-part {
   display: flex;
 }
@@ -258,8 +262,8 @@ body {
 }
 
 .header__search {
-  border-radius: 5px solid black;
-  border: 2px;
+  border: 2px solid #000;
+  border-radius: 5px;
   outline: none;
   padding: 8px;
 }
@@ -406,8 +410,10 @@ a:hover {
   border-radius: 5px;
   width: 80%;
   max-width: 600px;
+  max-height: 80vh;
   padding: 20px;
   position: relative;
+  overflow-y: auto;
   box-shadow: 0 0 10px #00000080;
 }
 
@@ -447,11 +453,6 @@ a:hover {
 .modal-prev:hover, .modal-next:hover {
   background-color: #45a049;
   transform: scale(1.05);
-}
-
-.modal-content {
-  max-height: 80vh;
-  overflow-y: auto;
 }
 
 .random__movie {

@@ -249,14 +249,6 @@ swiper-slide img {
 }
 
 //ЛЕНА
-//переменные
-$black: #000000;
-$white: #FFF;
-
-
-* {
-  box-sizing: border-box;
-}
 
 body {
   display: flex;
@@ -277,6 +269,13 @@ body {
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  height: 60px;
+}
 
 .header__left-part{
   display: flex;
@@ -291,8 +290,8 @@ body {
 
 .header__search {
   padding: 8px;
-  border: 2px;
-  border-radius: 5px solid black;
+  border: 2px solid black;
+  border-radius: 5px;
   outline: none;
 }
 
@@ -446,6 +445,8 @@ a:hover{
   width: 80%;
   max-width: 600px;
   position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -486,10 +487,6 @@ a:hover{
 .modal-next:hover {
   background-color: #45a049;
   transform: scale(1.05);
-}
-.modal-content {
-  max-height: 80vh;
-  overflow-y: auto;
 }
 
 //  STYLES ЮЛЯ

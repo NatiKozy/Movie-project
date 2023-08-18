@@ -727,12 +727,28 @@ function showPremiers(array) {
 getPremiers();
 //НАТАША КОНЕЦ
 //ЛЕНА НАЧАЛО
+const FILMSS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
+const API_KEY_POPULAR = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
 const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
 const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
-const moviesEl = document.querySelector(".popular-movies");
+const moviesElem = document.querySelector(".popular-movies");
 const searchResultsEl = document.querySelector(".search-movies");
 const form = document.querySelector("form");
 const search = document.querySelector(".header__search");
+async function getMovies(url) {
+    try {
+        const resp = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+                "X-API-KEY": API_KEY_POPULAR
+            }
+        });
+        const respData = await resp.json();
+        return respData;
+    } catch (err) {
+        console.log(err);
+    }
+}
 function getClassOfRate(voting) {
     if (voting >= 7) return "green";
     else if (voting > 5) return "orange";
@@ -740,21 +756,27 @@ function getClassOfRate(voting) {
 }
 function displayMovies(data, container) {
     container.innerHTML = "";
-    data.films.forEach((movie)=>{
+    if (data.films && data.films.length > 0) data.films.forEach((movie)=>{
         const movieEl = document.createElement("div");
         movieEl.classList.add("popular-movie");
         movieEl.innerHTML = `
-          <div class="popular-movie__cover-inner">
-            <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
-            <div class="popular-movie__cover--darkened"></div>
-            </div>
-          <div class="popular-movie__info">
-            <div class="popular-movie__title">${movie.nameRu}</div>
-            <div class="popular-movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
-            <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}"">${movie.rating}</div>
-          </div>`;
+                <div class="popular-movie__cover-inner">
+                    <img src="${movie.posterUrlPreview}" class="popular-movie__cover" alt="${movie.nameRu}" />
+                    <div class="popular-movie__cover--darkened"></div>
+                </div>
+                <div class="popular-movie__info">
+                    <div class="popular-movie__title">${movie.nameRu}</div>
+                    <div class="popular-movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+                    <div class="popular-movie__average popular-movie__average--${getClassOfRate(movie.rating)}">${movie.rating}</div>
+                </div>`;
         container.appendChild(movieEl);
     });
+    else {
+        const noResultsEl = document.createElement("div");
+        noResultsEl.classList.add("no-results");
+        noResultsEl.textContent = "No movies found.";
+        container.appendChild(noResultsEl);
+    }
 }
 const modalOverlay = document.getElementById("modalOverlay");
 const modalCloseBtn = document.getElementById("modalCloseBtn");
@@ -814,7 +836,7 @@ async function displayMoviesInModal() {
 }
 async function main() {
     const popularData = await getMovies(API_URL_POPULAR);
-    displayMovies(popularData, moviesEl);
+    displayMovies(popularData, moviesElem);
     form.addEventListener("submit", async (e)=>{
         e.preventDefault();
         if (search.value) {
