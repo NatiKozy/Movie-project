@@ -5,6 +5,7 @@ $body-color:#020510;
 $section-color: #0a031c;
 $pink-color: #FF4D6D;
 $blue-color: #54E1FF;
+$pink-btn-color: #ff2d78;
 // $title-font-size: ;
 
 @mixin movie-card-style{
@@ -21,7 +22,7 @@ color: white;
 height: 49px;
 width: 150px;
 border-radius: 7px;
-border: 1px solid $pink-color;
+border: 1px solid $pink-btn-color;
 margin-bottom: 30px;
 }
 
@@ -550,7 +551,7 @@ border-radius: 7px;
 
 .movie__category {
     font-size: 14px;
-    color: $pink-color;
+    color: $blue-color;
 }
 
 .movie__average {
@@ -584,7 +585,10 @@ border-radius: 7px;
 
 /* RANDOM_FILM RART */
 .random {
-    background-color: $section-color;
+  border-radius: 20px;
+  background: -webkit-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
+  background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
+  background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
     margin: 50 auto;
     width: 700px;
     max-height: 350px;
