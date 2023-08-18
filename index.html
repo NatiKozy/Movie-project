@@ -13,7 +13,7 @@
     <title>Movie</title>
 </head>
 <body>
-    <header class="header container">
+    <header class="header">
         <div class="header__container">
             <div class="header__left-part">
             <a href="index.html"><img class="header__logo" src="./assets/images/icons/free-icon-movie-camera-4221360.png"/></a>
@@ -25,15 +25,15 @@
             </ul>
         </div>
         <div class="header__right-part">
-            <form class="header-search">
-                <input class="header-search__input" type="text" class="header__search" placeholder="Поиск" />
+            <form>
+                <input type="text" class="header__search" placeholder="Поиск" />
             </form>
         </div>
         </div>
     </header>
     <main>
 
-        <section class="hero container">
+        <section class="hero">
             <body>
                 <swiper-container class="mySwiper" pagination="false" effect="coverflow" grab-cursor="true" centered-slides="true"
                   slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
@@ -103,7 +103,7 @@
     </div>
 
 </section>
-    <section class="popular-movies"></section>
+<section class="popular-movies"></section>
     <!-- Всплывающее модальное окно для результатов поиска -->
     <section class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
@@ -157,7 +157,7 @@
 </div>
 </section>
 </main>
-<footer class="footer container">
+<footer class="footer">
     <ul class="footer__list">
         <li class="list__item"><a href="#movies">Фильмы</a></li>
         <li class="list__item"><a href="#series">Сериалы</a></li>

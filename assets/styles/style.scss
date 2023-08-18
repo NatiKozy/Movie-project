@@ -5,7 +5,6 @@ $body-color:#020510;
 $section-color: #0a031c;
 $pink-color: #FF4D6D;
 $blue-color: #54E1FF;
-$pink-btn-color: #ff2d78;
 // $title-font-size: ;
 
 @mixin movie-card-style{
@@ -22,7 +21,7 @@ color: white;
 height: 49px;
 width: 150px;
 border-radius: 7px;
-border: 1px solid $pink-btn-color;
+border: 1px solid $pink-color;
 margin-bottom: 30px;
 }
 
@@ -49,13 +48,6 @@ img {
   max-width: 100%;
 }
 
-.header__container{
-  display: flex;
-  justify-content: space-between;
-}
-.header__left-part{
-  margin-right: 170px;
-}
 //movies
 
 .section_title{
@@ -257,14 +249,6 @@ swiper-slide img {
 }
 
 //ЛЕНА
-//переменные
-$black: #000000;
-$white: #FFF;
-
-
-* {
-  box-sizing: border-box;
-}
 
 body {
   display: flex;
@@ -285,6 +269,13 @@ body {
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
+.header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  height: 60px;
+}
 
 .header__left-part{
   display: flex;
@@ -299,9 +290,13 @@ body {
 
 .header__search {
   padding: 8px;
-  border: 2px;
-  border-radius: 5px solid black;
+  border: 2px solid black;
+  border-radius: 5px;
   outline: none;
+  color: #000;
+}
+.header__search::placeholder {
+  color: #999;
 }
 
 .header__list{
@@ -454,6 +449,8 @@ a:hover{
   width: 80%;
   max-width: 600px;
   position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .modal-header {
@@ -495,17 +492,13 @@ a:hover{
   background-color: #45a049;
   transform: scale(1.05);
 }
-.modal-content {
-  max-height: 80vh;
-  overflow-y: auto;
-}
 
 //  STYLES ЮЛЯ
 .random__movie {
   @include movie-card-style()
 }
 .random__title{
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 }
 
 .random-select{
@@ -558,7 +551,7 @@ border-radius: 7px;
 
 .movie__category {
     font-size: 14px;
-    color: $blue-color;
+    color: $pink-color;
 }
 
 .movie__average {
@@ -592,18 +585,13 @@ border-radius: 7px;
 
 /* RANDOM_FILM RART */
 .random {
-  border-radius: 20px;
-  background: -webkit-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
-  background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
-  background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
+    background-color: $section-color;
     margin: 50 auto;
-    max-width: 700px;
+    width: 700px;
     max-height: 350px;
-    opacity: 0.9;
-    backdrop-filter: opacity(20%);
-    box-shadow: -1px -1px 61px 35px rgba(35,49,84,0.64);
--webkit-box-shadow: -1px -1px 61px 35px rgba(35,49,84,0.64);
--moz-box-shadow: -1px -1px 61px 35px rgba(35,49,84,0.64);
+    -webkit-box-shadow: -4px -1px 56px 21px rgba(2,105,173,1);
+    -moz-box-shadow: -4px -1px 56px 21px rgba(2,105,173,1);
+    box-shadow: -4px -1px 56px 21px rgba(2,105,173,1);
 }
 
 .random-container {
