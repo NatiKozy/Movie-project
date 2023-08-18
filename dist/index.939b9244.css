@@ -190,6 +190,7 @@ img {
 
 swiper-container {
   width: 100%;
+  margin-top: 10px;
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -197,7 +198,7 @@ swiper-container {
 swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 28%;
+  width: 25%;
 }
 
 swiper-slide img {
@@ -220,31 +221,72 @@ body {
 }
 
 .header__container {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.header__content {
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  margin-bottom: 10px;
   padding: 16px;
+  display: flex;
+}
+
+.header__left-part {
   display: flex;
 }
 
 .header__logo {
   color: #f0f8ff;
+  width: 50px;
   font-size: 32px;
   text-decoration: none;
 }
 
 .header__search {
-  border: 2px solid #000;
-  border-radius: 5px;
+  border-radius: 5px solid black;
+  border: 2px;
   outline: none;
   padding: 8px;
+}
+
+.header__list {
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 18px;
+  list-style-type: none;
+  display: flex;
+}
+
+.footer__list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  list-style-type: none;
+  display: flex;
+}
+
+.footer {
+  border-top: 1px solid #f0f8ff;
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ec9bf5;
+}
+
+.creators {
+  text-align: center;
+  color: #ec9bf5;
+  font-size: 10px;
+}
+
+@media (width <= 550px) {
+  .header__list, .footer__list {
+    font-size: 12px;
+  }
 }
 
 .popular-movies {

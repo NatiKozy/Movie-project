@@ -16,11 +16,12 @@
     <header class="header">
         <div class="header__container">
             <div class="header__left-part">
-            <a href="index.html"><img class="header__logo"/></a>
+            <a href="index.html"><img class="header__logo" src="./assets/images/icons/free-icon-movie-camera-4221360.png"/></a>
             <ul class="header__list">
-                <li class="list__item"></li>
-                <li class="list__item"></li>
-                <li class="list__item"></li>
+                <li class="list__item"><a href="#movies">Фильмы</a></li>
+                <li class="list__item"><a href="#series">Сериалы</a></li>
+                <li class="list__item"><a href="#cartoons">Мультфильмы</a></li>
+                <li class="list__item"><a href="#top">Топ</a></li>
             </ul>
         </div>
         <div class="header__right-part">
@@ -34,14 +35,14 @@
 
         <section class="hero">
             <body>
-                <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+                <swiper-container class="mySwiper" pagination="false" effect="coverflow" grab-cursor="true" centered-slides="true"
                   slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
                   coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
                 </swiper-container>
         </section>
 
 <!-- Галерея с фильмами -->
-<section class="film-cards-gallery movie-gallery">
+<section class="film-cards-gallery movie-gallery" id="movies">
     <h2 class="section_title">Movies</h2>
     <div class="gallery-wrapper">
         <button class="gallery-btn--left" id="movie-btn--left">
@@ -55,7 +56,7 @@
     </div>
 </section>
 
-<section class="film-cards-gallery series-gallery">
+<section class="film-cards-gallery series-gallery" id="series">
     <h2 class="section_title">Series</h2>
     <div class="gallery-wrapper">
     <button class="gallery-btn--left" id="series-btn--left">
@@ -69,7 +70,7 @@
 </div>
 </section>
 
-<section class="film-cards-gallery cartoons-gallery">
+<section class="film-cards-gallery cartoons-gallery" id="cartoons">
     <h2 class="section_title">Cartoons</h2>
     <div class="gallery-wrapper">
         <button class="gallery-btn--left" id="cartoon-btn--left">
@@ -102,19 +103,6 @@
     </div>
 
 </section>
-
-    <section class="premiers">
-        <div class="slider">
-            <div class="slider-line"></div>
-            <div class="slider-panel">
-                <div class="arrows">
-                    <div class="arrow-left"><i class="fa-solid fa-chevron-left" onclick="prev()"></i></div>
-                    <div class="arrow-right"><i class="fa-solid fa-chevron-right" onclick="next()"></i></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="popular-movies"></section>
     <!-- Всплывающее модальное окно для результатов поиска -->
     <section class="modal-overlay" id="modalOverlay">
@@ -155,7 +143,7 @@
         </div>
     </div>
 </section>
-<section class="top-250-films container">
+<section class="top-250-films container" id="top">
     <h2 class="top-250-films__title">Топ лучших фильмов</h2>
     <div class="top-250-films__boxes">
         <div class="top-250-films__box">
@@ -169,7 +157,15 @@
 </div>
 </section>
 </main>
-<footer class="footer"></footer>
+<footer class="footer">
+    <ul class="footer__list">
+        <li class="list__item"><a href="#movies">Фильмы</a></li>
+        <li class="list__item"><a href="#series">Сериалы</a></li>
+        <li class="list__item"><a href="#cartoons">Мультфильмы</a></li>
+        <li class="list__item"><a href="#top">Топ</a></li>
+    </ul>
+    <p class="creators">Created by Anna & Julia & Elena $ Natalya<br>2023</p>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js" type="module"></script>
 <script src="./index.js" type="module"></script>
 </body>
