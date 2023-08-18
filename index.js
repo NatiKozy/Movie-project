@@ -503,6 +503,7 @@ function countPage() {
     console.log(numPage)
     numPage += 1
 }
+
 btnTop.addEventListener('click', event => {
     event.preventDefault()
     getTopFilmsTwo(numPage)
