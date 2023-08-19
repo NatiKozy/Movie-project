@@ -467,6 +467,7 @@ a:hover {
 }
 
 .random__title {
+  max-width: 250px;
   margin-bottom: 50px;
   font-size: 30px;
 }
@@ -568,6 +569,7 @@ a:hover {
   max-width: 700px;
   max-height: 350px;
   margin: 50px auto;
+  padding: 20px;
   box-shadow: -1px -1px 61px 35px #233154a3;
 }
 
@@ -670,6 +672,7 @@ a:hover {
 }
 
 .top-movie:hover {
+  z-index: 99;
   transform: scale(1.2);
 }
 
@@ -713,6 +716,7 @@ a:hover {
 
 .top-movie__category {
   color: #999696;
+  margin-bottom: 20px;
   font-family: Poppins;
   font-size: 14px;
   font-style: italic;

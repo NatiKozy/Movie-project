@@ -504,6 +504,7 @@ a:hover{
   @include movie-card-style()
 }
 .random__title{
+  max-width: 250px;
   margin-bottom: 50px;
   @include font-style();
 }
@@ -596,6 +597,7 @@ border-radius: 7px;
 
 /* RANDOM_FILM RART */
 .random {
+  padding: 20px;
   background: -webkit-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
   background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
   background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
@@ -707,6 +709,7 @@ border-radius: 7px;
 }
 .top-movie:hover{
   transform: scale(1.2);
+  z-index: 99;
 }
 .top-movie__cover-inner {
   position: relative;
@@ -751,6 +754,7 @@ border-radius: 7px;
   font-size: 14px;
   color: $genre-color;
   font-style: italic;
+  margin-bottom: 20px;
 }
 
 .top-movie__average {
