@@ -503,30 +503,7 @@ a:hover{
 }
 
 //  STYLES ЮЛЯ
-.random__movie {
-  width: 160px;
-  @include movie-card-style()
-}
-.random__title{
-  margin-bottom: 50px;
-  @include font-style();
-}
 
-.top-movie{
-  width: 290px;
-  }
-.random-select{
-  font-family: 'Poppins';
-  width: 170px;
-  height: 45px;
-  border: 1px solid rgb(161, 158, 158);
-  font-size: 17px;
-color: $white;
-background-color: #454b65;
-text-align: center;
-margin-bottom: 3px;
-border-radius: 7px;
-}
 .movie__cover-inner {
     position: relative;
     height: 233px;
@@ -599,28 +576,41 @@ border-radius: 7px;
 }
 
 /* RANDOM_FILM RART */
-.random {
-  background: -webkit-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
-  background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
-  background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
-  background-color: $section-color;
-  margin: 50 auto;
-  max-width: 700px;
-  height: 380px;
-  backdrop-filter: opacity(20%);
-  box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
-  -webkit-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
-  -moz-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
-  z-index: 99;
-  border-radius: 17px;
+
+.random{
+  position: relative;
+}
+
+.random::after {
+  content: "";
+  top: -15px;
+  right: 360px;
+  position: absolute;
+  height: 105%;
+  width: 50%;
+  background: linear-gradient(90deg, $pink-color, $blue-color);
+  z-index: -1;
+  filter: blur(20px);
 }
 .random-container {
-    height: 350px;
+    height: 360px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    background: -webkit-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
+    background: -moz-linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(59, 168, 191) 100%);
+    background: linear-gradient(90deg, rgb(10, 3, 28) 51%, rgb(52, 148, 168) 200%);
+    background-color: $section-color;
+    margin: 50 auto;
+    max-width: 700px;
+    height: 380px;
+    backdrop-filter: opacity(20%);
+    box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
+    -webkit-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
+    -moz-box-shadow: -1px -1px 61px 35px rgba(35, 49, 84, 0.64);
+    z-index: 99;
+    border-radius: 17px;
 }
-
 
 .random__left-part {
     align-items: center;
@@ -631,6 +621,27 @@ border-radius: 7px;
     height: 50px;
 }
 
+.random__movie {
+  width: 160px;
+  @include movie-card-style()
+}
+.random__title{
+  margin-bottom: 50px;
+  @include font-style();
+}
+
+.random-select{
+  font-family: 'Poppins';
+  width: 170px;
+  height: 45px;
+  border: 1px solid rgb(161, 158, 158);
+  font-size: 17px;
+color: $white;
+background-color: #454b65;
+text-align: center;
+margin-bottom: 3px;
+border-radius: 7px;
+}
 .movies {
     display: flex;
     flex-wrap: wrap;
@@ -670,10 +681,14 @@ border-radius: 7px;
 // TOP 250 FILMS
 
 .top-250-films{
+  background-color: $section-color;
   margin: auto;
   text-align: center;
 }
-
+.top-250-films__title{
+  padding-top: 30px;
+  font-style: $general-font;
+}
 .top-250-films__boxes{
   margin:  auto;
   max-width: 1350px;

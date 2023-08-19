@@ -461,34 +461,6 @@ a:hover {
   transform: scale(1.05);
 }
 
-.random__movie {
-  width: 160px;
-  margin: 10px;
-  position: relative;
-}
-
-.random__title {
-  margin-bottom: 50px;
-  font-size: 30px;
-}
-
-.top-movie {
-  width: 290px;
-}
-
-.random-select {
-  color: #fff;
-  text-align: center;
-  background-color: #454b65;
-  border: 1px solid #a19e9e;
-  border-radius: 7px;
-  width: 170px;
-  height: 45px;
-  margin-bottom: 3px;
-  font-family: Poppins;
-  font-size: 17px;
-}
-
 .movie__cover-inner {
   height: 233px;
   position: relative;
@@ -561,22 +533,34 @@ a:hover {
 }
 
 .random {
+  position: relative;
+}
+
+.random:after {
+  content: "";
+  z-index: -1;
+  filter: blur(20px);
+  background: linear-gradient(90deg, #ff4d6d, #54e1ff);
+  width: 50%;
+  height: 105%;
+  position: absolute;
+  top: -15px;
+  right: 360px;
+}
+
+.random-container {
   -webkit-backdrop-filter: opacity(20%);
   backdrop-filter: opacity(20%);
   z-index: 99;
   background: #0a031c linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
   border-radius: 17px;
+  justify-content: space-around;
+  align-items: center;
   max-width: 700px;
   height: 380px;
   margin: 50px auto;
-  box-shadow: -1px -1px 61px 35px #233154a3;
-}
-
-.random-container {
-  justify-content: space-around;
-  align-items: center;
-  height: 350px;
   display: flex;
+  box-shadow: -1px -1px 61px 35px #233154a3;
 }
 
 .random__left-part {
@@ -586,6 +570,30 @@ a:hover {
 .random-basic-img {
   width: 50px;
   height: 50px;
+}
+
+.random__movie {
+  width: 160px;
+  margin: 10px;
+  position: relative;
+}
+
+.random__title {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+.random-select {
+  color: #fff;
+  text-align: center;
+  background-color: #454b65;
+  border: 1px solid #a19e9e;
+  border-radius: 7px;
+  width: 170px;
+  height: 45px;
+  margin-bottom: 3px;
+  font-family: Poppins;
+  font-size: 17px;
 }
 
 .movies {
@@ -612,7 +620,13 @@ a:hover {
 
 .top-250-films {
   text-align: center;
+  background-color: #0a031c;
   margin: auto;
+}
+
+.top-250-films__title {
+  font-style: "Poppins";
+  padding-top: 30px;
 }
 
 .top-250-films__boxes {
