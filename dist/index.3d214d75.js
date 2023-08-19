@@ -576,7 +576,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"bB7Pu":[function(require,module,exports) {
 //АНЯ НАЧАЛО секция MOVIES
 const FILMS_URL_MOVIES = `https://api.kinopoisk.dev/v1.3/movie?page=1&limit=100`;
-const API_KEY_MOVIES = `V9WW64N-0ZMMV8V-PR39C4M-6YSG9KB`;
+const API_KEY_MOVIES = `1CZFK25-MDA4Q4W-MJVMYF9-Q7QZBH1`;
 const movieslist = document.querySelector(".movies-list");
 const seriesList = document.querySelector(".series-list");
 const cartoonList = document.querySelector(".cartoon-list");
@@ -591,7 +591,6 @@ async function getFilms() {
         });
         const data = await response.json();
         const films = await data.docs;
-        console.log(films);
         checmoviekType(films);
     } catch (err) {
         console.log(err);
