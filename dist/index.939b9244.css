@@ -468,6 +468,8 @@ a:hover {
 
 .random__title {
   margin-bottom: 50px;
+  font-family: Poppins;
+  font-size: 30px;
 }
 
 .random-select {
@@ -479,6 +481,7 @@ a:hover {
   width: 170px;
   height: 45px;
   margin-bottom: 3px;
+  font-family: Poppins;
   font-size: 17px;
 }
 
@@ -515,12 +518,13 @@ a:hover {
 }
 
 .movie__title {
+  font-style: "Poppins";
   color: #fff;
-  font-size: 16px;
 }
 
 .movie__category {
-  color: #ff4d6d;
+  color: #999696;
+  font-family: Poppins;
   font-size: 14px;
 }
 
@@ -553,11 +557,12 @@ a:hover {
 }
 
 .random {
-  opacity: .9;
   -webkit-backdrop-filter: opacity(20%);
   backdrop-filter: opacity(20%);
+  z-index: 99;
   background: #0a031c linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
-  width: 700px;
+  border-radius: 17px;
+  max-width: 700px;
   max-height: 350px;
   margin: 50px auto;
   box-shadow: -1px -1px 61px 35px #233154a3;
@@ -629,7 +634,8 @@ a:hover {
   width: 150px;
   height: 49px;
   margin-bottom: 30px;
-  font-size: 20px;
+  font-family: Poppins;
+  font-size: 17px;
   display: none;
 }
 
@@ -649,7 +655,8 @@ a:hover {
   height: 49px;
   margin-bottom: 30px;
   margin-right: 15px;
-  font-size: 20px;
+  font-family: Poppins;
+  font-size: 17px;
 }
 
 /*# sourceMappingURL=index.939b9244.css.map */
