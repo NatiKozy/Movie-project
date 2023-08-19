@@ -20,15 +20,6 @@ img {
   max-width: 100%;
 }
 
-.header__container {
-  justify-content: space-between;
-  display: flex;
-}
-
-.header__left-part {
-  margin-right: 170px;
-}
-
 .section_title {
   color: #fff;
   margin: 20px 0 20px 70px;
@@ -232,10 +223,6 @@ swiper-slide img {
   display: block;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   background-color: #000;
   flex-direction: column;
@@ -255,6 +242,14 @@ body {
   display: flex;
 }
 
+.header__content {
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 16px;
+  display: flex;
+}
+
 .header__left-part {
   display: flex;
 }
@@ -267,10 +262,15 @@ body {
 }
 
 .header__search {
-  border-radius: 5px solid black;
-  border: 2px;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 5px;
   outline: none;
   padding: 8px;
+}
+
+.header__search::placeholder {
+  color: #999;
 }
 
 .header__list {
@@ -415,8 +415,10 @@ a:hover {
   border-radius: 5px;
   width: 80%;
   max-width: 600px;
+  max-height: 80vh;
   padding: 20px;
   position: relative;
+  overflow-y: auto;
   box-shadow: 0 0 10px #00000080;
 }
 
@@ -458,11 +460,6 @@ a:hover {
   transform: scale(1.05);
 }
 
-.modal-content {
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
 .random__movie {
   width: 160px;
   margin: 10px;
@@ -470,7 +467,7 @@ a:hover {
 }
 
 .random__title {
-  margin-bottom: 90px;
+  margin-bottom: 50px;
 }
 
 .random-select {
@@ -523,7 +520,7 @@ a:hover {
 }
 
 .movie__category {
-  color: #54e1ff;
+  color: #ff4d6d;
   font-size: 14px;
 }
 
@@ -559,9 +556,8 @@ a:hover {
   opacity: .9;
   -webkit-backdrop-filter: opacity(20%);
   backdrop-filter: opacity(20%);
-  background: linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
-  border-radius: 20px;
-  max-width: 700px;
+  background: #0a031c linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
+  width: 700px;
   max-height: 350px;
   margin: 50px auto;
   box-shadow: -1px -1px 61px 35px #233154a3;
@@ -628,7 +624,7 @@ a:hover {
   cursor: pointer;
   color: #fff;
   background-color: #ff4d6d;
-  border: 1px solid #ff2d78;
+  border: 1px solid #ff4d6d;
   border-radius: 7px;
   width: 150px;
   height: 49px;
@@ -647,7 +643,7 @@ a:hover {
   cursor: pointer;
   color: #fff;
   background-color: #ff4d6d;
-  border: 1px solid #ff2d78;
+  border: 1px solid #ff4d6d;
   border-radius: 7px;
   width: 150px;
   height: 49px;
