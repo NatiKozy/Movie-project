@@ -317,7 +317,7 @@ a:hover {
 .popular-movies {
   flex-wrap: wrap;
   justify-content: space-around;
-  max-width: 1500px;
+  max-width: 1300px;
   margin: auto;
   display: flex;
 }
@@ -331,7 +331,7 @@ a:hover {
 .popular-movie__cover-inner {
   height: 360px;
   position: relative;
-  box-shadow: 10px 5px 5px #0269ad;
+  box-shadow: 10px 5px 5px #263459;
 }
 
 .popular-movie__cover {
@@ -468,6 +468,12 @@ a:hover {
 
 .random__title {
   margin-bottom: 50px;
+  font-family: Poppins;
+  font-size: 30px;
+}
+
+.top-movie {
+  width: 290px;
 }
 
 .random-select {
@@ -479,6 +485,7 @@ a:hover {
   width: 170px;
   height: 45px;
   margin-bottom: 3px;
+  font-family: Poppins;
   font-size: 17px;
 }
 
@@ -515,12 +522,13 @@ a:hover {
 }
 
 .movie__title {
+  font-style: "Poppins";
   color: #fff;
-  font-size: 16px;
 }
 
 .movie__category {
-  color: #ff4d6d;
+  color: #999696;
+  font-family: Poppins;
   font-size: 14px;
 }
 
@@ -553,11 +561,12 @@ a:hover {
 }
 
 .random {
-  opacity: .9;
   -webkit-backdrop-filter: opacity(20%);
   backdrop-filter: opacity(20%);
+  z-index: 99;
   background: #0a031c linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
-  width: 700px;
+  border-radius: 17px;
+  max-width: 700px;
   max-height: 350px;
   margin: 50px auto;
   box-shadow: -1px -1px 61px 35px #233154a3;
@@ -606,17 +615,11 @@ a:hover {
   margin: auto;
 }
 
-.top-250-films__boxes, .top-250-films__box, .top-250-films__box-two {
+.top-250-films__boxes, .top-250-films__box-two {
   flex-wrap: wrap;
-  max-width: 900px;
+  max-width: 1300px;
   margin: auto;
   display: flex;
-}
-
-.top-movie {
-  width: 160px;
-  margin: 10px;
-  position: relative;
 }
 
 .top-250-films__button-hide {
@@ -629,7 +632,8 @@ a:hover {
   width: 150px;
   height: 49px;
   margin-bottom: 30px;
-  font-size: 20px;
+  font-family: Poppins;
+  font-size: 17px;
   display: none;
 }
 
@@ -649,7 +653,91 @@ a:hover {
   height: 49px;
   margin-bottom: 30px;
   margin-right: 15px;
-  font-size: 20px;
+  font-family: Poppins;
+  font-size: 17px;
+}
+
+.top-250-films__box {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+}
+
+.top-movie {
+  width: 240px;
+  margin: 10px;
+  position: relative;
+}
+
+.top-movie__cover-inner {
+  height: 360px;
+  position: relative;
+  box-shadow: 10px 5px 5px #263459;
+}
+
+.top-movie__cover {
+  max-width: 100%;
+  height: 100%;
+}
+
+.top-movie__cover--darkened {
+  opacity: .1;
+  z-index: 1;
+  background-color: #000;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.top-movie__cover--darkened:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+.top-movie__info {
+  padding: 10px 0;
+}
+
+.top-movie__title {
+  color: #fff;
+  font-size: 16px;
+}
+
+.top-movie__category {
+  color: #d3d30b;
+  font-size: 14px;
+}
+
+.top-movie__average {
+  color: #fff;
+  background-color: #271f1f;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.top-movie__average--green {
+  border: 1px solid green;
+}
+
+.top-movie__average--orange {
+  border: 1px solid orange;
+}
+
+.top-movie__average--red {
+  border: 1px solid red;
 }
 
 /*# sourceMappingURL=index.939b9244.css.map */
