@@ -865,7 +865,7 @@ const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&
 const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
 const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`;
 const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`;
-const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
+const RANDOM_API_KEY = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 function arrayRandElement(arr) {
     const rand = Math.floor(Math.random() * arr.length);
     return arr[rand];

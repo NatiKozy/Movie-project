@@ -567,7 +567,7 @@ a:hover {
   background: #0a031c linear-gradient(90deg, #0a031c 51%, #3494a8 200%);
   border-radius: 17px;
   max-width: 700px;
-  max-height: 350px;
+  height: 380px;
   margin: 50px auto;
   box-shadow: -1px -1px 61px 35px #233154a3;
 }
@@ -615,7 +615,7 @@ a:hover {
   margin: auto;
 }
 
-.top-250-films__boxes, .top-250-films__box-two {
+.top-250-films__boxes {
   flex-wrap: wrap;
   max-width: 1350px;
   margin: auto;
@@ -657,7 +657,7 @@ a:hover {
   font-size: 17px;
 }
 
-.top-250-films__box {
+.top-250-films__box, .top-250-films__box-two {
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 1270px;
@@ -671,7 +671,8 @@ a:hover {
 }
 
 .top-movie:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 10px #ffffff4d;
 }
 
 .top-movie__cover-inner {
@@ -714,6 +715,7 @@ a:hover {
 
 .top-movie__category {
   color: #999696;
+  margin-bottom: 3px;
   font-family: Poppins;
   font-size: 14px;
   font-style: italic;
