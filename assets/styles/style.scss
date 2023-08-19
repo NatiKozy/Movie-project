@@ -626,6 +626,7 @@ a:hover{
   @include movie-card-style()
 }
 .random__title{
+  width: 250px;
   margin-bottom: 50px;
   @include font-style();
 }
