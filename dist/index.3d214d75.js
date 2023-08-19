@@ -894,7 +894,14 @@ function getClassByRate(vote) {
 }
 const moviesRandomEl = document.querySelector(".random-movies");
 function showRandomMovie(movie) {
+    const country = movie.countries.map((country)=>country.country);
+    const genre = movie.genres.map((genre)=>genre.genre);
     const movieEl = document.createElement("div");
+    movieEl.classList.add("random__movie");
+    movieEl.addEventListener("click", (event)=>{
+        event.preventDefault;
+        showMovieModalWindow(movie.posterUrlPreview, movie.nameRu, movie.year, country, genre, `Описание отсутствует`);
+    });
     movieEl.classList.add("random__movie");
     movieEl.innerHTML = `
         <div class="movie__cover-inner">
@@ -961,7 +968,13 @@ const boxes = document.querySelector(".top-250-films__boxes");
 function showTopMovies(data, conatainer) {
     const topMoviesBox = document.querySelector(conatainer);
     data.films.forEach((movie)=>{
+        const country = movie.countries.map((country)=>country.country);
+        const genre = movie.genres.map((genre)=>genre.genre);
         const topMovie = document.createElement("div");
+        topMovie.addEventListener("click", (event)=>{
+            event.preventDefault;
+            showMovieModalWindow(movie.posterUrlPreview, movie.nameRu, movie.year, country, genre, `Описание отсутствует`);
+        });
         topMovie.classList.add("top-movie");
         topMovie.innerHTML = `
         <div class="movie__cover-inner">
