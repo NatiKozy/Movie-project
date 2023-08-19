@@ -330,13 +330,13 @@ a {
 }
 
 a:hover{
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 .creators{
   text-align: center;
   font-size: 10px;
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 @media (max-width:550px) {
@@ -346,6 +346,18 @@ a:hover{
 
   .footer__list{
   font-size: 12px;
+  }
+}
+
+@media (max-width:330px) {
+  .header__search {
+    margin-bottom: 20px;
+  }
+  .header__logo{
+    display: none;
+  }
+  swiper-container {
+    margin-top: 70px;
   }
 }
 
