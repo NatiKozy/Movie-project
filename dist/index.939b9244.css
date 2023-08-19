@@ -539,13 +539,13 @@ a:hover {
 .random:after {
   content: "";
   z-index: -1;
-  filter: blur(10px);
+  filter: blur(30px);
   background: linear-gradient(90deg, #ff4d6d, #54e1ff);
-  width: 56%;
+  width: 50%;
   height: 100%;
   position: absolute;
   top: 0%;
-  left: 22%;
+  left: 25%;
 }
 
 .random-container {

@@ -584,13 +584,13 @@ a:hover{
 .random::after {
   content: "";
   top: -0%;
-  left: 22%;
+  left: 25%;
   position: absolute;
   height: 100%;
-  width: 56%;
+  width: 50%;
   background: linear-gradient(90deg, $pink-color, $blue-color);
   z-index: -1;
-  filter: blur(10px);
+  filter: blur(30px);
 }
 .random-container {
     height: 360px;
