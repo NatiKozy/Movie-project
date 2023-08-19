@@ -456,6 +456,7 @@ a:hover{
   position: relative;
   max-height: 80vh;
   overflow-y: auto;
+  margin: auto;
 }
 
 .modal-header {
@@ -485,16 +486,19 @@ a:hover{
 }
 
 .modal-prev {
-  background-color: #4caf50;
+  background-color: $blue-color;
 }
 
 .modal-next {
-  background-color: #f44336;
+  background-color: $pink-color;
 }
 
-.modal-prev:hover,
+.modal-prev:hover{
+  background-color: $blue-color;
+  transform: scale(1.05);
+}
 .modal-next:hover {
-  background-color: #45a049;
+  background-color: $blue-color;
   transform: scale(1.05);
 }
 
