@@ -977,18 +977,18 @@ function showTopMovies(data, conatainer) {
         });
         topMovie.classList.add("top-movie");
         topMovie.innerHTML = `
-        <div class="movie__cover-inner">
+        <div class="top-movie__cover-inner">
         <img
             src="${movie.posterUrlPreview}"
-            class="movie__cover"
+            class="top-movie__cover"
             alt="${movie.nameRu}"/>
-        <div class="movie__cover--darkened"></div>
+        <div class="top-movie__cover--darkened"></div>
         </div>
-        <div class="movie__info">
-        <div class="movie__title">${movie.nameRu}</div>
-        <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
+        <div class="top-movie__info">
+        <div class="top-movie__title">${movie.nameRu}</div>
+        <div class="top-movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
         ${movie.rating && `
-        <div class="movie__average movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>
+        <div class="top-movie__average top-movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>
         `}
         </div>
         `;

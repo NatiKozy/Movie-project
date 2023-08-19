@@ -6,13 +6,13 @@ $genre-color : rgb(153, 150, 150);
 $section-color: #0a031c;
 $pink-color: #FF4D6D;
 $blue-color: #54E1FF;
+$general-color: #263459;
 @mixin font-style{
   font-family: 'Poppins';
   font-size: 30px;
 }
 
 @mixin movie-card-style{
-  width: 160px;
   margin: 10px;
   position: relative;
 }
@@ -356,7 +356,7 @@ a:hover{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  max-width: 1500px;
+  max-width: 1300px;
   margin: auto;
 }
 
@@ -369,7 +369,7 @@ a:hover{
 .popular-movie__cover-inner {
   position: relative;
   height: 360px;
-  box-shadow: 10px 5px 5px rgba(2, 105, 173, 1);
+  box-shadow: 10px 5px 5px $general-color;
 }
 
 .popular-movie__cover {
@@ -500,6 +500,7 @@ a:hover{
 
 //  STYLES ЮЛЯ
 .random__movie {
+  width: 160px;
   @include movie-card-style()
 }
 .random__title{
@@ -507,6 +508,9 @@ a:hover{
   @include font-style();
 }
 
+.top-movie{
+  width: 290px;
+  }
 .random-select{
   font-family: 'Poppins';
   width: 170px;
@@ -667,16 +671,15 @@ border-radius: 7px;
 }
 
 .top-250-films__boxes,
-.top-250-films__box,
+
 .top-250-films__box-two{
   margin:  auto;
-  max-width: 900px;
+  max-width: 1300px;
   display: flex;
   flex-wrap: wrap;
 }
-.top-movie{
-@include movie-card-style()
-}
+
+
 .top-250-films__button-hide{
   display: none;
   text-align: center;
@@ -690,4 +693,84 @@ border-radius: 7px;
   text-align: center;
   @include button-general-style();
   margin-right: 15px;
+}
+.top-250-films__box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.top-movie {
+  width: 240px;
+  margin: 10px;
+  position: relative;
+}
+
+.top-movie__cover-inner {
+  position: relative;
+  height: 360px;
+  box-shadow: 10px 5px 5px $general-color;
+}
+
+.top-movie__cover {
+  max-width: 100%;
+  height: 100%;
+}
+.top-movie__cover--darkened {
+  background-color: #000000;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.top-movie__cover--darkened:hover {
+  background-color: grey;
+  cursor: pointer;
+}
+
+.top-movie__info {
+  padding: 10px 0px;
+}
+
+.top-movie__title {
+  font-size: 16px;
+  color: white;
+}
+
+.top-movie__category {
+  font-size: 14px;
+  color: rgb(211, 211, 11);
+}
+
+.top-movie__average {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(39, 31, 31);
+  color: white;
+  font-size: 14px;
+}
+.top-movie__average--green {
+  border: 1px solid green;
+}
+
+.top-movie__average--orange {
+  border: 1px solid orange;
+}
+
+.top-movie__average--red {
+  border: 1px solid red;
 }
