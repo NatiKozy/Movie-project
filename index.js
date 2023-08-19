@@ -575,4 +575,13 @@ hideBtn.addEventListener('click', event => {
     numPage = 2
     hideButton()
 })
+
+
+
+window.onload = function () {
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+      document.body.classList.remove('loaded_hiding');
+    }, 3000);
+  }
 //ЮЛЯ КОНЕЦ

@@ -1029,7 +1029,13 @@ hideBtn.addEventListener("click", (event)=>{
     unlockBtn(".top-250-films__button");
     numPage = 2;
     hideButton();
-}) //ЮЛЯ КОНЕЦ
+});
+window.onload = function() {
+    window.setTimeout(function() {
+        document.body.classList.add("loaded");
+        document.body.classList.remove("loaded_hiding");
+    }, 3000);
+} //ЮЛЯ КОНЕЦ
 ;
 
 },{}]},["4H3pI","bB7Pu"], "bB7Pu", "parcelRequire3994")
