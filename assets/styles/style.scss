@@ -392,13 +392,13 @@ a:hover {
   margin: 10px;
   position: relative;
 }
-
+.search-movie__cover-inner,
 .popular-movie__cover-inner {
   position: relative;
   height: 360px;
   box-shadow: 10px 5px 5px $general-color;
 }
-
+.search-movie_cover,
 .popular-movie__cover {
   max-width: 100%;
   height: 100%;
@@ -424,17 +424,17 @@ a:hover {
 .popular-movie__info {
   padding: 10px 0px;
 }
-
+.search-movie__title,
 .popular-movie__title {
   font-size: 16px;
   color: white;
 }
-
+.search-movie__category,
 .popular-movie__category {
   font-size: 14px;
   color: rgb(211, 211, 11);
 }
-
+.search-movie__average,
 .popular-movie__average {
   position: absolute;
   top: 10px;
@@ -449,15 +449,15 @@ a:hover {
   color: white;
   font-size: 14px;
 }
-
+.search-movie__average--green,
 .popular-movie__average--green {
   border: 1px solid green;
 }
-
+.search-movie__average--orange,
 .popular-movie__average--orange {
   border: 1px solid orange;
 }
-
+.search-movie__average--red,
 .popular-movie__average--red {
   border: 1px solid red;
 }
