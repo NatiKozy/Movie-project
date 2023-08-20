@@ -363,7 +363,7 @@ a:hover {
 }
 .popular-movie:hover{
   transform: scale(105%);
-  // box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 10px 10px $general-color;
 }
 .search-movie_cover,
 .popular-movie__cover-inner {
@@ -742,7 +742,7 @@ border-radius: 7px;
 }
 .top-movie:hover{
   transform: scale(105%);
-  box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 10px 10px $general-color;
 }
 .top-movie__cover-inner {
   position: relative;
