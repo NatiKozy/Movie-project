@@ -309,13 +309,13 @@ body {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
 }
 
 .footer__list{
   list-style-type: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -330,13 +330,13 @@ a {
 }
 
 a:hover{
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 .creators{
   text-align: center;
   font-size: 10px;
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 @media (max-width:550px) {
@@ -349,6 +349,17 @@ a:hover{
   }
 }
 
+@media (max-width:330px) {
+  .header__search {
+    margin-bottom: 20px;
+  }
+  .header__logo{
+    display: none;
+  }
+  swiper-container {
+    margin-top: 70px;
+  }
+}
 /* header end */
 
 
