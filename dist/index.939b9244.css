@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   color: #fff;
-  font-family: Poppins;
+  font-family: Montserrat;
 }
 
 body {
@@ -367,14 +367,14 @@ a:hover {
 .search-movie__title, .popular-movie__title {
   text-align: center;
   color: #fff;
-  font-family: Poppins;
+  font-family: Montserrat;
   font-size: 18px;
 }
 
 .search-movie__category, .popular-movie__category {
   color: #999696;
   margin-bottom: 3px;
-  font-family: Poppins;
+  font-family: Montserrat;
   font-size: 14px;
   font-style: italic;
 }
@@ -637,7 +637,7 @@ h2 {
 }
 
 .top-250-films__title {
-  font-style: "Poppins";
+  font-style: "Montserrat";
   padding-top: 30px;
 }
 
@@ -735,14 +735,14 @@ h2 {
 
 .top-movie__title {
   color: #fff;
-  font-family: Poppins;
+  font-family: Montserrat;
   font-size: 18px;
 }
 
 .top-movie__category {
   color: #999696;
   margin-bottom: 3px;
-  font-family: Poppins;
+  font-family: Montserrat;
   font-size: 14px;
   font-style: italic;
 }
