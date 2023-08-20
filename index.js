@@ -573,11 +573,10 @@ hideBtn.addEventListener('click', event => {
 
 
 
-const loadingDiv = document.querySelector('.loading')
+const loadingDiv = document.querySelector('.loader')
 
 
 const loader = () => {
-    loadingDiv.innerHTML = `Подбираем...`
     loadingDiv.style.display = 'block';
 }
 

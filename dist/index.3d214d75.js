@@ -1033,9 +1033,8 @@ hideBtn.addEventListener("click", (event)=>{
     numPage = 2;
     hideButton();
 });
-const loadingDiv = document.querySelector(".loading");
+const loadingDiv = document.querySelector(".loader");
 const loader = ()=>{
-    loadingDiv.innerHTML = `Подбираем...`;
     loadingDiv.style.display = "block";
 };
 const hiddenLoader = ()=>{
