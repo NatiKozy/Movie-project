@@ -441,6 +441,7 @@ a:hover {
   cursor: pointer;
 }
 
+.search-movie__info,
 .popular-movie__info {
   padding: 10px 0px;
   text-align: center;
@@ -454,6 +455,10 @@ a:hover {
   color: white;
 }
 
+.search-movie__info {
+  margin-bottom: 20px;
+}
+
 .search-movie__category,
 .popular-movie__category {
   font-family: "Poppins";
@@ -463,7 +468,6 @@ a:hover {
   margin-bottom: 3px;
 }
 
-.search-movie__average,
 .popular-movie__average {
   position: absolute;
   top: 10px;
@@ -485,17 +489,14 @@ a:hover {
   font-size: 14px;
 }
 
-.search-movie__average--green,
 .popular-movie__average--green {
   border: 1px solid green;
 }
 
-.search-movie__average--orange,
 .popular-movie__average--orange {
   border: 1px solid orange;
 }
 
-.search-movie__average--red,
 .popular-movie__average--red {
   border: 1px solid red;
 }
@@ -541,17 +542,23 @@ a:hover {
           align-items: center;
 }
 
-h2 {
-  color: #000;
-}
-
 .modal-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; /* Изменение */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -567,6 +574,9 @@ h2 {
   padding: 5px 10px;
   color: white;
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .modal-prev,
@@ -580,6 +590,7 @@ h2 {
   transition: background-color 0.3s, -webkit-transform 0.3s;
   transition: background-color 0.3s, transform 0.3s;
   transition: background-color 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  margin-right: 10px;
 }
 
 .modal-prev {
@@ -594,13 +605,9 @@ h2 {
           box-shadow: 2px 2px 2px 2px #263459;
 }
 
-.modal-prev:hover {
-  background-color: #263459;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-}
-
-.modal-next:hover {
+.modal-prev:hover,
+.modal-next:hover,
+.modal-close:hover {
   background-color: #263459;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);

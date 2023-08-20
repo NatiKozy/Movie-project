@@ -393,7 +393,7 @@ a:hover {
   background-color: $section-color;
   cursor: pointer;
 }
-
+.search-movie__info,
 .popular-movie__info {
   padding: 10px 0px;
   text-align: center;
@@ -405,6 +405,9 @@ a:hover {
   font-size: 18px;
   color: white;
 }
+.search-movie__info{
+  margin-bottom: 20px;
+}
 .search-movie__category,
 .popular-movie__category {
   font-family: $general-font;
@@ -413,7 +416,7 @@ a:hover {
   font-style: italic;
   margin-bottom: 3px;
 }
-.search-movie__average,
+
 .popular-movie__average {
   position: absolute;
   top: 10px;
@@ -428,15 +431,15 @@ a:hover {
   color: white;
   font-size: 14px;
 }
-.search-movie__average--green,
+
 .popular-movie__average--green {
   border: 1px solid green;
 }
-.search-movie__average--orange,
+
 .popular-movie__average--orange {
   border: 1px solid orange;
 }
-.search-movie__average--red,
+
 .popular-movie__average--red {
   border: 1px solid red;
 }
@@ -469,12 +472,15 @@ a:hover {
   flex-direction: column;
   align-items: center;
 }
-h2{
-  color: #000;
-}
+
 .modal-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* Изменение */
+  align-items: center;
+  margin-bottom: 10px;
+}
+.modal-nav {
+  display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -487,6 +493,9 @@ h2{
   padding: 5px 10px;
   color: white;
   cursor: pointer;
+  position:absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .modal-prev,
@@ -497,6 +506,7 @@ h2{
   color: white;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+  margin-right: 10px;
 }
 
 .modal-prev {
@@ -509,12 +519,9 @@ h2{
   box-shadow: 2px 2px 2px 2px $general-color
 }
 
-.modal-prev:hover {
-  background-color: $general-color;
-  transform: scale(1.05);
-}
-
-.modal-next:hover {
+.modal-prev:hover,
+.modal-next:hover,
+.modal-close:hover {
   background-color: $general-color;
   transform: scale(1.05);
 }
