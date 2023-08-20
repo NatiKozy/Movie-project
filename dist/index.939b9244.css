@@ -123,8 +123,8 @@ img {
   width: 95%;
   margin: auto;
   display: inline-block;
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 1%;
   left: 10px;
 }
 

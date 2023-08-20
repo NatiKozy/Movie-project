@@ -155,10 +155,11 @@ img {
   display: inline-block;
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: 1%;
   width: 95%;
   margin: auto;
   z-index: 99;
+  position: fixed;
 }
 
 
