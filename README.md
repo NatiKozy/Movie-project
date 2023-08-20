@@ -7,7 +7,11 @@
 
 ### _Website functionality_
 
-- Amazing movie-search website.
+- Amazing movie website.
+- Huge collection of movies, series, cartoons, popular and top-movies.
+- Smart movie-search.
+- You can read movie-description, then you click on the poster.
+- You can use random-search by genres, if you don't know what do you want to watch. 
 - Website adapted to different device sizes.
 
 ---
