@@ -240,6 +240,9 @@ img {
     }
 
 /* //slider styles// */
+.slider-title{
+  display: none;
+}
 swiper-container {
   width: 100%;
   padding-top: 50px;
@@ -566,7 +569,7 @@ h2{
 
 .movie__category {
     font-size: 14px;
-    font-family: 'Poppins';
+    font-family: 'Monstserrat';
     color: $genre-color;
 }
 
@@ -652,6 +655,7 @@ h2{
   width: 250px;
   margin-bottom: 50px;
   @include font-style();
+  color: #ffffff;
 }
 
 .random-select{
