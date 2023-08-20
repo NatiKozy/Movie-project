@@ -256,15 +256,6 @@ swiper-slide img {
 
 //ЛЕНА
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: black;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 /* header styles */
 .header__container {
   display: flex;
@@ -275,6 +266,7 @@ body {
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
+
 .header__content {
   display: flex;
   align-items: center;
@@ -283,7 +275,7 @@ body {
   height: 60px;
 }
 
-.header__left-part{
+.header__left-part {
   display: flex;
 }
 
@@ -301,27 +293,28 @@ body {
   outline: none;
   color: #000;
 }
+
 .header__search::placeholder {
   color: #999;
 }
 
-.header__list{
+.header__list {
   font-size: 18px;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 }
 
-.footer__list{
+.footer__list {
   list-style-type: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.footer{
+.footer {
   margin-top: 10px;
   border-top: 1px solid aliceblue;
 }
@@ -330,37 +323,26 @@ a {
   text-decoration: none;
 }
 
-a:hover{
-  color: $pink-color;
+a:hover {
+  color: rgb(236, 155, 245);
 }
 
-.creators{
+.creators {
   text-align: center;
   font-size: 10px;
-  color: $pink-color;
+  color: rgb(236, 155, 245);
 }
 
 @media (max-width:550px) {
-  .header__list{
-  font-size: 12px;
+  .header__list {
+    font-size: 12px;
   }
 
-  .footer__list{
-  font-size: 12px;
+  .footer__list {
+    font-size: 12px;
   }
 }
 
-@media (max-width:330px) {
-  .header__search {
-    margin-bottom: 20px;
-  }
-  .header__logo{
-    display: none;
-  }
-  swiper-container {
-    margin-top: 70px;
-  }
-}
 /* header end */
 
 
@@ -376,18 +358,24 @@ a:hover{
   width: 240px;
   margin: 10px;
   position: relative;
-}
 
+}
+.popular-movie:hover{
+  transform: scale(105%);
+  box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
+}
+.search-movie_cover,
 .popular-movie__cover-inner {
   position: relative;
   height: 360px;
   box-shadow: 10px 5px 5px $general-color;
 }
-
+.search-movie_cover,
 .popular-movie__cover {
   max-width: 100%;
   height: 100%;
 }
+
 .popular-movie__cover--darkened {
   background-color: #000000;
   opacity: 0.1;
@@ -401,24 +389,28 @@ a:hover{
 }
 
 .popular-movie__cover--darkened:hover {
-  background-color: grey;
+  background-color: $section-color;
   cursor: pointer;
 }
 
 .popular-movie__info {
   padding: 10px 0px;
 }
-
+.search-movie__title,
 .popular-movie__title {
-  font-size: 16px;
+  font-family: $general-font;
+  font-size: 18px;
   color: white;
 }
-
+.search-movie__category,
 .popular-movie__category {
+  font-family: $general-font;
   font-size: 14px;
-  color: rgb(211, 211, 11);
+  color: $genre-color;
+  font-style: italic;
+  margin-bottom: 3px;
 }
-
+.search-movie__average,
 .popular-movie__average {
   position: absolute;
   top: 10px;
@@ -429,18 +421,19 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(39, 31, 31);
+  background-color: $section-color;
   color: white;
   font-size: 14px;
 }
+.search-movie__average--green,
 .popular-movie__average--green {
   border: 1px solid green;
 }
-
+.search-movie__average--orange,
 .popular-movie__average--orange {
   border: 1px solid orange;
 }
-
+.search-movie__average--red,
 .popular-movie__average--red {
   border: 1px solid red;
 }
@@ -469,8 +462,13 @@ a:hover{
   max-height: 80vh;
   overflow-y: auto;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
+h2{
+  color: #000;
+}
 .modal-header {
   display: flex;
   justify-content: flex-end;
@@ -479,7 +477,7 @@ a:hover{
 }
 
 .modal-close {
-  background-color: #f44336;
+  background-color: transparent;
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
@@ -505,14 +503,16 @@ a:hover{
   background-color: $pink-color;
 }
 
-.modal-prev:hover{
+.modal-prev:hover {
   background-color: $blue-color;
   transform: scale(1.05);
 }
+
 .modal-next:hover {
   background-color: $blue-color;
   transform: scale(1.05);
 }
+
 
 //  STYLES ЮЛЯ
 
