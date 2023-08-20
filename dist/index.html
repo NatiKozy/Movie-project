@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/index.ead9d262.css">
     <link rel="stylesheet" href="/index.939b9244.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -96,26 +96,24 @@
           </div>
         </div>
       </section>
-      <section class="popular-movies__container" id="popular">
-        <h2 class="section_title">Популярные фильмы</h2>
-        <div class="popular-movies"></div>
-      </section>
-      <!-- Всплывающее модальное окно для результатов поиска -->
-      <section class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="modal-close" id="modalCloseBtn">&#10006;</button>
-            <h2>Результаты поиска</h2>
-            <button class="modal-prev" id="modalPrevBtn">
-              Предыдущая страница
-            </button>
-            <button class="modal-next" id="modalNextBtn">
-              Следующая страница
-            </button>
+    
+    <section class="popular-movies__container" id="popular">
+      <h2 class="section_title">Популярные фильмы</h2>
+      <div class="popular-movies"></div>
+    </section>
+    <!-- Всплывающее модальное окно для результатов поиска -->
+    <section class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="modal-close" id="modalCloseBtn">&#10006;</button>
+          <div class="modal-nav">
+            <button class="modal-prev" id="modalPrevBtn">Предыдущая</button>
+            <button class="modal-next" id="modalNextBtn">Следующая</button>
           </div>
-          <div class="search-movies" id="searchMovies"></div>
         </div>
-      </section>
+        <div class="search-movies" id="searchMovies"></div>
+      </div>
+    </section>
       <section class="random container">
         <div class="random-container">
           <div class="random__left-part">
