@@ -325,7 +325,7 @@ a:hover {
   box-shadow: 0 0 10px 10px #263459;
 }
 
-.search-movie_cover, .popular-movie__cover-inner {
+.search-movie_cover-inner, .popular-movie__cover-inner {
   height: 360px;
   position: relative;
   box-shadow: 10px 5px 5px #263459;

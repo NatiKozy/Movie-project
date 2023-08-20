@@ -878,6 +878,7 @@ function arrayRandElement(arr) {
 }
 async function getRandomMovie(url) {
     try {
+        loader();
         const response = await fetch(url, {
             method: "GET",
             headers: {
@@ -888,14 +889,10 @@ async function getRandomMovie(url) {
         const data = await response.json();
         const res = arrayRandElement(data.items);
         showRandomMovie(res);
+        hiddenLoader();
     } catch (error) {
         console.error(error);
     }
-}
-function getClassByRate(vote) {
-    if (vote >= 7) return "green";
-    else if (vote > 5) return "orange";
-    else return "red";
 }
 const moviesRandomEl = document.querySelector(".random-movies");
 function showRandomMovie(movie) {
@@ -919,7 +916,7 @@ function showRandomMovie(movie) {
         <div class="movie__info">
         <div class="movie__title">${movie.nameRu}</div>
         <div class="movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
-        ${movie.ratingKinopoisk && `<div class="movie__average movie__average--${getClassByRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
+        ${movie.ratingKinopoisk && `<div class="movie__average movie__average--${getClassOfRate(movie.ratingKinopoisk)}">${movie.ratingKinopoisk}</div>`}
         </div>
         `;
     moviesRandomEl.append(movieEl);
@@ -993,7 +990,7 @@ function showTopMovies(data, conatainer) {
         <div class="top-movie__title">${movie.nameRu}</div>
         <div class="top-movie__category">${movie.genres.map((genre)=>` ${genre.genre}`)}</div>
         ${movie.rating && `
-        <div class="top-movie__average top-movie__average--${getClassByRate(movie.rating)}">${movie.rating}</div>
+        <div class="top-movie__average top-movie__average--${getClassOfRate(movie.rating)}">${movie.rating}</div>
         `}
         </div>
         `;
@@ -1036,6 +1033,14 @@ hideBtn.addEventListener("click", (event)=>{
     numPage = 2;
     hideButton();
 });
+const loadingDiv = document.querySelector(".loading");
+const loader = ()=>{
+    loadingDiv.innerHTML = `Подбираем...`;
+    loadingDiv.style.display = "block";
+};
+const hiddenLoader = ()=>{
+    loadingDiv.style.display = "none";
+};
 window.onload = function() {
     window.setTimeout(function() {
         document.body.classList.add("loaded");
