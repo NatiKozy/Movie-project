@@ -146,6 +146,11 @@ img {
 .gallery-btn--left:hover{
   background-color: rgb(0, 0, 0, 0.9);
 }
+@media screen and (max-width: 980px) {
+  .gallery-btn--right, .gallery-btn--left {
+    display: none;
+  }
+}
 //модальное окно
 .modal-window{
   display: none;
