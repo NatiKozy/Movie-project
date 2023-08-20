@@ -707,6 +707,7 @@ async function getPremiers() {
         });
         const data = await response.json();
         const premiers = await data.items;
+        console.log(premiers);
         showPremiers(premiers);
     } catch (err) {
         console.log(err);
@@ -717,6 +718,12 @@ function showPremiers(array) {
     for (let item of array){
         const div = document.createElement("swiper-slide");
         const imgSrc = item.posterUrl;
+        const country = item.countries.map((country)=>country.country);
+        const genre = item.genres.map((genre)=>genre.genre);
+        div.addEventListener("click", (event)=>{
+            event.preventDefault;
+            showMovieModalWindow(item.posterUrlPreview, item.nameRu, item.year, country, genre, `Описание отсутствует`);
+        });
         div.innerHTML = `
          <img src="${imgSrc}">
          `;
