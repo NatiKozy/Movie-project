@@ -734,7 +734,7 @@ getPremiers();
 //НАТАША КОНЕЦ
 //ЛЕНА НАЧАЛО
 const FILMSS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films`;
-const API_KEY_POPULAR = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
+const API_KEY_POPULAR = `3b609fe2-8b25-48b7-b53e-bf8800018895`;
 const API_URL_POPULAR = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1`;
 const API_URL_SEARCH = "https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=";
 const moviesElem = document.querySelector(".popular-movies");
