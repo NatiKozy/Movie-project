@@ -228,6 +228,11 @@ img {
     height: 30px;
   }
 }
+@media screen and (max-width: 980px) {
+  .gallery-btn--right, .gallery-btn--left {
+    display: none;
+  }
+}
 .search-result{
     display: flex;
     flex-wrap: wrap;
@@ -851,3 +856,4 @@ border-radius: 7px;
 .loaded .preloader {
   display: none;
 }
+
