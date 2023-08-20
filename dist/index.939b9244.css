@@ -306,13 +306,15 @@ a:hover {
 }
 
 .popular-movies {
+  text-align: center;
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 1270px;
+  margin: 50px auto;
   display: flex;
 }
 
-.popular {
+h2.popular-movies__title {
   font-style: "Poppins";
   padding-top: 30px;
 }
@@ -325,7 +327,6 @@ a:hover {
 
 .popular-movie:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 10px 10px #ffffff4d;
 }
 
 .search-movie_cover, .popular-movie__cover-inner {
