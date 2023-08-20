@@ -622,7 +622,7 @@ function checmoviekType(array) {
         if (item.type === "movie") {
             const movies = [];
             movies.push(item);
-            showMoviesCards(movieslist, movies);
+            showMoviesCards(movieslist, array);
         } else if (item.type === "tv-series") {
             const series = [];
             series.push(item);
@@ -845,7 +845,6 @@ async function displayMoviesInModal() {
               <div class="search-movie__info">
                 <div class="search-movie__title">${movieData.nameRu}</div>
                 <div class="search-movie__category">${movieData.genres.map((genre)=>` ${genre.genre}`)}</div>
-                <div class="search.movie__average ">${movieData.rating}</div>
               </div>`;
         modalMoviesContainer.appendChild(movieEl);
     });

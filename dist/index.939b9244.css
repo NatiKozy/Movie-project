@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   color: #fff;
-  font-family: Montserrat;
+  font-family: Poppins;
 }
 
 body {
@@ -114,12 +114,6 @@ img {
   background-color: #000000e6;
 }
 
-@media screen and (width <= 980px) {
-  .gallery-btn--right, .gallery-btn--left {
-    display: none;
-  }
-}
-
 .modal-window {
   display: none;
 }
@@ -208,10 +202,6 @@ img {
   flex-wrap: wrap;
   margin: 10px auto;
   display: flex;
-}
-
-.slider-title {
-  display: none;
 }
 
 swiper-container {
@@ -363,7 +353,7 @@ a:hover {
   background-color: #0a031c;
 }
 
-.popular-movie__info {
+.search-movie__info, .popular-movie__info {
   text-align: center;
   padding: 10px 0;
 }
@@ -371,19 +361,23 @@ a:hover {
 .search-movie__title, .popular-movie__title {
   text-align: center;
   color: #fff;
-  font-family: Montserrat;
+  font-family: Poppins;
   font-size: 18px;
+}
+
+.search-movie__info {
+  margin-bottom: 20px;
 }
 
 .search-movie__category, .popular-movie__category {
   color: #999696;
   margin-bottom: 3px;
-  font-family: Montserrat;
+  font-family: Poppins;
   font-size: 14px;
   font-style: italic;
 }
 
-.search-movie__average, .popular-movie__average {
+.popular-movie__average {
   color: #fff;
   background-color: #0a031c;
   border-radius: 50%;
@@ -398,15 +392,15 @@ a:hover {
   left: 10px;
 }
 
-.search-movie__average--green, .popular-movie__average--green {
+.popular-movie__average--green {
   border: 1px solid green;
 }
 
-.search-movie__average--orange, .popular-movie__average--orange {
+.popular-movie__average--orange {
   border: 1px solid orange;
 }
 
-.search-movie__average--red, .popular-movie__average--red {
+.popular-movie__average--red {
   border: 1px solid red;
 }
 
@@ -439,12 +433,14 @@ a:hover {
   box-shadow: 0 0 10px #00000080;
 }
 
-h2 {
-  color: #000;
+.modal-header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  display: flex;
 }
 
-.modal-header {
-  justify-content: flex-end;
+.modal-nav {
   align-items: center;
   margin-bottom: 10px;
   display: flex;
@@ -457,6 +453,9 @@ h2 {
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
   box-shadow: 2px 2px 2px 2px #263459;
 }
 
@@ -466,12 +465,13 @@ h2 {
   background-color: #0000;
   border: none;
   border-radius: 3px;
+  margin-right: 10px;
   padding: 8px 15px;
   transition: background-color .3s, transform .3s;
   box-shadow: 2px 2px 2px 2px #263459;
 }
 
-.modal-prev:hover, .modal-next:hover {
+.modal-prev:hover, .modal-next:hover, .modal-close:hover {
   background-color: #263459;
   transform: scale(1.05);
 }
@@ -515,7 +515,7 @@ h2 {
 
 .movie__category {
   color: #999696;
-  font-family: Monstserrat;
+  font-family: Poppins;
   font-size: 14px;
 }
 
@@ -594,7 +594,6 @@ h2 {
 }
 
 .random__title {
-  color: #fff;
   width: 250px;
   margin-bottom: 50px;
   font-size: 30px;
@@ -642,7 +641,7 @@ h2 {
 }
 
 .top-250-films__title {
-  font-style: "Montserrat";
+  font-style: "Poppins";
   padding-top: 30px;
 }
 
@@ -740,14 +739,14 @@ h2 {
 
 .top-movie__title {
   color: #fff;
-  font-family: Montserrat;
+  font-family: Poppins;
   font-size: 18px;
 }
 
 .top-movie__category {
   color: #999696;
   margin-bottom: 3px;
-  font-family: Montserrat;
+  font-family: Poppins;
   font-size: 14px;
   font-style: italic;
 }
