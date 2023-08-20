@@ -16,7 +16,7 @@
     <header class="header">
       <div class="header__container">
         <div class="header__left-part">
-          <a href="/index.html"><img class="header__logo" src="/free-icon-movie-camera-4221360.ced1bc3b.png"></a>
+          <a href="/index.html"><img class="header__logo" src="/free-icon-movie-camera-4221360.ced1bc3b.png" alt="movie-logo"></a>
           <ul class="header__list">
             <li class="list__item"><a href="#movies">Фильмы</a></li>
             <li class="list__item"><a href="#series">Сериалы</a></li>
@@ -34,6 +34,7 @@
     </header>
     <main>
       <section class="hero">
+        <h2 class="slider-title">Премьеры</h2>
         <swiper-container class="mySwiper" pagination="false" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
         </swiper-container>
       </section>
@@ -85,7 +86,7 @@
             <img src="/cancel-btn.562a41cd.svg" alt="close">
           </button>
           <div class="modal-window__img-box">
-            <img class="modal-window__img">
+            <img class="modal-window__img" alt="movie-poster" src="#">
           </div>
           <div class="modal-window__description">
             <h3 class="modal-window__title"></h3>
@@ -121,8 +122,8 @@
           <div class="random__left-part">
             <h2 class="random__title">Случайный фильм по жанру</h2>
             <p class="loading"></p>
-            <form class="random-form" action="">
-              <select name="" class="random-select" id="select-list">
+            <form class="random-form">
+              <select name="random-genre" class="random-select" id="select-list">
                 <!-- <option selected>Жанр</option> -->
                 <option value="Драма">Драма</option>
                 <option value="Комедия">Комедия</option>
@@ -135,7 +136,7 @@
           </div>
           <div class="random__right-part">
             <div class="random-movies">
-              <img class="random-basic-img" src="/icons-random.4caad292.png">
+              <img class="random-basic-img" src="/icons-random.4caad292.png" alt="random-movie-poster">
             </div>
           </div>
         </div>

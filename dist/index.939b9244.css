@@ -210,6 +210,10 @@ img {
   display: flex;
 }
 
+.slider-title {
+  display: none;
+}
+
 swiper-container {
   width: 100%;
   margin-top: 10px;
@@ -511,7 +515,7 @@ h2 {
 
 .movie__category {
   color: #999696;
-  font-family: Poppins;
+  font-family: Monstserrat;
   font-size: 14px;
 }
 
@@ -590,6 +594,7 @@ h2 {
 }
 
 .random__title {
+  color: #fff;
   width: 250px;
   margin-bottom: 50px;
   font-size: 30px;
