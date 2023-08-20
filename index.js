@@ -55,7 +55,7 @@ function checmoviekType(array) {
         if (item.type === "movie") {
             const movies = [];
             movies.push(item);
-            showMoviesCards(movieslist, array)
+            showMoviesCards(movieslist, movies)
         } else if (item.type === "tv-series") {
             const series = [];
             series.push(item);
