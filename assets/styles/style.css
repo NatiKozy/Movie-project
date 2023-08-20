@@ -406,6 +406,8 @@ a:hover {
 .popular-movie:hover {
   -webkit-transform: scale(105%);
           transform: scale(105%);
+  -webkit-box-shadow: 0px 0px 10px 10px #263459;
+          box-shadow: 0px 0px 10px 10px #263459;
 }
 
 .search-movie_cover,
@@ -875,8 +877,8 @@ h2 {
 .top-movie:hover {
   -webkit-transform: scale(105%);
           transform: scale(105%);
-  -webkit-box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
-          box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
+  -webkit-box-shadow: 0px 0px 10px 10px #263459;
+          box-shadow: 0px 0px 10px 10px #263459;
 }
 
 .top-movie__cover-inner {
