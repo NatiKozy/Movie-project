@@ -385,15 +385,20 @@ a:hover {
 }
 /* header end */
 .popular-movies {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  max-width: 1300px;
-  margin: auto;
+  max-width: 1270px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.h2.popular {
+  padding-top: 30px;
+  font-style: "Poppins";
 }
 
 .popular-movie {
