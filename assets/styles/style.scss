@@ -481,6 +481,7 @@ h2{
 
 .modal-close {
   background-color: transparent;
+  box-shadow: 2px 2px 2px 2px $general-color;
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
@@ -499,20 +500,22 @@ h2{
 }
 
 .modal-prev {
-  background-color: $blue-color;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 2px $general-color
 }
 
 .modal-next {
-  background-color: $pink-color;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 2px $general-color
 }
 
 .modal-prev:hover {
-  background-color: $blue-color;
+  background-color: $general-color;
   transform: scale(1.05);
 }
 
 .modal-next:hover {
-  background-color: $blue-color;
+  background-color: $general-color;
   transform: scale(1.05);
 }
 

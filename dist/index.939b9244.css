@@ -447,27 +447,22 @@ h2 {
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
+  box-shadow: 2px 2px 2px 2px #263459;
 }
 
 .modal-prev, .modal-next {
   color: #fff;
   cursor: pointer;
+  background-color: #0000;
   border: none;
   border-radius: 3px;
   padding: 8px 15px;
   transition: background-color .3s, transform .3s;
-}
-
-.modal-prev {
-  background-color: #54e1ff;
-}
-
-.modal-next {
-  background-color: #ff4d6d;
+  box-shadow: 2px 2px 2px 2px #263459;
 }
 
 .modal-prev:hover, .modal-next:hover {
-  background-color: #54e1ff;
+  background-color: #263459;
   transform: scale(1.05);
 }
 

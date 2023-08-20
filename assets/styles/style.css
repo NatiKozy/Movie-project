@@ -560,6 +560,8 @@ h2 {
 
 .modal-close {
   background-color: transparent;
+  -webkit-box-shadow: 2px 2px 2px 2px #263459;
+          box-shadow: 2px 2px 2px 2px #263459;
   border: none;
   border-radius: 3px;
   padding: 5px 10px;
@@ -581,21 +583,25 @@ h2 {
 }
 
 .modal-prev {
-  background-color: #54E1FF;
+  background-color: transparent;
+  -webkit-box-shadow: 2px 2px 2px 2px #263459;
+          box-shadow: 2px 2px 2px 2px #263459;
 }
 
 .modal-next {
-  background-color: #FF4D6D;
+  background-color: transparent;
+  -webkit-box-shadow: 2px 2px 2px 2px #263459;
+          box-shadow: 2px 2px 2px 2px #263459;
 }
 
 .modal-prev:hover {
-  background-color: #54E1FF;
+  background-color: #263459;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
 .modal-next:hover {
-  background-color: #54E1FF;
+  background-color: #263459;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
