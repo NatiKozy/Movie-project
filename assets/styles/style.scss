@@ -347,13 +347,14 @@ a:hover {
 
 
 .popular-movies {
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 50px auto;
   max-width: 1270px;
-  display: flex;
   text-align: center;
 }
-.h2.popular{
+h2.popular-movies__title{
   padding-top: 30px;
   font-style: $general-font;
 
@@ -367,7 +368,7 @@ a:hover {
 }
 .popular-movie:hover{
   transform: scale(105%);
-  box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
+  // box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.3);
 }
 .search-movie_cover,
 .popular-movie__cover-inner {
