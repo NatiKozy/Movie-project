@@ -1,10 +1,6 @@
 # __Movie-project__
 
 
-<!-- ![logo](assets/img/readme_logo.png) ссылка на фотку сайта
-
---- -->
-
 ### _Website functionality_
 
 - Amazing movie website.
@@ -30,11 +26,6 @@
 
 ---
 
-### Link
-
-[Website of movie-project]()
-
---- 
 
 ### _Website developers_
 
