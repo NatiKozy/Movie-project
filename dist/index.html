@@ -1,108 +1,104 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/swiper@10.1.0/swiper-bundle.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/index.ead9d262.css">
     <link rel="stylesheet" href="/index.939b9244.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <title>Movie</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div class="header__container">
-            <div class="header__left-part">
-            <a href="/index.html"><img class="header__logo" src="/free-icon-movie-camera-4221360.ced1bc3b.png"></a>
-            <ul class="header__list">
-                <li class="list__item"><a href="#movies">Фильмы</a></li>
-                <li class="list__item"><a href="#series">Сериалы</a></li>
-                <li class="list__item"><a href="#cartoons">Мультфильмы</a></li>
-                <li class="list__item"><a href="#popular">Популярное</a></li>
-                <li class="list__item"><a href="#top">Топ</a></li>
-            </ul>
+      <div class="header__container">
+        <div class="header__left-part">
+          <a href="/index.html"><img class="header__logo" src="/free-icon-movie-camera-4221360.ced1bc3b.png"></a>
+          <ul class="header__list">
+            <li class="list__item"><a href="#movies">Фильмы</a></li>
+            <li class="list__item"><a href="#series">Сериалы</a></li>
+            <li class="list__item"><a href="#cartoons">Мультфильмы</a></li>
+            <li class="list__item"><a href="#popular">Популярное</a></li>
+            <li class="list__item"><a href="#top">Топ</a></li>
+          </ul>
         </div>
         <div class="header__right-part">
-            <form>
-                <input type="text" class="header__search" placeholder="Поиск">
-            </form>
+          <form>
+            <input type="text" class="header__search" placeholder="Поиск">
+          </form>
         </div>
-        </div>
+      </div>
     </header>
     <main>
-        <section class="hero">
-            <swiper-container class="mySwiper" pagination="false" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
-            </swiper-container>
-        </section>
+      <section class="hero">
+        <swiper-container class="mySwiper" pagination="false" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+        </swiper-container>
+      </section>
 
-<!-- Галерея с фильмами -->
-<section class="film-cards-gallery movie-gallery" id="movies">
-    <h2 class="section_title">Фильмы</h2>
-    <div class="gallery-wrapper" id="movies-wrapper">
-        <button class="gallery-btn--left" id="movie-btn--left">
+      <!-- Галерея с фильмами -->
+      <section class="film-cards-gallery movie-gallery" id="movies">
+        <h2 class="section_title">Фильмы</h2>
+        <div class="gallery-wrapper" id="movies-wrapper">
+          <button class="gallery-btn--left" id="movie-btn--left">
             <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
-        </button>
-        <ul class="list movies-list">
-        </ul>
-        <button class="gallery-btn--right" id="movie-btn--right">
+          </button>
+          <ul class="list movies-list"></ul>
+          <button class="gallery-btn--right" id="movie-btn--right">
             <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
-        </button>
-    </div>
-</section>
-
-<section class="film-cards-gallery series-gallery" id="series">
-    <h2 class="section_title">Сериалы</h2>
-    <div class="gallery-wrapper" id="series-wrapper">
-    <button class="gallery-btn--left" id="series-btn--left">
-        <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
-    </button>
-    <ul class="list series-list">
-    </ul>
-    <button class="gallery-btn--right" id="series-btn--right">
-        <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
-    </button>
-</div>
-</section>
-
-<section class="film-cards-gallery cartoons-gallery" id="cartoons">
-    <h2 class="section_title">Мультфильмы</h2>
-    <div class="gallery-wrapper" id="cartoon-wrapper">
-        <button class="gallery-btn--left" id="cartoon-btn--left">
-            <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
-        </button>
-        <ul class="list cartoon-list">
-        </ul>
-        <button class="gallery-btn--right" id="cartoon-btn--right">
-            <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
-        </button>
-    </div>
-</section>
-
-<!--   модальное окно -->
-<section class="modal-window">
-    <div class="modal-window__container">
-        <button class="modal-window__btn">
-            <img src="/cancel-btn.562a41cd.svg" alt="close">
-        </button>
-        <div class="modal-window__img-box">
-            <img class="modal-window__img">
+          </button>
         </div>
-        <div class="modal-window__description">
+      </section>
+
+      <section class="film-cards-gallery series-gallery" id="series">
+        <h2 class="section_title">Сериалы</h2>
+        <div class="gallery-wrapper" id="series-wrapper">
+          <button class="gallery-btn--left" id="series-btn--left">
+            <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
+          </button>
+          <ul class="list series-list"></ul>
+          <button class="gallery-btn--right" id="series-btn--right">
+            <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
+          </button>
+        </div>
+      </section>
+
+      <section class="film-cards-gallery cartoons-gallery" id="cartoons">
+        <h2 class="section_title">Мультфильмы</h2>
+        <div class="gallery-wrapper" id="cartoon-wrapper">
+          <button class="gallery-btn--left" id="cartoon-btn--left">
+            <img class="btn--left" src="/btn_gallery.01e27aaa.svg" alt="стрелка влево">
+          </button>
+          <ul class="list cartoon-list"></ul>
+          <button class="gallery-btn--right" id="cartoon-btn--right">
+            <img class="btn--right" src="/btn_gallery.01e27aaa.svg" alt="стрелка вправо">
+          </button>
+        </div>
+      </section>
+
+      <!--   модальное окно -->
+      <section class="modal-window">
+        <div class="modal-window__container">
+          <button class="modal-window__btn">
+            <img src="/cancel-btn.562a41cd.svg" alt="close">
+          </button>
+          <div class="modal-window__img-box">
+            <img class="modal-window__img">
+          </div>
+          <div class="modal-window__description">
             <h3 class="modal-window__title"></h3>
             <p class="modal-window__year"></p>
             <p class="modal-window__country"></p>
             <p class="modal-window__genres"></p>
             <p class="modal-window__text"></p>
+          </div>
         </div>
-    </div>
-
-</section>
-<section class="popular-movies" id="popular"></section>
-    <!-- Всплывающее модальное окно для результатов поиска -->
-    <section class="modal-overlay" id="modalOverlay">
+      </section>
+      <section class="popular-movies" id="popular"></section>
+      <!-- Всплывающее модальное окно для результатов поиска -->
+      <section class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
           <div class="modal-header">
             <button class="modal-close" id="modalCloseBtn">&#10006;</button>
@@ -117,60 +113,60 @@
           <div class="search-movies" id="searchMovies"></div>
         </div>
       </section>
-<section class="random container">
-    <div class="random-container">
-        <div class="random__left-part">
+      <section class="random container">
+        <div class="random-container">
+          <div class="random__left-part">
             <h2 class="random__title">Случайный фильм по жанру</h2>
             <p class="loading"></p>
             <form class="random-form" action="">
-                <select name="" class="random-select" id="select-list">
-                    <!-- <option selected>Жанр</option> -->
-                    <option value="Драма">Драма</option>
-                    <option value="Комедия">Комедия</option>
-                    <option value="Ужасы">Ужасы</option>
-                    <!-- <option value="Боевик">Боевик</option> -->
-                    <option value="Триллер">Триллер</option>
-                    <option value="Фонтастика">Фонтастика</option>
-                </select>
+              <select name="" class="random-select" id="select-list">
+                <!-- <option selected>Жанр</option> -->
+                <option value="Драма">Драма</option>
+                <option value="Комедия">Комедия</option>
+                <option value="Ужасы">Ужасы</option>
+                <!-- <option value="Боевик">Боевик</option> -->
+                <option value="Триллер">Триллер</option>
+                <option value="Фонтастика">Фонтастика</option>
+              </select>
             </form>
+          </div>
+          <div class="random__right-part">
+            <div class="random-movies">
+              <img class="random-basic-img" src="/icons-random.4caad292.png">
+            </div>
+          </div>
         </div>
-        <div class="random__right-part">
-            <div class="random-movies"><img class="random-basic-img" src="/icons-random.4caad292.png"></div>
+      </section>
+      <section class="top-250-films container" id="top">
+        <h2 class="top-250-films__title">Топ 250 лучших фильмов</h2>
+        <div class="top-250-films__boxes container">
+          <div class="top-250-films__box"></div>
+          <div class="top-250-films__box-two"></div>
         </div>
-    </div>
-</section>
-<section class="top-250-films container" id="top">
-    <h2 class="top-250-films__title">Топ 250 лучших фильмов</h2>
-    <div class="top-250-films__boxes container">
-        <div class="top-250-films__box">
+        <div class="top-buttons">
+          <button class="top-250-films__button">Показать больше</button>
+          <button class="top-250-films__button-hide">Скрыть</button>
         </div>
-        <div class="top-250-films__box-two">
-        </div>
-    </div>
-    <div class="top-buttons">
-    <button class="top-250-films__button">Показать больше</button>
-    <button class="top-250-films__button-hide">Скрыть</button>
-</div>
-</section>
-<div class="preloader">
-    <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
-        <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
-        </path>
-    </svg>
-</div>
-</main>
-<footer class="footer">
-    <ul class="footer__list">
+      </section>
+      <div class="preloader">
+        <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
+          <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path>
+        </svg>
+      </div>
+    </main>
+    <footer class="footer">
+      <ul class="footer__list">
         <li class="list__item"><a href="#movies">Фильмы</a></li>
         <li class="list__item"><a href="#series">Сериалы</a></li>
         <li class="list__item"><a href="#cartoons">Мультфильмы</a></li>
         <li class="list__item"><a href="#popular">Популярное</a></li>
         <li class="list__item"><a href="#top">Топ</a></li>
-    </ul>
-    <p class="creators">Created by Anna & Julia & Elena $ Natalya<br>2023</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js" defer=""></script>
-<script src="/index.3d214d75.js" defer=""></script>
-</body>
-
+      </ul>
+      <p class="creators">
+        Created by Anna & Julia & Elena $ Natalya<br>2023
+      </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-element-bundle.min.js" defer=""></script>
+    <script src="/index.3d214d75.js" defer=""></script>
+  </body>
 </html>
