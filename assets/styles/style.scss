@@ -347,11 +347,16 @@ a:hover {
 
 
 .popular-movies {
-  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  max-width: 1300px;
-  margin: auto;
+  max-width: 1270px;
+  display: flex;
+  text-align: center;
+}
+.h2.popular{
+  padding-top: 30px;
+  font-style: $general-font;
+
 }
 
 .popular-movie {

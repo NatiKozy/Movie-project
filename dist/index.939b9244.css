@@ -308,9 +308,13 @@ a:hover {
 .popular-movies {
   flex-wrap: wrap;
   justify-content: space-around;
-  max-width: 1300px;
-  margin: auto;
+  max-width: 1270px;
   display: flex;
+}
+
+.popular {
+  font-style: "Poppins";
+  padding-top: 30px;
 }
 
 .popular-movie {
