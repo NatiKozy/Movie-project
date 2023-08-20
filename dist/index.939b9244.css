@@ -353,10 +353,12 @@ a:hover {
 }
 
 .popular-movie__info {
+  text-align: center;
   padding: 10px 0;
 }
 
 .search-movie__title, .popular-movie__title {
+  text-align: center;
   color: #fff;
   font-family: Poppins;
   font-size: 18px;

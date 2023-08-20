@@ -395,10 +395,12 @@ a:hover {
 
 .popular-movie__info {
   padding: 10px 0px;
+  text-align: center;
 }
 .search-movie__title,
 .popular-movie__title {
   font-family: $general-font;
+  text-align: center;
   font-size: 18px;
   color: white;
 }
