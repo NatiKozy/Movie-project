@@ -397,11 +397,6 @@ a:hover {
   text-align: center;
 }
 
-h2.popular-movies__title {
-  padding-top: 30px;
-  font-style: "Poppins";
-}
-
 .popular-movie {
   width: 240px;
   margin: 10px;
