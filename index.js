@@ -370,7 +370,7 @@ const DRAMAS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=2&
 const FANTASY_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=6&type=FILM`;
 const COMEDIES_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=13&type=FILM`
 const HORRIRS_URL = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=17&type=FILM`
-const RANDOM_API_KEY = `33b36424-4fa5-41fd-9692-01649a0c6a2c`;
+const RANDOM_API_KEY = `23fa5bf8-77b1-4e9d-8fe5-5040e6c7d436`;
 
 
 function arrayRandElement(arr) {
@@ -490,9 +490,7 @@ async function getTopFilmsTwo(num) {
     }
 };
 
-
 const boxes = document.querySelector('.top-250-films__boxes')
-
 function showTopMovies(data, conatainer) {
     const topMoviesBox = document.querySelector(conatainer);
     data.films.forEach((movie) => {
@@ -526,13 +524,10 @@ function showTopMovies(data, conatainer) {
             }
         </div>
         `;
-        topMoviesBox.appendChild(topMovie);
-        boxes.appendChild(topMoviesBox)
+        topMoviesBox.append(topMovie);
+        boxes.append(topMoviesBox)
     });
 }
-
-
-
 
 function disableBtn(btn) {
     document.querySelector(btn).disabled = true;
