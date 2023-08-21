@@ -1,6 +1,5 @@
 # __Movie-project__
 
-
 ### _Website functionality_
 
 - Amazing movie website.
@@ -23,12 +22,19 @@
 ![Javascript](https://img.shields.io/badge/javascript-black?style=for-the-badge&logo=javascript&logoColor=yellow)
 ![Parcel](https://img.shields.io/badge/parcel-grey?style=for-the-badge&logo=parcel&logoColor=yellow)
 
-
 ---
+
+### _Photo_
+
 [Movie-project](assets/img/readme_logo.png) Here you can watch the website foto.
 
 ---
 
+### _Link_
+
+[Website of movie-project](natikozy.github.io/Movie-project/) Here you can try the website functionality
+
+---
 
 ### _Website developers_
 
