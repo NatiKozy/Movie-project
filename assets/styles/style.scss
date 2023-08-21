@@ -7,7 +7,7 @@ $section-color: #0a031c;
 $pink-color: #FF4D6D;
 $blue-color: #54E1FF;
 $general-color: #263459;
-$general-font: 'Poppins';
+$general-font: 'Montserrat';
 @mixin font-style{
   font-size: 30px;
 }
@@ -18,7 +18,7 @@ $general-font: 'Poppins';
 }
 
 @mixin button-general-style{
-  font-family: 'Poppins';
+  font-family: 'Montserrat';
 background-color: $pink-color;
 font-size: 17px;
 cursor: pointer;
@@ -33,14 +33,14 @@ margin-bottom: 30px;
 * {
     box-sizing: border-box;
     color:$white;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
   }
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: black;
+    background-color: $black;
 }
 
 .container {
@@ -291,7 +291,7 @@ swiper-slide img {
   border: 2px solid black;
   border-radius: 5px;
   outline: none;
-  color: #000;
+  color: $black;
 }
 
 .header__search::placeholder {
@@ -324,13 +324,13 @@ a {
 }
 
 a:hover {
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 .creators {
   text-align: center;
   font-size: 10px;
-  color: rgb(236, 155, 245);
+  color: $pink-color;
 }
 
 @media (max-width:550px) {
@@ -378,7 +378,7 @@ a:hover {
 }
 
 .popular-movie__cover--darkened {
-  background-color: #000000;
+  background-color: $black;
   opacity: 0.1;
   position: absolute;
   top: 0;
@@ -476,7 +476,7 @@ a:hover {
 
 .modal-header {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -563,13 +563,13 @@ a:hover {
 }
 
 .movie__title {
-  font-style: "Poppins";
+  font-style: "Montserrat";
   color: #ffffff;
 }
 
 .movie__category {
     font-size: 14px;
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
     color: $genre-color;
 }
 
@@ -658,7 +658,7 @@ a:hover {
 }
 
 .random-select{
-  font-family: 'Poppins';
+  font-family: 'Montserrat';
   width: 170px;
   height: 45px;
   border: 1px solid rgb(161, 158, 158);
@@ -767,7 +767,7 @@ border-radius: 7px;
 }
 
 .top-movie__cover--darkened {
-  background-color: #000000;
+  background-color: $black;
   opacity: 0.1;
   position: absolute;
   top: 0;
