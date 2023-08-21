@@ -19,12 +19,12 @@ async function getFilms() {
         const films = await data.docs;
         checmoviekType(films)
     } catch (err) {
-        console.log(err)
+        console.error(err)
     }
 };
 
 
-function createMovieCard(parrent, image, alt, year, country, genres, text) {
+function createMovieCard(parent, image, alt, year, country, genres, text) {
     const item = document.createElement('li');
     item.classList.add('movies-list__item');
     item.addEventListener('click', (event) => {
@@ -33,20 +33,13 @@ function createMovieCard(parrent, image, alt, year, country, genres, text) {
     })
     item.innerHTML = `<img class="movies-list__img" src="${image}" alt="${alt}">`
 
-    parrent.append(item);
+    parent.append(item);
 
 }
 
-function showMoviesCards(parrent, array) {
+function showMoviesCards(parent, array) {
     for (let item of array) {
-        const itemImage = item.poster.previewUrl;
-        const itemAlt = item.name;
-        const itemYear = item.year;
-        const itemCountry = getArrayItemsList(item.countries);
-        const itemGenres = getArrayItemsList(item.genres);
-        const itemText = item.description;
-
-        createMovieCard(parrent, itemImage, itemAlt, itemYear, itemCountry, itemGenres, itemText)
+        createMovieCard(parent, item.poster.previewUrl, item.name, item.year, getArrayItemsList(item.countries), getArrayItemsList(item.genres), item.description)
     }
 }
 
@@ -55,7 +48,7 @@ function checmoviekType(array) {
         if (item.type === "movie") {
             const movies = [];
             movies.push(item);
-            showMoviesCards(movieslist, array)
+            showMoviesCards(movieslist, movies)
         } else if (item.type === "tv-series") {
             const series = [];
             series.push(item);
@@ -87,24 +80,24 @@ const cartoonWrapper = document.getElementById('cartoon-wrapper');
 document.addEventListener(
     "DOMContentLoaded",
     function () {
-        moviesBtnRight.onclick = function () {
+        moviesBtnRight.addEventListener('click', function () {
             moviesWrapper.scrollLeft += 200;
-        }
-        moviesBtnLeft.onclick = function () {
+        })
+        moviesBtnLeft.addEventListener('click', function () {
             moviesWrapper.scrollLeft -= 200;
-        }
-        seriesBtnRight.onclick = function () {
+        })
+        seriesBtnRight.addEventListener('click', function () {
             seriesWrapper.scrollLeft += 200;
-        }
-        seriesBtnLeft.onclick = function () {
+        })
+        seriesBtnLeft.addEventListener('click', function () {
             seriesWrapper.scrollLeft -= 200;
-        }
-        cartoonBtnRight.onclick = function () {
+        })
+        cartoonBtnRight.addEventListener('click', function () {
             cartoonWrapper.scrollLeft += 200;
-        }
-        cartoonBtnLeft.onclick = function () {
+        })
+        cartoonBtnLeft.addEventListener('click', function () {
             cartoonWrapper.scrollLeft -= 200;
-        }
+        })
     },
     false,
 );
