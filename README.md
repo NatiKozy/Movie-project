@@ -26,13 +26,13 @@
 
 ### _Photo_
 
-[Movie-project](assets/img/readme_logo.png) Here you can watch the website foto.
+[Movie-project](assets/images/website.jpeg) Here you can watch the website foto.
 
 ---
 
 ### _Link_
 
-[Website of movie-project](natikozy.github.io/Movie-project/) Here you can try the website functionality
+[Website of movie-project]( https://natikozy.github.io/Movie-project/) Here you can try the website functionality
 
 ---
 
