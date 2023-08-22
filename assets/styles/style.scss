@@ -7,7 +7,7 @@ $section-color: #0a031c;
 $pink-color: #FF4D6D;
 $blue-color: #54E1FF;
 $general-color: #263459;
-$general-font: 'Montserrat';
+$general-font: 'Poppins';
 @mixin font-style{
   font-size: 30px;
 }
@@ -18,7 +18,7 @@ $general-font: 'Montserrat';
 }
 
 @mixin button-general-style{
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
 background-color: $pink-color;
 font-size: 17px;
 cursor: pointer;
@@ -33,14 +33,14 @@ margin-bottom: 30px;
 * {
     box-sizing: border-box;
     color:$white;
-    font-family: 'Montserrat';
+    font-family: 'Poppins';
   }
 
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: $black;
+    background-color: black;
 }
 
 .container {
@@ -291,7 +291,7 @@ swiper-slide img {
   border: 2px solid black;
   border-radius: 5px;
   outline: none;
-  color: $black;
+  color: #000;
 }
 
 .header__search::placeholder {
@@ -324,13 +324,13 @@ a {
 }
 
 a:hover {
-  color: $pink-color;
+  color: rgb(236, 155, 245);
 }
 
 .creators {
   text-align: center;
   font-size: 10px;
-  color: $pink-color;
+  color: rgb(236, 155, 245);
 }
 
 @media (max-width:550px) {
@@ -345,7 +345,12 @@ a:hover {
 
 /* header end */
 
-
+.popular-movies__container{
+ max-width: 1440px;
+ margin: 0 auto;
+ padding: 40px 0;
+ position: relative;
+}
 .popular-movies {
   display: flex;
   flex-wrap: wrap;
@@ -371,14 +376,14 @@ a:hover {
   height: 360px;
   box-shadow: 10px 5px 5px $general-color;
 }
-.search-movie_cover,
+.search-movie__cover,
 .popular-movie__cover {
   max-width: 100%;
   height: 100%;
 }
 
 .popular-movie__cover--darkened {
-  background-color: $black;
+  background-color: #000000;
   opacity: 0.1;
   position: absolute;
   top: 0;
@@ -476,14 +481,15 @@ a:hover {
 
 .modal-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   margin-bottom: 10px;
 }
 .modal-nav {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .modal-close {
@@ -563,13 +569,13 @@ a:hover {
 }
 
 .movie__title {
-  font-style: "Montserrat";
+  font-style: "Poppins";
   color: #ffffff;
 }
 
 .movie__category {
     font-size: 14px;
-    font-family: 'Montserrat';
+    font-family: 'Poppins';
     color: $genre-color;
 }
 
@@ -658,7 +664,7 @@ a:hover {
 }
 
 .random-select{
-  font-family: 'Montserrat';
+  font-family: 'Poppins';
   width: 170px;
   height: 45px;
   border: 1px solid rgb(161, 158, 158);
@@ -767,7 +773,7 @@ border-radius: 7px;
 }
 
 .top-movie__cover--darkened {
-  background-color: $black;
+  background-color: #000000;
   opacity: 0.1;
   position: absolute;
   top: 0;
@@ -864,80 +870,4 @@ border-radius: 7px;
 
 .loaded .preloader {
   display: none;
-}
-
-html {background-color: #2e2e2e;}
-.wrapper {position:fixed;top:50%;right:35%;margin-left:-55px;margin-top:-50px;}
-
-@for $i from 1 through 71 {
-  $deg:5*$i;
-  .wrapper div:nth-child(#{$i}) {
-    transform:rotate(#{$deg}deg);
-  }
-}
-.wrapper div {
-  position:absolute;
-  height:50px;
-  width:50px;
-  transform-origin:100% 50%;
-}
-.wrapper div .bar {
-  position:absolute;
-  height:1px;
-  width:90px;
-  background-color:#369;
-  right:0;
-  border-radius:20px;
-  transform-origin:right;
-  animation: spin 6s linear infinite;
-}
-
-@-webkit-keyframes spin {
-  0%   {
-    transform:rotate(0deg);
-  }
-  100% {
-    transform:rotate(360deg);
-  }
-}
-.loader {
-  font-size: 10px;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  position: relative;
-  text-indent: -9999em;
-  animation: mulShdSpin 1.1s infinite ease;
-  transform: translateZ(0);
-}
-@keyframes mulShdSpin {
-  0%,
-  100% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.5), -1.8em -1.8em 0 0em rgba(255,255,255, 0.7);
-  }
-  12.5% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.5);
-  }
-  25% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
-  }
-  37.5% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.5), 2.5em 0em 0 0em rgba(255,255,255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
-  }
-  50% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.5), 1.75em 1.75em 0 0em rgba(255,255,255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255,255,255, 0.2), -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
-  }
-  62.5% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.5), 0em 2.5em 0 0em rgba(255,255,255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255,255,255, 0.2), -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
-  }
-  75% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.5), -1.8em 1.8em 0 0em rgba(255,255,255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255,255,255, 0.2);
-  }
-  87.5% {
-    box-shadow: 0em -2.6em 0em 0em $general-color, 1.8em -1.8em 0 0em rgba(255,255,255, 0.2), 2.5em 0em 0 0em rgba(255,255,255, 0.2), 1.75em 1.75em 0 0em rgba(255,255,255, 0.2), 0em 2.5em 0 0em rgba(255,255,255, 0.2), -1.8em 1.8em 0 0em rgba(255,255,255, 0.5), -2.6em 0em 0 0em rgba(255,255,255, 0.7), -1.8em -1.8em 0 0em #ffffff;
-  }
-}
-
-.loader{
-margin-right: 40px;
 }
