@@ -333,7 +333,7 @@ async function displayMoviesInModal() {
         movieEl.classList.add("search-movie");
         movieEl.innerHTML = `
               <div class="search-movie__cover-inner">
-                <img src="${movieData.posterUrlPreview}" class="search-movie_cover" alt="${movieData.nameRu}" />
+                <img src="${movieData.posterUrlPreview}" class="search-movie__cover" alt="${movieData.nameRu}" />
               </div>
               <div class="search-movie__info">
                 <div class="search-movie__title">${movieData.nameRu}</div>
