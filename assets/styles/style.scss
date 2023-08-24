@@ -866,40 +866,8 @@ border-radius: 7px;
   display: none;
 }
 
-html {background-color: #2e2e2e;}
-.wrapper {position:fixed;top:50%;right:35%;margin-left:-55px;margin-top:-50px;}
 
-@for $i from 1 through 71 {
-  $deg:5*$i;
-  .wrapper div:nth-child(#{$i}) {
-    transform:rotate(#{$deg}deg);
-  }
-}
-.wrapper div {
-  position:absolute;
-  height:50px;
-  width:50px;
-  transform-origin:100% 50%;
-}
-.wrapper div .bar {
-  position:absolute;
-  height:1px;
-  width:90px;
-  background-color:#369;
-  right:0;
-  border-radius:20px;
-  transform-origin:right;
-  animation: spin 6s linear infinite;
-}
 
-@-webkit-keyframes spin {
-  0%   {
-    transform:rotate(0deg);
-  }
-  100% {
-    transform:rotate(360deg);
-  }
-}
 .loader {
   font-size: 10px;
   width: 1em;
@@ -940,4 +908,18 @@ html {background-color: #2e2e2e;}
 
 .loader{
 margin-right: 40px;
+}
+
+@keyframes scroll{
+  100% {
+    transform: translate(-100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+.animation{
+  background-image: url(/assets/images/poster.jpg);
+  background-repeat: repeat-y;
 }
